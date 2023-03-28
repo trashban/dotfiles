@@ -10,7 +10,7 @@ xbindkeys
 clipmenud &
 
 # wallpaper
-feh --bg-scale /home/amby/pictures/wallpapers/darkmountain.jpg
+feh --bg-scale /home/amby/photos/wallpapers/darkmountain.jpg
 
 # bar + window manager
 slstatus &
