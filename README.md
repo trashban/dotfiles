@@ -1,6 +1,6 @@
 # dotfiles for thinkpad-p14
 arch 3/2023
-**amby**
+| **amby**
 
 DWM + Arch Rice for Thinkpad-P14
 
