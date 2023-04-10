@@ -62,13 +62,19 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "kitty", NULL };
 static const char *clipcmd[] = { "clipmenu", "-i", "-sb", "#000000", NULL };
+static const char *greencmd[] = { "rofi", "-modi", "clipboard:greenclip print", "-show", "clipboard", "-run-command", "{cmd}", NULL };
 static const char *shutcmd[] = { "systemctl", "poweroff", NULL }; 
+static const char *rebootcmd[] = { "systemctl", "reboot", NULL };
+static const char *firebind[] = { "firefox", NULL };
+static const char *rofidrun[] = { "rofi", "-show", "drun", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY|ShiftMask,		XK_s,	   spawn, 	   {.v = shutcmd } },
-	{ MODKEY,			XK_c,	   spawn, 	   {.v = clipcmd } },
-	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+	{ MODKEY|ShiftMask,		XK_r,	   spawn, 	   {.v = rebootcmd } },
+	{ MODKEY,			XK_c,	   spawn, 	   {.v = greencmd } },
+	{ MODKEY,			XK_g,	   spawn, 	   {.v = firebind } },
+	{ MODKEY,                       XK_p,      spawn,          {.v = rofidrun } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
