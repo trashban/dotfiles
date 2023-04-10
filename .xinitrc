@@ -7,10 +7,10 @@
 xbindkeys
 
 # clipboard
-clipmenud &
+greenclip daemon &
 
 # wallpaper
-feh --bg-scale /home/amby/photos/wallpapers/darkmountain.jpg
+feh --bg-scale /home/amby/photos/wallpapers/forest.jpg
 
 # bar + window manager
 slstatus &
