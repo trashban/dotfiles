@@ -10,7 +10,7 @@ xbindkeys
 greenclip daemon &
 
 # wallpaper
-feh --bg-scale /home/amby/photos/wallpapers/forest.jpg
+feh --bg-scale /home/amby/photos/wallpapers/blue2.jpg
 
 # bar + window manager
 slstatus &
