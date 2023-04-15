@@ -60,7 +60,7 @@ ZSH_THEME="clean"
 # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -99,10 +99,20 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias ls='lsd'
-alias lsd='lsd --header --long'
 
+# enable zsh-vi-mode
+plugins+=(zsh-vi-mode)
 
+# Use vi mode
+bindkey -v
+
+# default editor
 export EDITOR=nvim
+
+# custom alias
+alias ls='lsd --header --long'
+alias lt='lsd --header --long --tree'
+
+# terminal neofetch
 echo
 neofetch
