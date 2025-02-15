@@ -1,3 +1,5 @@
-# dotfiles for thinkpad-p14s
-previously an arch-linux setup using dwm, now running **void-linux+sway**. 
-old setup is archived as another branch, will fix later and properly tag.
+# current dotfiles for my thinkpad-p14s
+# as a unsw first year computer science 
+i've used my fair share of distributions such as void-linux, fedora etc but i always (for some reason) go back to arch-linux.
+currently, im utilising hyprland and waybar (extremely basic ik) for a simple and efficient workflow.
+
