@@ -1,5 +1,5 @@
 # current dotfiles for my thinkpad-p14 (main laptop)
-## as a first year unsw cs student
+## (as a first year unsw cs student)
 i've used my fair share of distributions such as void-linux, fedora etc but i always (for some reason) go back to arch-linux.
 
 currently, im utilising hyprland and waybar (extremely basic ik) for a simple and efficient workflow.
