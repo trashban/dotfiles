@@ -71,6 +71,7 @@ ZSH_THEME="gentoo"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
+plugins+=(zsh-vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -102,24 +103,4 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# set default editor
-export EDITOR='nvim'
-export VISUAL='nvim'
-SUDO_EDITOR='nvim'
-
-# zsh vi mode
-source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-
-# change ls to lsd 
-alias ls="lsd"
-alias lst="lsd --tree"
-
-# alias steam path for common
-
-# set directory for doom 
-DOOMWADDIR="~/.doom/iwad/"
-DOOMWADPATH="~/.doom/iwad/"
-
-# call pfetch to be pretentious arch user
 pfetch
