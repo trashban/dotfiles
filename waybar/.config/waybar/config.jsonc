@@ -10,6 +10,7 @@
     "modules-left": [
         "custom/archicon",
         "hyprland/workspaces",
+        "idle_inhibitor",
     ],
     "modules-center": [
         "hyprland/window",
@@ -88,4 +89,11 @@
         "format-icons": ["", "", ""],
         "on-click": "pavucontrol"
     },
+    "idle_inhibitor": {
+    	"format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    }
 }
