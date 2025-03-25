@@ -1,17 +1,49 @@
--- call lazy (plugin manager)
-require("config.lazy")
-
 -- call nvim settings
 require("config.settings")
+
+-- call lazy (plugin manager)
+require("config.lazy")
 
 -- use colourscheme
 vim.cmd [[colorscheme moonfly]]
 
--- use statusline
-require('mini.statusline').setup()
+-- bufferline
+require("bufferline").setup{}
 
--- allow clangd
+-- use statusline
+require('lualine').setup {
+    options = {
+        theme = bubbles_theme,
+        component_separators = '',
+        section_separators = { left = '', right = '' },
+    },
+    sections = {
+        lualine_a = { { 'mode', separator = { left = '' }, right_padding = 2 } },
+        lualine_b = { 'filename', 'branch' },
+        lualine_c = {
+        '%=', --[[ add your center components here in place of this comment ]]
+        },
+        lualine_x = {},
+        lualine_y = { 'filetype', 'progress' },
+        lualine_z = {
+        { 'location', separator = { right = '' }, left_padding = 2 },
+        },
+    },
+    inactive_sections = {
+        lualine_a = { 'filename' },
+        lualine_b = {},
+        lualine_c = {},
+        lualine_x = {},
+        lualine_y = {},
+        lualine_z = { 'location' },
+    },
+    tabline = {},
+    extensions = {},
+}
+
+-- allow lsp servers
 require'lspconfig'.clangd.setup{}
+require'lspconfig'.pyright.setup{}
 
 local cmp = require('cmp')
 
@@ -60,3 +92,15 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
   end,
 })
+
+vim.api.nvim_create_autocmd('LspAttach', {
+  callback = function(event)
+    local opts = {buffer = event.buf}
+
+    vim.keymap.set({'n', 'x'}, 'gq', function()
+      vim.lsp.buf.format({async = false, timeout_ms = 10000})
+    end, opts)
+  end
+})
+
+vim.keymap.set("n", "<leader>t", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
