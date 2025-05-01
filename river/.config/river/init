@@ -4,8 +4,15 @@
 TERM=alacritty
 BROWSER=firefox-bin
 
-# Set main monitor resolution 
-wlr-randr --output DP-2 --on --mode 2560x1440@165.0800025 Hz --scale 1
+# Essential Apps
+riverctl spawn waybar
+riverctl spawn mako
+riverctl spawn gentoo-pipewire-launcher
+riverctl spawn "swaybg -i ~/Pictures/Wallpapers/starrysky.png"
+riverctl spawn "exec swayidle -w \
+                timeout 40 'brightnessctl set 1%' \
+                    resume 'brightnessctl set 100%' \
+                timeout 100 'loginctl suspend && swaylock -C ~/.config/swaylock/config'"
 
 # Super+T to start terminal
 riverctl map normal Super T spawn $TERM
@@ -126,13 +133,10 @@ riverctl map passthrough Super F11 enter-mode normal
 # not have a modifier
 for mode in normal locked
 do
-    # Eject the optical drive (well if you still have one that is)
-    riverctl map $mode None XF86Eject spawn 'eject -T'
-
-    # Control pulse audio volume with pamixer (https://github.com/cdemoulins/pamixer)
-    riverctl map $mode None XF86AudioRaiseVolume  spawn 'pamixer -i 5'
-    riverctl map $mode None XF86AudioLowerVolume  spawn 'pamixer -d 5'
-    riverctl map $mode None XF86AudioMute         spawn 'pamixer --toggle-mute'
+    # Control audio volume with wpctl 
+    riverctl map $mode None XF86AudioRaiseVolume  spawn 'wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+'
+    riverctl map $mode None XF86AudioLowerVolume  spawn 'wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-'
+    riverctl map $mode None XF86AudioMute         spawn 'wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle'
 
     # Control MPRIS aware media players with playerctl (https://github.com/altdesktop/playerctl)
     riverctl map $mode None XF86AudioMedia spawn 'playerctl play-pause'
@@ -146,7 +150,6 @@ do
 done
 
 # Set background and border color
-riverctl background-color 0x002b36
 riverctl border-color-focused 0x93a1a1
 riverctl border-color-unfocused 0x586e75
 
@@ -160,18 +163,10 @@ riverctl rule-add -app-id 'float*' -title 'foo' float
 riverctl rule-add -app-id "bar" csd
 
 # Set the default layout generator to be rivertile and start it.
-# River will send the process group of the init executable SIGTERM on exit.
 riverctl default-layout rivertile
 rivertile -view-padding 6 -outer-padding 6 &
 
 # Swap caps-lock and escape on the laptop
 riverctl keyboard-layout -options caps:swapescape us
 
-# Top-bar
-exec waybar
 
-# Notification Dameon
-exec mako
-
-# Set wallpaper
-exec swaybg -i ~/Pictures/Wallpapers/mnt.jpg
