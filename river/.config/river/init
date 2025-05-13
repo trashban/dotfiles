@@ -13,6 +13,13 @@ riverctl spawn "exec swayidle -w \
                 timeout 40 'brightnessctl set 1%' \
                     resume 'brightnessctl set 100%' \
                 timeout 100 'loginctl suspend && swaylock -C ~/.config/swaylock/config'"
+riverctl spawn "wl-paste --watch cliphist store"
+
+# Super+C to open up clipboard manager
+riverctl map normal Super C spawn 'cliphist list | rofi -dmenu | cliphist decode | wl-copy'
+
+# Super+Shift S to save a screenshot
+riverctl map normal Super+Shift S spawn 'grim -g "$(slurp)" - | tee "$GRIM_DEFAULT_DIR/screenshot_$(date +%Y%m%d-%H%M%S).png" | wl-copy'
 
 # Super+T to start terminal
 riverctl map normal Super T spawn $TERM
