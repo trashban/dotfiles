@@ -43,17 +43,21 @@
     "wireplumber": {
         "format": "VOL {volume}%",
         "format-muted": "",
-        "on-click": "helvum",
+        "on-click": "pavucontrol",
         "max-volume": 150,
         "scroll-step": 0.2
     },
     "temperature": {
+        "hwmon-path": "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon1/temp1_input",
         "format": "CPU {temperatureC}°C"
     },
     "clock": {
         "interval": 60,
         "format": "TIME {:%I:%M %p}",
         "max-length": 25
-    }
+    }, 
+    "tray": {
+        "icon-size": 18,
+        "spacing": 5 
+    } 
 }
-

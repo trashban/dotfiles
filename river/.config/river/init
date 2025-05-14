@@ -1,25 +1,29 @@
 #!/bin/sh
 
-# Quick access applications
+# Application variables 
 TERM=alacritty
 BROWSER=firefox-bin
+WALLPAPER_SELECT=rofi-background.sh
 
 # Essential Apps
 riverctl spawn waybar
 riverctl spawn mako
 riverctl spawn gentoo-pipewire-launcher
-riverctl spawn "swaybg -i ~/Pictures/Wallpapers/starrysky.png"
-riverctl spawn "exec swayidle -w \
+riverctl spawn 'swaybg -i ~/Pictures/Wallpapers/starrysky.png'
+riverctl spawn 'exec swayidle -w \
                 timeout 40 'brightnessctl set 1%' \
                     resume 'brightnessctl set 100%' \
-                timeout 100 'loginctl suspend && swaylock -C ~/.config/swaylock/config'"
-riverctl spawn "wl-paste --watch cliphist store"
+                timeout 100 'loginctl suspend && swaylock -C ~/.config/swaylock/config''
+riverctl spawn 'wl-paste --watch cliphist store'
 
 # Super+C to open up clipboard manager
 riverctl map normal Super C spawn 'cliphist list | rofi -dmenu | cliphist decode | wl-copy'
 
 # Super+Shift S to save a screenshot
 riverctl map normal Super+Shift S spawn 'grim -g "$(slurp)" - | tee "$GRIM_DEFAULT_DIR/screenshot_$(date +%Y%m%d-%H%M%S).png" | wl-copy'
+
+# Super+B to open up wallpaper selector
+riverctl map normal Super B spawn 'exec /usr/local/$WALLPAPER_SELECT'
 
 # Super+T to start terminal
 riverctl map normal Super T spawn $TERM
@@ -31,7 +35,7 @@ riverctl map normal Super Q close
 riverctl map normal Super+Shift E exit
 
 # Super+D to open app launcher
-riverctl map normal Super D spawn 'rofi -show drun'
+riverctl map normal Super D spawn 'rofi -show-icons -show drun'
 
 # Super+G to open browser
 riverctl map normal Super G spawn $BROWSER
@@ -174,6 +178,6 @@ riverctl default-layout rivertile
 rivertile -view-padding 6 -outer-padding 6 &
 
 # Swap caps-lock and escape on the laptop
-riverctl keyboard-layout -options caps:swapescape us
+riverctl keyboard-layout -options "us,caps:swapescape"
 
 

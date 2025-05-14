@@ -15,6 +15,7 @@ vim.opt.tabstop = 4
 -- wrapping
 vim.opt.shiftround = true
 vim.opt.wrap = true
+vim.opt.signcolumn = 'yes'
 
 -- numbers
 vim.opt.number = true
