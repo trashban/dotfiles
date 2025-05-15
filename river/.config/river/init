@@ -3,7 +3,6 @@
 # Application variables 
 TERM=alacritty
 BROWSER=firefox-bin
-WALLPAPER_SELECT=rofi-background.sh
 
 # Essential Apps
 riverctl spawn waybar
@@ -16,6 +15,9 @@ riverctl spawn 'exec swayidle -w \
                 timeout 100 'loginctl suspend && swaylock -C ~/.config/swaylock/config''
 riverctl spawn 'wl-paste --watch cliphist store'
 
+# Monitor set-up
+riverctl spawn 'wlr-randr --output DP-2 --on --mode 2560x1440@165.0800025 Hz --scale 1'
+
 # Super+C to open up clipboard manager
 riverctl map normal Super C spawn 'cliphist list | rofi -dmenu | cliphist decode | wl-copy'
 
@@ -23,7 +25,7 @@ riverctl map normal Super C spawn 'cliphist list | rofi -dmenu | cliphist decode
 riverctl map normal Super+Shift S spawn 'grim -g "$(slurp)" - | tee "$GRIM_DEFAULT_DIR/screenshot_$(date +%Y%m%d-%H%M%S).png" | wl-copy'
 
 # Super+B to open up wallpaper selector
-riverctl map normal Super B spawn 'exec /usr/local/$WALLPAPER_SELECT'
+riverctl map normal Super B spawn 'exec /usr/local/bin/rofi-background.sh'
 
 # Super+T to start terminal
 riverctl map normal Super T spawn $TERM
