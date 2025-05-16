@@ -37,7 +37,7 @@ riverctl map normal Super Q close
 riverctl map normal Super+Shift E exit
 
 # Super+D to open app launcher
-riverctl map normal Super D spawn 'rofi -show-icons -show drun'
+riverctl map normal Super D spawn 'exec ~/.config/rofi/launcher.sh'
 
 # Super+G to open browser
 riverctl map normal Super G spawn $BROWSER

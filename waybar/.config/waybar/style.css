@@ -36,6 +36,11 @@ window#waybar.solo {
     background-color: rgba(128, 0, 128, 0);
 }
 
+#workspaces button.focused {
+    color: #BF40BF;
+    background-color: rgba(128, 0, 128, 0);
+}
+
 #workspaces button.urgent {
     background-color: #eb4d4b;
 }

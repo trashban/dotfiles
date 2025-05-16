@@ -7,12 +7,12 @@
     "appearance": "dark",
     // Choose the order of the modules
     "modules-left": [
-        "hyprland/workspaces",
-        "hyprland/submap",
+        "river/tags",
+        "river/mode",
         "idle_inhibitor"
     ],
     "modules-center": [
-        "hyprland/window"
+        "river/window"
     ],
     "modules-right": [
         "tray",
@@ -23,11 +23,11 @@
         "battery",
         "clock"
     ],
-    "hyprland/window": {
+    "river/window": {
         "format": "{}",
         "max-length": 40, 
-        "rewrite": {
-            "": "hyprland"
+        "window-rewrite": {
+            "": "River"
         }
     },
     "idle_inhibitor": {
@@ -108,14 +108,14 @@
     },
     "network": {
         "interface": "eno1",
-        "family": "ipv4",
         "format": "{ifname}",
         "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "  {bandwidthTotalBytes}",
-        "format-disconnected": "No internet :(", //An empty format will hide the module.
+        "format-ethernet": "  {ipaddr}, {bandwidthTotalBytes}",
+        "format-disconnected": "", //An empty format will hide the module.
         "tooltip-format": "{ifname} via {gwaddr}",
         "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
         "tooltip-format-ethernet": "{ifname} ",
+        "tooltip-format-disconnected": "Disconnected",
         "max-length": 50,
         "interval": 5
     }
