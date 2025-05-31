@@ -36,3 +36,11 @@
 [2025-05-16 15:13:07.070] [info] Loading persistent workspaces from Hyprland workspace rules
 [2025-05-16 15:14:20.100] [info] Hyprland config reloaded, reinitializing hyprland/workspaces module...
 [2025-05-16 15:14:20.101] [info] Loading persistent workspaces from Hyprland workspace rules
+2025-05-16 18:18:07 - [swaybg-1.2.1/main.c:282] Found config * for output eDP-1 (Lenovo Group Limited 0x40A9 )
+[2025-05-16 18:22:20.694] [info] Using configuration file /home/amberveers/.config/waybar/config.jsonc
+[2025-05-16 18:22:20.697] [info] Unable to receive desktop appearance: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such interface “org.freedesktop.portal.Settings” on object at path /org/freedesktop/portal/desktop
+[2025-05-16 18:22:20.697] [info] Using CSS file /home/amberveers/.config/waybar/style.css
+[2025-05-16 18:22:20.703] [info] Hyprland IPC starting
+[2025-05-16 18:22:20.704] [info] Loading persistent workspaces from Hyprland workspace rules
+[2025-05-16 18:22:20.750] [info] Bar configured (width: 1920, height: 50) for output: eDP-1
+2025-05-16 18:37:31 - [swaybg-1.2.1/main.c:282] Found config * for output eDP-1 (Lenovo Group Limited 0x40A9 )

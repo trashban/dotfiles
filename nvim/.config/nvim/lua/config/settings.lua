@@ -30,4 +30,3 @@ vim.opt.incsearch = true
 
 -- errors
 vim.opt.visualbell = false
-

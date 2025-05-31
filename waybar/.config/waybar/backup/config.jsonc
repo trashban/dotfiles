@@ -107,10 +107,10 @@
         "spacing": 5 
     },
     "network": {
-        "interface": "eno1",
+        "interface": "wlp3s0",
         "family": "ipv4",
         "format": "{ifname}",
-        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-wifi": "  {bandwidthTotalBytes} ({signalStrength}%)",
         "format-ethernet": "  {bandwidthTotalBytes}",
         "format-disconnected": "No internet :(", //An empty format will hide the module.
         "tooltip-format": "{ifname} via {gwaddr}",
