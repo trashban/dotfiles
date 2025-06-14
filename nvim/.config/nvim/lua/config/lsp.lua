@@ -1,7 +1,7 @@
 -- Error symbols for LSP
 vim.diagnostic.config({
-    virtual_lines = true,
-    virtual_text = false,
+    virtual_lines = false,
+    virtual_text = true,
     signs = true,
     signs = {
         text = {
@@ -19,6 +19,7 @@ vim.diagnostic.config({
     },
 })
 
+-- config of language servers
 vim.lsp.config['lua-ls'] = {
     cmd = { 'lua-language-server' },
     filetypes = { 'lua' },
@@ -30,9 +31,22 @@ vim.lsp.config['clangd'] = {
     filetypes = { 'c', 'cpp' },
 }
 
+vim.lsp.config['ts_ls'] = {
+    cmd = { "typescript-language-server", "--stdio" },
+    root_markers = { "tsconfig.json", "jsconfig.json", "package.json", ".git" },
+    filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
+}
+
+vim.lsp.config['rust_analyzer'] = {
+    cmd = { 'rust-analyzer' },
+    filetypes = { "rust" },
+}
+
 -- enable language servers
 vim.lsp.enable('clangd')
 vim.lsp.enable('lua-ls')
+vim.lsp.enable('ts_ls')
+vim.lsp.enable('rust_analyzer')
 
 -- provide nvim-autopairs support via treesitter
 local npairs = require("nvim-autopairs")
@@ -48,12 +62,17 @@ npairs.setup({
 })
 
 local ts_conds = require('nvim-autopairs.ts-conds')
-
-
 -- press % => %% only while inside a comment or string
 npairs.add_rules({
   Rule("%", "%", "lua")
     :with_pair(ts_conds.is_ts_node({'string','comment'})),
   Rule("$", "$", "lua")
     :with_pair(ts_conds.is_not_ts_node({'function'}))
+})
+
+vim.api.nvim_create_autocmd('LspAttach', {
+  callback = function(args)
+    vim.bo[args.buf].formatexpr = nil
+    vim.keymap.set('n', 'gq', function() vim.lsp.buf.format() end)
+  end,
 })
