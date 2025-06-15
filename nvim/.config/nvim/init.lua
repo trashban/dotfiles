@@ -14,7 +14,7 @@ require("config.statusline")
 
 -- call colourscheme
 require("catppuccin").setup({
-    flavour = "latte", -- latte, frappe, macchiato, mocha
+    flavour = "mocha", -- latte, frappe, macchiato, mocha
     transparent_background = true, -- disables setting the background color.
     show_end_of_buffer = false, -- shows the '~' characters after the end of buffers
 })

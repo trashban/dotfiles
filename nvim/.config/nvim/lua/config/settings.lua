@@ -30,3 +30,10 @@ vim.opt.incsearch = true
 
 -- errors
 vim.opt.visualbell = false
+
+-- set cursor to underline
+vim.cmd [[
+    set guicursor=a:hor20
+]]
+
+vim.opt.colorcolumn = "80"
