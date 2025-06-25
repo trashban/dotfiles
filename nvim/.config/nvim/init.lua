@@ -10,16 +10,9 @@ require("config.keybinds")
 -- call lsp and related settings
 require("config.lsp")
 
-require("config.statusline")
-
--- call colourscheme
-require("catppuccin").setup({
-    flavour = "mocha", -- latte, frappe, macchiato, mocha
-    transparent_background = true, -- disables setting the background color.
-    show_end_of_buffer = false, -- shows the '~' characters after the end of buffers
-})
-vim.cmd [[colorscheme catppuccin-mocha]]
+-- call colourschemehe
+vim.cmd([[colorscheme rose-pine]])
 
 require("notify").setup({
-  background_colour = "#000000",
+	background_colour = "#000000",
 })
