@@ -1,129 +1,45 @@
-/* @define-color bg0 #212121; */
-/*@define-color bg1 #353535;*/
-/*@define-color bg1 rgba(33,33,33,0.8);*/
-@define-color bg1 #212121;
-@define-color fg0 #eeffff;
-@define-color yellow #ffcb6b;
-@define-color purple #9457eb;
-@define-color red #FF0000;
+@define-color foreground #eeeeee;
+@define-color foreground-inactive #aaaaaa;
+@define-color background #000000;
+@define-color purple #5a4fcf;
 
 * {
-  font-family: BlexMono Nerd Font;
-  font-size: 14px;
-  font-weight: 500;
-  min-height: 0;
-  border-color: @bg1;
+    font-family: BlexMono Nerd Font;
+    font-size: 19;
+    padding: 0;
+    margin: 0;
 }
 
-window#waybar {
-  /* background-color: @bg0; */
-  background-color: transparent;
-  color: @fg0; /* didn't affect workspaces */
+#waybar {
+    color: @foreground;
+    background-color: @background;
 }
 
-#workspaces {
-  background-color: @bg1;
-  border-radius: 18px;
-  padding: 0px 4px;
-
-  margin: 8px 4px 0px 8px;
-}
-
+#tags button,
 #workspaces button {
-  color: @fg0;
-  border-radius: 18px;
+    color: @foreground;
+    padding-left: 0.7em;
 }
 
-#workspaces button.active {
-  color: @purple;
+#tags button.focused {
+    color: @purple;
+
 }
 
-#workspaces button.urgent {
-    color: @red;
+#workspaces button.empty {
+    color: @foreground-inactive;
 }
 
-#window {
-  background-color: @bg1;
-  border-radius: 18px;
-  padding: 0px 16px;
-  margin: 8px 4px 0px 4px;
-}
-
+#memory,
+#battery,
+#idle_inhibitor,
+#language,
+#bluetooth,
+#temperature,
+#temperature.critical,
+#mpris,
 #tray {
-  background-color: @bg1;
-  border-radius: 18px;
-  padding: 0px 16px;
-  margin: 8px 4px 0px 4px;
+    padding-left: 1em;
+    padding-right: 1em; 
 }
 
-#mpd {
-  margin-right: 8px;
-}
-
-#cava {
-  margin-left: 8px;
-}
-
-#media {
-  background-color: @bg1;
-  border-radius: 18px;
-  padding: 0px 16px;
-  margin: 8px 4px 0px 4px;
-}
-
-#hw {
-  background-color: @bg1;
-  border-radius: 18px;
-  padding: 0px 16px;
-  margin: 8px 4px 0px 4px;
-}
-
-#cpu {
-  margin-right: 8px;
-}
-
-#memory {
-  margin-left: 8px;
-  margin-right: 8px;
-}
-
-#control {
-  background-color: @bg1;
-  border-radius: 18px;
-  padding: 0px 16px;
-  margin: 8px 4px 0px 8px;
-}
-
-#battery {
-  margin-right: 8px;
-}
-
-#network {
-  margin: 0px 8px;
-}
-
-#bluetooth {
-  margin: 0px 8px;
-}
-
-#pulseaudio {
-  margin: 0px 8px;
-}
-#backlight {
-  margin: 0px 8px;
-  margin-right: 0;
-}
-
-#clock {
-  background-color: @bg1;
-  border-radius: 18px;
-  padding: 0px 16px;
-  margin: 8px 8px 0px 4px;
-}
-
-#custom-notification {
-  background-color: @bg1;
-  border-radius: 18px;
-  padding: 0px 16px;
-  margin: 8px 8px 0px 4px;
-}
