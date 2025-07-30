@@ -23,8 +23,11 @@ return {
 			sh = { "shfmt" },
 			lua = { "stylua" },
 			javascript = { "prettierd", "prettier", stop_after_first = true },
+			typescript = { "prettierd", "prettier", stop_after_first = true },
+			typescriptreact = { "prettierd", "prettier", stop_after_first = true },
 			c = { "clangd-format" },
 			cpp = { "clangd-format" },
+			go = { "gopls" },
 		},
 		-- Set default options
 		default_format_opts = {

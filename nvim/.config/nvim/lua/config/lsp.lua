@@ -50,11 +50,17 @@ vim.lsp.config["rust_analyzer"] = {
 	filetypes = { "rust" },
 }
 
+vim.lsp.config["gopls"] = {
+	cmd = { "gopls" },
+	filetypes = { "go", "gomod", "gowork", "gotmpl" },
+}
+
 -- enable language servers
 vim.lsp.enable("clangd")
 vim.lsp.enable("lua-ls")
 vim.lsp.enable("ts_ls")
 vim.lsp.enable("rust_analyzer")
+vim.lsp.enable("gopls")
 
 -- provide nvim-autopairs support via treesitter
 local npairs = require("nvim-autopairs")

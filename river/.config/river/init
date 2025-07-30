@@ -1,22 +1,24 @@
 #!/bin/sh
 
-# Application variables 
+# Application variables
 TERM=alacritty
-BROWSER=firefox-bin
+BROWSER=firefox
+LAUNCHER='rofi -show drun'
 
 # Essential Apps
 riverctl spawn waybar
-riverctl spawn mako
-riverctl spawn gentoo-pipewire-launcher
-riverctl spawn 'swaybg -i ~/Pictures/Wallpapers/starrysky.png'
-riverctl spawn 'exec swayidle -w \
-                timeout 40 'brightnessctl set 1%' \
-                    resume 'brightnessctl set 100%' \
-                timeout 100 'loginctl suspend && swaylock -C ~/.config/swaylock/config''
+riverctl spawn swaync
+riverctl spawn swww-daemon
+riverctl spawn hypridle
 riverctl spawn 'wl-paste --watch cliphist store'
 
-# Monitor set-up
-riverctl spawn 'wlr-randr --output DP-2 --on --mode 2560x1440@165.0800025 Hz --scale 1'
+# Monitors
+
+## Desktop monitors
+riverctl spawn 'wlr-randr --output DP-2 --on --mode 2560x1440@165.080002Hz --scale 1'
+riverctl spawn 'wlr-randr --output HDMI-A-1 --on --mode 2560x1440@99.945999 --scale 1 --pos -2560,0'
+
+## Laptop monitors
 
 # Super+C to open up clipboard manager
 riverctl map normal Super C spawn 'cliphist list | rofi -dmenu | cliphist decode | wl-copy'
@@ -36,8 +38,8 @@ riverctl map normal Super Q close
 # Super+Shift+E to exit river
 riverctl map normal Super+Shift E exit
 
-# Super+D to open app launcher
-riverctl map normal Super D spawn 'exec ~/.config/rofi/launcher.sh'
+# Super+D to open launcher
+riverctl map normal Super D spawn $LAUNCHER
 
 # Super+G to open browser
 riverctl map normal Super G spawn $BROWSER
@@ -56,8 +58,8 @@ riverctl map normal Super Period focus-output next
 riverctl map normal Super Comma focus-output previous
 
 # Super+Shift+{Period,Comma} to send the focused view to the next/previous output
-riverctl map normal Super+Shift Period send-to-output next
-riverctl map normal Super+Shift Comma send-to-output previous
+riverctl map normal Super+Shift Period send-to-output -current-tags next
+riverctl map normal Super+Shift Comma send-to-output -current-tags previous
 
 # Super+Return to bump the focused view to the top of the layout stack
 riverctl map normal Super Return zoom
@@ -97,8 +99,7 @@ riverctl map-pointer normal Super BTN_RIGHT resize-view
 # Super + Space to toggle float
 riverctl map normal Super+Space toggle-float
 
-for i in $(seq 1 9)
-do
+for i in $(seq 1 9); do
     tags=$((1 << ($i - 1)))
 
     # Super+[1-9] to focus tag [0-8]
@@ -127,10 +128,10 @@ riverctl map normal Super Space toggle-float
 riverctl map normal Super F toggle-fullscreen
 
 # Super+{Up,Right,Down,Left} to change layout orientation
-riverctl map normal Super Up    send-layout-cmd rivertile "main-location top"
+riverctl map normal Super Up send-layout-cmd rivertile "main-location top"
 riverctl map normal Super Right send-layout-cmd rivertile "main-location right"
-riverctl map normal Super Down  send-layout-cmd rivertile "main-location bottom"
-riverctl map normal Super Left  send-layout-cmd rivertile "main-location left"
+riverctl map normal Super Down send-layout-cmd rivertile "main-location bottom"
+riverctl map normal Super Left send-layout-cmd rivertile "main-location left"
 
 # Declare a passthrough mode. This mode has only a single mapping to return to
 # normal mode. This makes it useful for testing a nested wayland compositor
@@ -144,26 +145,23 @@ riverctl map passthrough Super F11 enter-mode normal
 
 # Various media key mapping examples for both normal and locked mode which do
 # not have a modifier
-for mode in normal locked
-do
-    # Control audio volume with wpctl 
-    riverctl map $mode None XF86AudioRaiseVolume  spawn 'wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+'
-    riverctl map $mode None XF86AudioLowerVolume  spawn 'wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-'
-    riverctl map $mode None XF86AudioMute         spawn 'wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle'
+for mode in normal locked; do
+    # Control audio volume with wpctl
+    riverctl map $mode None XF86AudioRaiseVolume spawn 'wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+'
+    riverctl map $mode None XF86AudioLowerVolume spawn 'wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-'
+    riverctl map $mode None XF86AudioMute spawn 'wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle'
 
-    # Control MPRIS aware media players with playerctl (https://github.com/altdesktop/playerctl)
-    riverctl map $mode None XF86AudioMedia spawn 'playerctl play-pause'
-    riverctl map $mode None XF86AudioPlay  spawn 'playerctl play-pause'
-    riverctl map $mode None XF86AudioPrev  spawn 'playerctl previous'
-    riverctl map $mode None XF86AudioNext  spawn 'playerctl next'
+    # Control MPRIS aware media players with playerctl (https://github.com/altdesktop/playerctl) riverctl map $mode None XF86AudioMedia spawn 'playerctl play-pause' riverctl map $mode None XF86AudioPlay spawn 'playerctl play-pause'
+    riverctl map $mode None XF86AudioPrev spawn 'playerctl previous'
+    riverctl map $mode None XF86AudioNext spawn 'playerctl next'
 
     # Control screen backlight brightness with brightnessctl (https://github.com/Hummer12007/brightnessctl)
-    riverctl map $mode None XF86MonBrightnessUp   spawn 'brightnessctl set +5%'
+    riverctl map $mode None XF86MonBrightnessUp spawn 'brightnessctl set +5%'
     riverctl map $mode None XF86MonBrightnessDown spawn 'brightnessctl set 5%-'
 done
 
 # Set background and border color
-riverctl border-color-focused 0x93a1a1
+riverctl border-color-focused 0x5a4fcf
 riverctl border-color-unfocused 0x586e75
 
 # Set keyboard repeat rate
@@ -179,7 +177,5 @@ riverctl rule-add -app-id "bar" csd
 riverctl default-layout rivertile
 rivertile -view-padding 6 -outer-padding 6 &
 
-# Swap caps-lock and escape on the laptop
-riverctl keyboard-layout -options "us,caps:swapescape"
-
-
+# Swap caps-lock and escape
+riverctl keyboard-layout -options "caps:swapescape" us
