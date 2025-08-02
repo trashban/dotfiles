@@ -11,11 +11,11 @@ require("config.keybinds")
 require("config.lsp")
 
 -- call statusbar config
--- require("config.statusbar")
-
--- call colourschemehe
--- vim.cmd([[colorscheme rose-pine]])
+-- require("config.line")
 
 require("notify").setup({
 	background_colour = "#000000",
 })
+
+vim.wo.fillchars = "eob: "
+vim.g.moonflyWinSeparator = 2

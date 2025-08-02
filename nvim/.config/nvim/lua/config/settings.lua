@@ -22,6 +22,10 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.ruler = true
 
+-- fold settings
+vim.o.foldcolumn = '1'
+vim.o.foldenable = true
+
 -- search
 vim.opt.hlsearch = true
 vim.opt.ignorecase = true
@@ -35,5 +39,3 @@ vim.opt.visualbell = false
 vim.cmd [[
     set guicursor=a:hor20
 ]]
-
-vim.opt.colorcolumn = "80"

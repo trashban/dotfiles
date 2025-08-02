@@ -28,6 +28,7 @@ return {
 			c = { "clangd-format" },
 			cpp = { "clangd-format" },
 			go = { "gopls" },
+			rust = { "rustfmt" },
 		},
 		-- Set default options
 		default_format_opts = {
