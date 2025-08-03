@@ -64,13 +64,6 @@ vim.lsp.enable("gopls")
 
 -- setup diagnostics
 vim.diagnostic.config({ virtual_text = false })
-vim.api.nvim_create_autocmd({ "CursorHold" }, {
-	callback = function()
-		if vim.lsp.buf.server_ready() then
-			vim.diagnostic.open_float()
-		end
-	end,
-})
 
 -- provide nvim-autopairs support via treesitter
 local npairs = require("nvim-autopairs")
