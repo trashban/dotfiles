@@ -95,6 +95,7 @@
     "mpris": {
         "format": "{player_icon} {title} - {artist}",
         "format-paused": "{status_icon} <i>{dynamic}</i>",
+        "max-length": 40,
         "player-icons": {
             "default": "▶",
             "mpv": "🎵"

@@ -3,7 +3,6 @@
 # Application variables
 TERM=alacritty
 BROWSER=firefox
-LAUNCHER='rofi -show drun'
 
 # Essential Apps
 riverctl spawn waybar
@@ -39,7 +38,7 @@ riverctl map normal Super Q close
 riverctl map normal Super+Shift E exit
 
 # Super+D to open launcher
-riverctl map normal Super D spawn $LAUNCHER
+riverctl map normal Super D spawn 'rofi -show drun'
 
 # Super+G to open browser
 riverctl map normal Super G spawn $BROWSER
@@ -175,7 +174,12 @@ riverctl rule-add -app-id "bar" csd
 
 # Set the default layout generator to be rivertile and start it.
 riverctl default-layout rivertile
-rivertile -view-padding 6 -outer-padding 6 &
+rivertile -view-padding 0 -outer-padding 0 &
 
 # Swap caps-lock and escape
 riverctl keyboard-layout -options "caps:swapescape" us
+
+# Fix screen-share
+systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river
+systemctl --user restart xdg-desktop-portal
