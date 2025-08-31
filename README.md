@@ -1,5 +1,4 @@
-# current dotfiles for PC + thinkpad-p14
-# (as a unsw cs student)
+# dotfiles for PC + thinkpad-p14 as a unsw cs student
 i've used my fair share of distributions such as void-linux, fedora etc but arch is easily the simplest for me.
 
 my current setup is to use river and waybar to keep it simple and functional.
