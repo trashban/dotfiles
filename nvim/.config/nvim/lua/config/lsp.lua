@@ -61,6 +61,7 @@ vim.lsp.enable("lua-ls")
 vim.lsp.enable("ts_ls")
 vim.lsp.enable("rust_analyzer")
 vim.lsp.enable("gopls")
+vim.lsp.enable("zls")
 
 -- setup diagnostics
 vim.diagnostic.config({ virtual_text = false })
