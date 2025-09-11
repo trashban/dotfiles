@@ -14,8 +14,9 @@ vim.opt.tabstop = 4
 
 -- wrapping
 vim.opt.shiftround = true
-vim.opt.wrap = true
+vim.opt.wrap = false
 vim.opt.signcolumn = 'yes'
+vim.opt.winborder = 'rounded'
 
 -- numbers
 vim.opt.number = true
@@ -35,7 +36,22 @@ vim.opt.incsearch = true
 -- errors
 vim.opt.visualbell = false
 
--- set cursor to underline
-vim.cmd [[
-    set guicursor=a:hor20
-]]
+-- lsp symbols
+vim.diagnostic.config({
+	--virtual_lines = false,
+	--virtual_text = true,
+	signs = {
+		text = {
+			[vim.diagnostic.severity.ERROR] = "",
+			[vim.diagnostic.severity.WARN] = "",
+			[vim.diagnostic.severity.INFO] = "",
+			[vim.diagnostic.severity.HINT] = "",
+		},
+		linehl = {
+			[vim.diagnostic.severity.ERROR] = "ErrorMsg",
+		},
+		numhl = {
+			[vim.diagnostic.severity.WARN] = "WarningMsg",
+		},
+	},
+})
