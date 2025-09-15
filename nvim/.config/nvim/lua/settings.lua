@@ -24,7 +24,10 @@ vim.opt.relativenumber = true
 vim.opt.ruler = true
 
 -- fold settings
-vim.o.foldcolumn = '1'
+
+vim.o.foldcolumn = '1' -- '0' is not bad
+vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+vim.o.foldlevelstart = 99
 vim.o.foldenable = true
 
 -- search
@@ -38,8 +41,6 @@ vim.opt.visualbell = false
 
 -- lsp symbols
 vim.diagnostic.config({
-	--virtual_lines = false,
-	--virtual_text = true,
 	signs = {
 		text = {
 			[vim.diagnostic.severity.ERROR] = "",

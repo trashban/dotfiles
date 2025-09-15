@@ -1,4 +1,4 @@
-vim.lsp.enable({ "lua_ls", "clangd", "zls", "rust-analyzer", "ts_ls", "bashls", "fish_lsp" })
+vim.lsp.enable({ "lua_ls", "clangd", "zls", "rust-analyzer", "ts_ls", "bashls", "fish_lsp", "basedpyright" })
 vim.cmd("set completeopt+=noselect")
 
 -- lsp specific keymaps
