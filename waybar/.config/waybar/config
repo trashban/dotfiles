@@ -1,15 +1,15 @@
 {
     "layer": "top",
     "position": "top",
-    "height": 28,
+    "height": 33,
     "spacing": 5,
 
-    "modules-left": ["river/tags", "mpris"],
+    "modules-left": ["hyprland/workspaces", "mpris"],
     "modules-center": ["clock", "idle_inhibitor"],
-    "modules-right": ["wireplumber", "temperature", "cpu", "memory", "network", "battery", "tray"],
+    "modules-right": ["tray", "wireplumber", "temperature", "cpu", "memory", "network", "battery"],
 
-    "river/workspaces": {
-        "format": "<span size='larger'>{icon}</span>",
+    "hyprland/workspaces": {
+        "format": "{}",
         "on-click": "activate",
         "format-icons": {
             "active": "\uf444",
@@ -17,13 +17,6 @@
         },
         "icon-size": 10,
         "sort-by-number": true,
-        "persistent-workspaces": {
-            "1": [],
-            "2": [],
-            "3": [],
-            "4": [],
-            "5": [],
-        }
     },
 
     "clock": {
@@ -59,8 +52,8 @@
     },
 
     "temperature": {
-        "critical-threshold": 80,
-        "hwmon-path": "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon3/temp1_input",
+        "critical-threshold": 85,
+        "hwmon-path": "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon1/temp1_input",
         "format": "{icon} {temperatureC}°C",
         "format-icons": [
             "<span color='#ffcb6b'></span>",
@@ -93,12 +86,13 @@
     },
 
     "mpris": {
-        "format": "{player_icon} {title} - {artist}",
-        "format-paused": "{status_icon} <i>{dynamic}</i>",
-        "max-length": 40,
+        "format": "{player_icon} {title}",
+        "format-paused": "{status_icon} {title}",
+        "max-length": 45,
         "player-icons": {
             "default": "▶",
-            "mpv": "🎵"
+            "mpv": "🎵",
+            "cider": "🎵",
         },
         "status-icons": {
             "paused": "⏸"

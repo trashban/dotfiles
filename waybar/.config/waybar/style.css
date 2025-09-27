@@ -21,6 +21,7 @@
     padding-left: 0.7em;
 }
 
+#workspaces button.active,
 #tags button.focused {
     color: @purple;
 
