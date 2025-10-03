@@ -12,7 +12,7 @@ vim.keymap.set("n", "<leader>b", ":Pick buffers<CR>")
 vim.keymap.set("n", "<leader>o", ":Pick oldfiles<CR>")
 
 -- oil
-vim.keymap.set("n", "<leader>r", ":Oil --float<CR>")
+vim.keymap.set("n", "<leader>r", ":Fyler kind=split_left<CR>")
 
 -- conform
 vim.api.nvim_create_user_command("Format", function(args)
