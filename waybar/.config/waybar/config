@@ -4,11 +4,11 @@
     "height": 33,
     "spacing": 5,
 
-    "modules-left": ["hyprland/workspaces", "mpris"],
+    "modules-left": ["niri/workspaces", "submap", "mpris"],
     "modules-center": ["clock", "idle_inhibitor"],
     "modules-right": ["tray", "wireplumber", "temperature", "cpu", "memory", "network", "battery"],
 
-    "hyprland/workspaces": {
+    "niri/workspaces": {
         "format": "{}",
         "on-click": "activate",
         "format-icons": {
@@ -53,7 +53,7 @@
 
     "temperature": {
         "critical-threshold": 85,
-        "hwmon-path": "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon1/temp1_input",
+        "hwmon-path": "/sys/devices/pci0000:00/0000:00:14.0/i2c-15/15-0051/hwmon/hwmon6/temp1_input",
         "format": "{icon} {temperatureC}°C",
         "format-icons": [
             "<span color='#ffcb6b'></span>",
@@ -88,7 +88,7 @@
     "mpris": {
         "format": "{player_icon} {title}",
         "format-paused": "{status_icon} {title}",
-        "max-length": 45,
+        "max-length": 60,
         "player-icons": {
             "default": "▶",
             "mpv": "🎵",
@@ -111,5 +111,11 @@
         "format-plugged": "<span color='#c3e88d'></span> {capacity}%",
         "tooltip-format": "{time} left",
         "format-icons": ["󰁺", "󰁼", "󰁾", "󰂁", "󰁹"],
+    },
+
+    "niri/submap": {
+        "format": "{}",
+        "max-length": 10,
+        "tooltip": false
     },
 }
