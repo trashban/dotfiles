@@ -1,6 +1,6 @@
 # dotfiles for PC + thinkpad-p14 as a cs student
-i've used my fair share of distributions such as void-linux, fedora etc but gentoo or arch are my personal favourite picks.
+i've used my fair share of distributions such as void-linux, nix etc but gentoo and arch are my personal favourites.
 
-my current setup is a minimal wayland river and waybar workflow.
+my current setup is a bloated niri + arch setup.
 
 you can use stow to easily direct the configuration files towards its approriate location (typicaly .config/...).
