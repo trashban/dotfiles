@@ -1,4 +1,7 @@
-vim.pack.add({"https://github.com/folke/tokyonight.nvim"})
+vim.pack.add({
+    "https://github.com/folke/tokyonight.nvim",
+    "https://github.com/catppuccin/nvim"
+})
 
 require("tokyonight").setup({
 	style = "night",
@@ -11,3 +14,11 @@ require("tokyonight").setup({
 	end,
 })
 
+-- require("catppuccin").setup({
+--     flavour = "mocha",
+--     color_overrides = {
+--         all = {
+--             base = "#000000",
+--         },
+--     }
+-- })

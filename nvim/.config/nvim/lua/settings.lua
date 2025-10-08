@@ -1,3 +1,6 @@
+local arrows = require('icons').arrows
+local lsp_sym = require('icons').diagnostics
+
 -- leader key
 vim.g.mapleader = " "
 
@@ -24,11 +27,15 @@ vim.opt.relativenumber = true
 vim.opt.ruler = true
 
 -- fold settings
-
-vim.o.foldcolumn = '1' -- '0' is not bad
-vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+vim.o.foldcolumn = '1'
 vim.o.foldlevelstart = 99
-vim.o.foldenable = true
+vim.wo.foldtext = ''
+vim.opt.fillchars = {
+    fold = ' ', foldclose = arrows.right,
+    foldopen = arrows.down,
+    foldsep = ' ',
+    foldinner = ' '
+}
 
 -- search
 vim.opt.hlsearch = true
@@ -43,10 +50,10 @@ vim.opt.visualbell = false
 vim.diagnostic.config({
 	signs = {
 		text = {
-			[vim.diagnostic.severity.ERROR] = "",
-			[vim.diagnostic.severity.WARN] = "",
-			[vim.diagnostic.severity.INFO] = "",
-			[vim.diagnostic.severity.HINT] = "",
+			[vim.diagnostic.severity.ERROR] = lsp_sym.ERROR,
+			[vim.diagnostic.severity.WARN] = lsp_sym.WARN,
+			[vim.diagnostic.severity.INFO] = lsp_sym.INFO,
+			[vim.diagnostic.severity.HINT] = lsp_sym.HINT,
 		},
 		linehl = {
 			[vim.diagnostic.severity.ERROR] = "ErrorMsg",
