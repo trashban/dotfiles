@@ -244,13 +244,14 @@ end
 
 --- @return string
 local function full_git()
-    local full = ''
+    -- local full = ''
     local space = '%#StatusLineMedium# %*'
+    local full = space
 
     local branch = git_branch()
     if branch ~= '' then
         local icon = git_branch_icon()
-        full = full .. space .. icon .. space .. branch .. space
+        full = full .. space..  icon .. space .. branch .. space
     end
 
     local added = git_diff_added()
@@ -338,6 +339,7 @@ StatusLine.active = function()
     local statusline = {
         mode(),
         filename(),
+        full_git(),
         '%=',
         '%=',
         '%S ',
@@ -347,7 +349,7 @@ StatusLine.active = function()
         lsp_hint(),
         lsp_info(),
         lsp_active(),
-        full_git(),
+
         cursor_pos(),
     }
 
