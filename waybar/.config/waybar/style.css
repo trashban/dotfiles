@@ -2,9 +2,10 @@
 @define-color foreground-inactive #aaaaaa;
 @define-color background #000000;
 @define-color purple #5a4fcf;
+@define-color red #bf0000;
 
 * {
-    font-family: BlexMono Nerd Font;
+    font-family: Iosevka Custom;
     font-size: 19;
     padding: 0;
     margin: 0;
@@ -15,20 +16,20 @@
     background-color: @background;
 }
 
-#tags button,
-#workspaces button {
-    color: @foreground;
-    padding-left: 0.7em;
-}
-
-#workspaces button.active,
-#tags button.focused {
+#workspaces button,
+#workspaces {
+    color: @foreground-inactive;
+    padding-left: 8em;
+    font-size: 1;
+} 
+#workspaces button.active {
     color: @purple;
-
 }
-
 #workspaces button.empty {
     color: @foreground-inactive;
+}
+#workspaces button.urgent {
+    color: @red;
 }
 
 #memory,

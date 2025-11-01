@@ -285,9 +285,8 @@ local function filename()
   -- get current buffer in the window
   local buf = "#" ..  vim.api.nvim_win_get_buf(vim.g.statusline_winid)
   local fname = (vim.fn.expand(buf) == "" and "Empty") or vim.fn.expand(buf .. ":t")
-  if fname == "" then
-    return ""
-  end
+  if fname == "" then return "" end
+
   local icon, hl_name, is_default = MiniIcons.get("file", fname)
   local hl_table = vim.api.nvim_get_hl(0, { name = hl_name })
   local hl = string.format("#%06x", hl_table.fg)
