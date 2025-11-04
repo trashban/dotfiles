@@ -15,10 +15,10 @@
             "active": "",
             "default": ""
         },
-        "sort-by-coordinates": false,
+        "sort-by-coordinates": true,
         "all-output": false,
         "active-only": false,
-        "sort-by-number": true,
+        "sort-by-number": false,
         "on-click": "activate"
     },
 
@@ -67,8 +67,8 @@
 
     "network": {
         "format-ethernet": "<span color='#89ddff'>󰈀</span> {ipaddr}",
-        "format-wifi": "<span color='#89ddff'>{icon}</span> {bandwidthDownBytes:=}",
-        "format-disconnected": "<span color='#89ddff'>󰤭</span> {bandwidthDownBytes:=}",
+        "format-wifi": "<span color='#89ddff'>{icon}</span> {ipaddr}",
+        "format-disconnected": "<span color='#89ddff'>{icon}</span> {bandwidthDownBytes:=}",
         "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
         "interval": 2,
         "tooltip-format": "{essid}",

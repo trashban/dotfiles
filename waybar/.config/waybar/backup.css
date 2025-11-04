@@ -1,0 +1,47 @@
+@define-color foreground #eeeeee;
+@define-color foreground-inactive #aaaaaa;
+@define-color background #000000;
+@define-color purple #5a4fcf;
+@define-color red #bf0000;
+
+* {
+    font-family: Iosevka Custom;
+    font-size: 19;
+    padding: 0;
+    margin: 0;
+}
+
+#waybar {
+    color: @foreground;
+    background-color: @background;
+}
+
+#workspaces button,
+#workspaces {
+    color: @foreground-inactive;
+    padding-left: 8em;
+    font-size: 1;
+} 
+#workspaces button.active {
+    color: @purple;
+}
+#workspaces button.empty {
+    color: @foreground-inactive;
+}
+#workspaces button.urgent {
+    color: @red;
+}
+
+#memory,
+#battery,
+#idle_inhibitor,
+#language,
+#bluetooth,
+#temperature,
+#temperature.critical,
+#mpris,
+#tray {
+    padding-left: 1em;
+    padding-right: 1em; 
+}
+
