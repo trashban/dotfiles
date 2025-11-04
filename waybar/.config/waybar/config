@@ -4,9 +4,21 @@
     "height": 33,
     "spacing": 5,
 
-    "modules-left": ["ext/workspaces", "mpris"],
+    "modules-left": ["ext/workspaces", "niri/window", "mpris"],
     "modules-center": ["clock", "idle_inhibitor"],
-    "modules-right": ["tray", "wireplumber", "temperature", "cpu", "memory", "network", "battery"],
+    "modules-right": ["tray", "group/hardware"],
+
+    "group/hardware": {
+		"orientation": "horizontal",
+		"modules": [
+            "wireplumber", 
+            "temperature", 
+            "cpu", 
+            "memory", 
+            "network", 
+            "battery"
+		]
+	},
 
     "ext/workspaces": {
         "format": "{}",
@@ -20,6 +32,15 @@
         "active-only": false,
         "sort-by-number": false,
         "on-click": "activate"
+    },
+    
+    "niri/window": {
+        "format": "{app_id}",
+        "icon": true,
+        "rewrite": {
+            "(.*) - Mozilla Firefox": "🌎 $1",
+            "(.*) - zsh": "> [$1]"
+        },
     },
 
     "clock": {
