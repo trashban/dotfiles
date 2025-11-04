@@ -36,12 +36,10 @@ tooltip label{
 }
 /*-----module groups----*/
 .modules-right {
-    margin: 7px 7px 0px 0;
+    margin: 7px 18px 0px 0;
 	background-color: rgba(0,0,0,0.7);
 	color: @secondary;
-	border-bottom: 0px;
-	border-style: solid;
-	border-color: white;
+    border: 2px solid @purple;
 	border-radius: 20px;
 	padding-top: 2px;
 	padding-bottom: 2px;
@@ -52,9 +50,7 @@ tooltip label{
     margin: 7px 0 0 0;
 	background-color: rgba(0,0,0,0.7);
 	color: @secondary;
-	border-bottom: 0px;
-	border-style: solid;
-	border-color: white;
+    border: 2px solid @purple;
 	border-radius: 20px;
 	padding-top: 2px;
 	padding-bottom: 2px;
@@ -62,12 +58,10 @@ tooltip label{
 	padding-left: 4px;
 }
 .modules-left {
-    margin: 7px 0px 0px 7px;
+    margin: 7px 0px 0px 18px;
 	background-color: rgba(0,0,0,0.7);
 	color: @secondary;
-	border-bottom: 0px;
-	border-style: solid;
-	border-color: white;
+    border: 2px solid @purple;
 	border-radius: 20px;
 	padding-top: 2px;
 	padding-bottom: 2px;
@@ -83,7 +77,9 @@ tooltip label{
     font-size: 1;
 } 
 #workspaces button.active {
-    color: @purple;
+    font-size: 1;
+    color: white;
+        border-bottom: 2px solid white; /* Sets a 2px solid white border at the bottom */
 }
 #workspaces button.empty {
     color: @foreground-inactive;
