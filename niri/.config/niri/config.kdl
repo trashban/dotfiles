@@ -7,10 +7,19 @@
 // Find the full list of options on the wiki:
 // https://yalter.github.io/niri/Configuration:-Input
 
+// autostart
+spawn-at-startup "waybar"
+spawn-at-startup "swww-daemon"
+spawn-at-startup "swaync"
+spawn-at-startup "gentoo-pipewire-launcher"
+spawn-sh-at-startup "wl-paste --watch cliphist store"
+spawn-sh-at-startup "swww-daemon -n overlay"
+spawn-at-startup "/usr/libexec/polkit-mate-authentication-agent-1"
+
 input {
     keyboard {
         xkb {
-            //options "caps:swapescape"
+            options "caps:swapescape"
         }
         numlock
     }
@@ -24,8 +33,8 @@ input {
         // drag-lock
         natural-scroll
         // accel-speed 0.2
-        // accel-profile "flat"
-        // scroll-method "two-finger"
+        accel-profile "flat"
+        scroll-method "two-finger"
         // disabled-on-external-mouse
     }
 
@@ -52,15 +61,20 @@ input {
     // focus-follows-mouse max-scroll-amount="0%"
 }
 
+//////////
+// OUTPUTS
+//////////
+
+// DELL G2724D (currently DP-2)
 output "DP-2" {
     mode "2560x1440"
     scale 1
     transform "normal"
     position x=0 y=0
-    variable-refresh-rate on-demand=true
     focus-at-startup
 }
 
+// MSI MP275Q
 output "HDMI-A-1" {
     mode "2560x1440@99.946"
     scale 1
@@ -73,7 +87,7 @@ output "HDMI-A-1" {
 // https://yalter.github.io/niri/Configuration:-Layout
 layout {
     // Set gaps around windows in logical pixels.
-    gaps 16
+    gaps 12
 
     // When to center a column when changing focus, options are:
     // - "never", default behavior, focusing an off-screen column will keep at the left
@@ -115,24 +129,19 @@ layout {
     // Alternatively, you can override it with a window rule called
     // `draw-border-with-background`.
 
-    // You can change how the focus ring looks.
     focus-ring {
-        // How many logical pixels the ring extends out from the windows.
+        off
+    }
+
+    border {
+        // Width of the border in logical pixels.
         width 2
 
-        // Colors can be set in a variety of ways:
-        // - CSS named colors: "red"
-        // - RGB hex: "#rgb", "#rgba", "#rrggbb", "#rrggbbaa"
-        // - CSS-like notation: "rgb(255, 127, 0)", rgba(), hsl() and a few others.
+        active-color "#5a4fcf"
+        inactive-color "#595959"
 
-        // Color of the ring on the active monitor.
-        active-color "rgb(90,79,207)" 
-
-        // Color of the ring on inactive monitors.
-        //
-        // The focus ring only draws around the active window, so the only place
-        // where you can see its inactive-color is on other monitors.
-        inactive-color "#3B3B3BAA"
+        // Color of the border around windows that request your attention.
+        urgent-color "#9b0000"
     }
 
     // You can enable drop shadows for windows.
@@ -173,11 +182,16 @@ layout {
     }
 }
 
-// autostart
-spawn-at-startup "waybar"
-spawn-at-startup "swww-daemon"
-spawn-at-startup "swaync"
-spawn-sh-at-startup "wl-paste --watch cliphist store"
+// round corners
+window-rule {
+    geometry-corner-radius 16
+    clip-to-geometry true
+}
+
+cursor {
+    xcursor-theme "catppuccin-mocha-dark-cursors"
+    xcursor-size 24 
+}
 
 hotkey-overlay {
     skip-at-startup
@@ -193,7 +207,7 @@ prefer-no-csd
 // You can change the path where screenshots are saved.
 // A ~ at the front will be expanded to the home directory.
 // The path is formatted with strftime(3) to give you the screenshot date and time.
-screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+screenshot-path "~/Pictures/Screenshots/Screenshot %Y-%m-%d %H-%M-%S.png"
 
 // You can also set this to null to disable saving screenshots to disk.
 // screenshot-path null
@@ -203,7 +217,14 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 // https://yalter.github.io/niri/Configuration:-Animations
 animations {
     // Slow down all animations by this factor. Values below 1 speed them up instead.
-    // slowdown 3.0
+    slowdown 0.8
+}
+
+// remove hot-corners
+gestures {
+    hot-corners {
+        off
+    }
 }
 
 // Window rules let you adjust behavior for individual windows.
@@ -219,7 +240,7 @@ window-rule {
     open-floating true
 }
 
-// Open pavucotrol as floating and larger by default.
+// open pavucotrol as floating and larger by default.
 window-rule {
     match app-id=r#"org.pulseaudio.pavucontrol"#
     open-floating true
@@ -227,23 +248,30 @@ window-rule {
     default-window-height { fixed 800; }
 }
 
-// Example: block out two password managers from screen capture.
-// (This example rule is commented out with a "/-" in front.)
-/-window-rule {
-    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
-    match app-id=r#"^org\.gnome\.World\.Secrets$"#
-
-    block-out-from "screen-capture"
-
-    // Use this instead if you want them visible on third-party screenshot tools.
-    // block-out-from "screencast"
+// ow2 janky settings
+window-rule {
+    match app-id=r#"steam_app_2357570"#
+    open-maximized true
+    default-column-width { fixed 2560; }
+    default-window-height { fixed 1440; }
 }
 
-// Example: enable rounded corners for all windows.
-// (This example rule is commented out with a "/-" in front.)
+// tell steam notifications to not be in my face thanks
 window-rule {
-    geometry-corner-radius 0 
-    clip-to-geometry true
+    match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
+    default-floating-position x=10 y=10 relative-to="bottom-right"
+    open-focused false
+}
+
+// with swww, allow for an overview background
+layer-rule {
+    match namespace="^swww-daemonoverlay$"
+    place-within-backdrop true
+}
+
+// set wayland for electron apps if possible
+environment {
+    ELECTRON_OZONE_PLATFORM_HINT "auto"
 }
 
 binds {
@@ -264,10 +292,11 @@ binds {
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+T hotkey-overlay-title="Open a Terminal: kitty" { spawn-sh "kitty fish"; }
     Mod+D hotkey-overlay-title="Run an Application: rofi" { spawn-sh "rofi -show drun"; }
-    Mod+G hotkey-overlay-title="Open a browser: firefox" { spawn "firefox"; }
+    Mod+G hotkey-overlay-title="Open a browser: firefox" { spawn "firefox-bin"; }
     Mod+P hotkey-overlay-title="Open sound settings: pavucontrol" { spawn "pavucontrol"; }
-
-    Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
+    Mod+Shift+W hotkey-overlay-title="Change wallpaper" { spawn-sh "~/dotfiles/Scripts/wpchange.sh"; }
+    Mod+C hotkey-overlay-title="Open cliphist:" { spawn-sh "cliphist list | rofi -dmenu | cliphist decode | wl-copy"; }
+    Super+Alt+L hotkey-overlay-title="Lock the Screen: hyprlock" { spawn-sh "hyprlock"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
@@ -301,14 +330,14 @@ binds {
     Mod+K     { focus-window-up; }
     Mod+L     { focus-column-right; }
 
-    Mod+Ctrl+Left  { move-column-left; }
-    Mod+Ctrl+Down  { move-window-down; }
-    Mod+Ctrl+Up    { move-window-up; }
-    Mod+Ctrl+Right { move-column-right; }
-    Mod+Ctrl+H     { move-column-left; }
-    Mod+Ctrl+J     { move-window-down; }
-    Mod+Ctrl+K     { move-window-up; }
-    Mod+Ctrl+L     { move-column-right; }
+    Mod+Shift+Left  { move-column-left; }
+    Mod+Shift+Down  { move-window-down; }
+    Mod+Shift+Up    { move-window-up; }
+    Mod+Shift+Right { move-column-right; }
+    Mod+Shift+H     { move-column-left; }
+    Mod+Shift+J     { move-window-down; }
+    Mod+Shift+K     { move-window-up; }
+    Mod+Shift+L     { move-column-right; }
 
     // Alternative commands that move across workspaces when reaching
     // the first or last window in a column.
@@ -322,23 +351,23 @@ binds {
     Mod+Ctrl+Home { move-column-to-first; }
     Mod+Ctrl+End  { move-column-to-last; }
 
-    Mod+Shift+Left  { focus-monitor-left; }
-    Mod+Shift+Down  { focus-monitor-down; }
-    Mod+Shift+Up    { focus-monitor-up; }
-    Mod+Shift+Right { focus-monitor-right; }
-    Mod+Shift+H     { focus-monitor-left; }
-    Mod+Shift+J     { focus-monitor-down; }
-    Mod+Shift+K     { focus-monitor-up; }
-    Mod+Shift+L     { focus-monitor-right; }
+    Mod+Ctrl+Left  { focus-monitor-left; }
+    Mod+Ctrl+Down  { focus-monitor-down; }
+    Mod+Ctrl+Up    { focus-monitor-up; }
+    Mod+Ctrl+Right { focus-monitor-right; }
+    Mod+Ctrl+H     { focus-monitor-left; }
+    Mod+Ctrl+J     { focus-monitor-down; }
+    Mod+Ctrl+K     { focus-monitor-up; }
+    Mod+Ctrl+L     { focus-monitor-right; }
 
-    Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
-    Mod+Shift+Ctrl+Down  { move-column-to-monitor-down; }
-    Mod+Shift+Ctrl+Up    { move-column-to-monitor-up; }
-    Mod+Shift+Ctrl+Right { move-column-to-monitor-right; }
-    Mod+Shift+Ctrl+H     { move-column-to-monitor-left; }
-    Mod+Shift+Ctrl+J     { move-column-to-monitor-down; }
-    Mod+Shift+Ctrl+K     { move-column-to-monitor-up; }
-    Mod+Shift+Ctrl+L     { move-column-to-monitor-right; }
+    Mod+Ctrl+Shift+Left  { move-column-to-monitor-left; }
+    Mod+Ctrl+Shift+Down  { move-column-to-monitor-down; }
+    Mod+Ctrl+Shift+Up    { move-column-to-monitor-up; }
+    Mod+Ctrl+Shift+Right { move-column-to-monitor-right; }
+    Mod+Ctrl+Shift+H     { move-column-to-monitor-left; }
+    Mod+Ctrl+Shift+J     { move-column-to-monitor-down; }
+    Mod+Ctrl+Shift+K     { move-column-to-monitor-up; }
+    Mod+Ctrl+Shift+L     { move-column-to-monitor-right; }
 
     // Alternatively, there are commands to move just a single window:
     // Mod+Shift+Ctrl+Left  { move-window-to-monitor-left; }
@@ -454,7 +483,7 @@ binds {
     // Makes the column "fill the rest of the space".
     Mod+Ctrl+F { expand-column-to-available-width; }
 
-    Mod+C { center-column; }
+    Mod+Shift+C { center-column; }
 
     // Center all fully visible columns on screen.
     Mod+Ctrl+C { center-visible-columns; }
@@ -481,7 +510,7 @@ binds {
     // Toggle tabbed column display mode.
     // Windows in this column will appear as vertical tabs,
     // rather than stacked on top of each other.
-    Mod+W { toggle-column-tabbed-display; }
+    // Mod+W { toggle-column-tabbed-display; }
 
     // Actions to switch layouts.
     // Note: if you uncomment these, make sure you do NOT have
@@ -492,7 +521,7 @@ binds {
     // Mod+Shift+Space { switch-layout "prev"; }
 
     Mod+Shift+s { screenshot; }
-    Ctrl+Print { screenshot-screen; }
+    Mod+Shift+Ctrl+s { screenshot-screen; }
     Alt+Print { screenshot-window; }
 
     // Applications such as remote-desktop clients and software KVM switches may
@@ -506,8 +535,7 @@ binds {
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
     // The quit action will show a confirmation dialog to avoid accidental exits.
-    Mod+Shift+E { quit; }
-    Ctrl+Alt+Delete { quit; }
+    Mod+Shift+Q { quit; }
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.
     Mod+Shift+P { power-off-monitors; }

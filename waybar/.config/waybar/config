@@ -1,11 +1,11 @@
 {
     "layer": "top",
     "position": "top",
-    "height": 33,
+    "height": 43,
     "spacing": 5,
 
-    "modules-left": ["ext/workspaces", "niri/window", "mpris"],
-    "modules-center": ["clock", "idle_inhibitor"],
+    "modules-left": ["custom/os_icon", "clock", "hyprland/window", "mpris"],
+    "modules-center": ["hyprland/workspaces"],
     "modules-right": ["tray", "group/hardware"],
 
     "group/hardware": {
@@ -20,13 +20,18 @@
 		]
 	},
 
-    "ext/workspaces": {
-        "format": "{}",
+    "custom/os_icon": {
+        "return-type": "json",
+        "exec": "~/os_icon.sh",
+        "format": "{icon}",
         "format-icons": {
-            "urgent": "",
-            "active": "",
-            "default": ""
-        },
+            "arch": "󰣇",
+            "gentoo": ""
+        }
+    },
+
+    "niri/workspaces": {
+        "format": "{}",
         "sort-by-coordinates": true,
         "all-output": false,
         "active-only": false,
@@ -37,14 +42,15 @@
     "niri/window": {
         "format": "{app_id}",
         "icon": true,
-        "rewrite": {
-            "(.*) - Mozilla Firefox": "🌎 $1",
-            "(.*) - zsh": "> [$1]"
-        },
+    },
+    
+    "hyprland/window": {
+        "format": "{class}",
+        "icon": true,
     },
 
     "clock": {
-        "format": "<span color='#ffcb6b'>󰥔</span> {:%a %b %d | %I:%M %p}",
+        "format": "<span color='#ffcb6b' rise='1500'>󰥔</span> {:%I:%M %p}",
         "exec-if": "which swaync-client",
         "exec": "swaync-client -swb",
         "on-click-right": "swaync-client -d -sw",
@@ -52,10 +58,10 @@
     },
 
     "wireplumber": {
-        "format": "<span color='#f78c6c'>{icon}</span> {volume}%",
-        "format-muted": "<span color='#f78c6c'>󰖁</span> {volume}%",
-        "format-bluetooth": "<span color='#f78c6c'>{icon}</span> {volume}%",
-        "format-bluetooth-muted": "<span color='#f78c6c'>󰖁</span> {volume}%",
+        "format": "<span color='#f78c6c' rise='1500'>{icon}</span> {volume}%",
+        "format-muted": "<span color='#f78c6c' rise='1500'>󰖁</span> {volume}%",
+        "format-bluetooth": "<span color='#f78c6c' rise='1500'>{icon}</span> {volume}%",
+        "format-bluetooth-muted": "<span color='#f78c6c' rise='1500'>󰖁</span> {volume}%",
         "format-icons": {
             "headphone": "󰋋",
             "phone": "󰏲",
@@ -67,28 +73,28 @@
 
     "memory": {
         "interval": 30,
-        "format": "<span color='#c792ea'>󰘚</span> {used:0.1f}G"
+        "format": "<span color='#c792ea' rise='1500'>󰘚</span> {used:0.1f}G"
     },
 
     "cpu": {
-        "format": "<span color='#b2ccd6'>󰍛</span> {avg_frequency} GHz",
+        "format": "<span color='#b2ccd6' rise='1500'>󰍛</span> {avg_frequency} GHz",
         "interval": 5,
     },
 
     "temperature": {
         "critical-threshold": 85,
-        "hwmon-path": "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon3/temp1_input",
+        "hwmon-path": "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon1/temp1_input",
         "format": "{icon} {temperatureC}°C",
         "format-icons": [
-            "<span color='#ffcb6b'></span>",
-            "<span color='#ffcb6b'></span>",
-            "<span color='#ffcb6b'></span>",
+            "<span color='#ffcb6b rise='1500'></span>",
+            "<span color='#ffcb6b' rise='1500'></span>",
+            "<span color='#ffcb6b' rise='1500'></span>",
         ],
     },
 
     "network": {
-        "format-ethernet": "<span color='#89ddff'>󰈀</span> {ipaddr}",
-        "format-wifi": "<span color='#89ddff'>{icon}</span> {ipaddr}",
+        "format-ethernet": "<span color='#89ddff' rise='1500'>󰈀</span> {ipaddr}",
+        "format-wifi": "<span color='#89ddff' rise='1500'>{icon}</span> {essid}",
         "format-disconnected": "<span color='#89ddff'>{icon}</span> {bandwidthDownBytes:=}",
         "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
         "interval": 2,
@@ -135,11 +141,5 @@
         "format-plugged": "<span color='#c3e88d'></span> {capacity}%",
         "tooltip-format": "{time} left",
         "format-icons": ["󰁺", "󰁼", "󰁾", "󰂁", "󰁹"],
-    },
-
-    "niri/submap": {
-        "format": "{}",
-        "max-length": 10,
-        "tooltip": false
     },
 }

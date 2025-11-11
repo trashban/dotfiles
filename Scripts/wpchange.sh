@@ -32,7 +32,7 @@ if [[ -n "$wallpaper_choice" ]]; then
     swww img --transition-duration 1 --transition-fps 60 -f CatmullRom -o "$monitor_choice" "$wallpaper_dir/$wallpaper_choice"
 
     # create a temp file to hold a blurred version for each monitor
-    temp_file="$HOME/Pictures/temp-${monitor_choice}.jpg"
+    temp_file="$HOME/Pictures/Temp/temp-${monitor_choice}.jpg"
 
     # blur - expensive! look into not using gaussian-blur if important
     magick "$wallpaper_dir/$wallpaper_choice" -gaussian-blur 0x5 "$temp_file"
