@@ -4,4 +4,4 @@ require('plugins')
 require('lsp')
 require('statusline')
 
-vim.cmd[[colorscheme tokyonight]]
+vim.cmd[[colorscheme rose-pine]]

@@ -28,6 +28,10 @@
       "rev": "20ad441",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
+    "gruvbox-material": {
+      "rev": "4bfc698",
+      "src": "https://github.com/sainnhe/gruvbox-material"
+    },
     "indent-blankline.nvim": {
       "rev": "005b560",
       "src": "https://github.com/lukas-reineke/indent-blankline.nvim"
@@ -39,6 +43,10 @@
     "neoscroll.nvim": {
       "rev": "f957373",
       "src": "https://github.com/karb94/neoscroll.nvim"
+    },
+    "neovim": {
+      "rev": "cf2a288",
+      "src": "https://github.com/rose-pine/neovim"
     },
     "noice.nvim": {
       "rev": "7bfd942",

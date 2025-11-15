@@ -6,14 +6,14 @@ configuration {
 
 * {
     /* Dracula theme colour palette */
-    drac-bgd: rgba(40, 42, 54, 0);
+    drac-bgd: rgba(0, 0, 0, 1);
     drac-cur: #44475a;
     drac-fgd: #f8f8f2;
     drac-cmt: #6272a4;
     drac-cya: #8be9fd;
     drac-grn: #50fa7b;
     drac-ora: #ffb86c;
-    drac-pnk: rgba(255, 121, 198, 0);
+    drac-pnk: rgba(255, 121, 198, 1);
     drac-pur: #bd93f9;
     drac-red: #ff5555;
     drac-yel: #f1fa8c;
@@ -36,7 +36,7 @@ configuration {
 #window {
     background-color: @background-color;
     border:           3;
-    border-radius:    6;
+    border-radius:    18;
     border-color:     @bordercolor;
     padding:          15;
 }

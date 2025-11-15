@@ -19,7 +19,7 @@ vim.opt.tabstop = 4
 vim.opt.shiftround = true
 vim.opt.wrap = false
 vim.opt.signcolumn = 'yes'
-vim.opt.winborder = 'rounded'
+vim.opt.winborder = 'double'
 
 -- numbers
 vim.opt.number = true

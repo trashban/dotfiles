@@ -13,12 +13,12 @@
     margin: 0;
     border: none;
     border-radius: 0;
-    min-height: 0;
     opacity: 1.0;
+    border-radius: 0px;
 }
 
 window#waybar {
-    background-color: transparent;
+    background-color: @transparent;
     padding: 0px;
     border: 0px;
 }
@@ -30,7 +30,6 @@ window#waybar.empty {
 tooltip {
 	color: @inverse_surface;
     background: rgba(0, 0, 0, 0.8);
-    border-radius: 20px;
 }
 
 tooltip label{
@@ -38,31 +37,28 @@ tooltip label{
 }
 /*-----module groups----*/
 .modules-right {
-    margin: 5px 5px 0px 0;
+    margin: 0px 5px 0px 0;
 	color: @secondary;
-	border-radius: 20px;
 	padding-top: 2px;
 	padding-bottom: 2px;
 	padding-right: 4px;
 	padding-left: 4px;
 }
 .modules-center {
-    margin: 5px 0 0 0;
+    margin: 0px 0 0 0;
 	/* background-color: rgba(0,0,0,0.7); */
 	color: @secondary;
     /* border: 2px solid @purple; */
-	border-radius: 20px;
 	padding-top: 2px;
 	padding-bottom: 2px;
 	padding-right: 4px;
 	padding-left: 4px;
 }
 .modules-left {
-    margin: 5px 0px 0px 9px;
+    margin: 0px 0px 0px 9px;
 	/* background-color: rgba(0,0,0,0.7); */
 	color: @secondary;
     /* border: 2px solid @purple; */
-	border-radius: 20px;
 	padding-top: 2px;
 	padding-bottom: 2px;
 	padding-right: 4px;
@@ -72,7 +68,6 @@ tooltip label{
 #workspaces {
 	background-color: @black; 
     border: 2px solid @grey;
-	border-radius: 20px;
 	padding-right: 0.5em;
     padding-left: 0.5em; 
 }
@@ -88,7 +83,6 @@ tooltip label{
 #hardware {
 	background-color: @black; 
     border: 2px solid @grey;
-	border-radius: 20px;
 	padding-right: 0.5em;
     padding-left: 0.5em; 
 }
@@ -96,7 +90,6 @@ tooltip label{
 #flex {
 	background-color: @black; 
     border: 2px solid @grey;
-	border-radius: 20px;
 	padding-right: 0.5em;
     padding-left: 0.5em; 
 }
@@ -137,7 +130,6 @@ tooltip label{
 
 #mpris,
 #tray {
-    border-radius: 20px;
     border: 2px solid @grey;
     padding-right: 0.4em; 
     padding-left: 0.45em;
@@ -146,7 +138,6 @@ tooltip label{
 
 #custom-os_icon,
 #clock {
-    border-radius: 20px;
     border: 2px solid @grey;
 	background-color: @black; 
     padding-right: 0.5em; 
@@ -154,7 +145,6 @@ tooltip label{
 }
 
 #idle_inhibitor {
-    border-radius: 20px;
     border: 2px solid @grey;
 	background-color: @black; 
     padding-left: 0.45em; 
@@ -165,15 +155,10 @@ tooltip label{
     background-color: @black; 
     color: @foreground;
     border: 2px solid @grey;
-    border-radius: 20px;
     padding-left: 0.5em;
     padding-right: 0.5em;
 }
 window#waybar.empty #window {
-    border-radius: 0px;
     border: 0px;
-    padding-left: 0em;
-    padding-right: 0em;
-    margin: 0px 0px;
     background-color: transparent;
 }
