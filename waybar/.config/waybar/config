@@ -22,7 +22,7 @@
 
     "custom/os_icon": {
         "return-type": "json",
-        "exec": "~/os_icon.sh",
+        "exec": "~/dotfiles/Scripts/os_icon.sh",
         "format": "{icon}",
         "format-icons": {
             "arch": "󰣇",
