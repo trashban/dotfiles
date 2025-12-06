@@ -15,14 +15,14 @@ wallpaper_dir="$HOME/Pictures/Wallpapers/"
 temp_dir="$HOME/Pictures/Temp/"
 
 # checks whether hyprland or niri is running
-if pgrep -x niri >/dev/null 2>&1; then
-    compositor="niri"
-elif pgrep -x Hyprland >/dev/null 2>&1; then
-    compositor="hyprland"
-else
-    echo "neither niri nor hyprland running"
-    exit 1
-fi
+# if pgrep -x niri >/dev/null 2>&1; then
+#     compositor="niri"
+# elif pgrep -x Hyprland >/dev/null 2>&1; then
+#     compositor="hyprland"
+# else
+#     echo "neither niri nor hyprland running"
+#     exit 1
+# fi
 
 # grab monitor options
 get_monitor_outputs() {
@@ -52,7 +52,7 @@ wallpaper_choice=$(cd "$wallpaper_dir" && find . -type f -printf '%P\n' | rofi -
 # if no wallpaper was selected then skip
 if [[ -n "$wallpaper_choice" ]]; then
     # set notifcation of wallpaper change
-    notify-send -t 3000 "Wallpaper changed to $wallpaper_choice."
+    # notify-send -t 3000 "Wallpaper changed to $wallpaper_choice."
 
     # set background wallpaper
     swww img --transition-duration 1 --transition-fps 60 -f CatmullRom -o "$monitor_choice" "$wallpaper_dir/$wallpaper_choice"

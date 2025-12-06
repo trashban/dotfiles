@@ -66,6 +66,14 @@ input {
 //////////
 
 // DELL G2724D (currently DP-2)
+output "DP-1" {
+    mode "2560x1440"
+    scale 1
+    transform "normal"
+    position x=0 y=0
+    focus-at-startup
+}
+
 output "DP-2" {
     mode "2560x1440"
     scale 1
@@ -290,9 +298,9 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
-    Mod+T hotkey-overlay-title="Open a Terminal: kitty" { spawn-sh "kitty fish"; }
+    Mod+T hotkey-overlay-title="Open a Terminal: foot" { spawn-sh "foot"; }
     Mod+D hotkey-overlay-title="Run an Application: rofi" { spawn-sh "rofi -show drun"; }
-    Mod+G hotkey-overlay-title="Open a browser: firefox" { spawn "firefox-bin"; }
+    Mod+G hotkey-overlay-title="Open a browser: firefox-bin" { spawn "firefox-bin"; }
     Mod+P hotkey-overlay-title="Open sound settings: pavucontrol" { spawn "pavucontrol"; }
     Mod+Shift+W hotkey-overlay-title="Change wallpaper" { spawn-sh "~/dotfiles/Scripts/wpchange.sh"; }
     Mod+C hotkey-overlay-title="Open cliphist:" { spawn-sh "cliphist list | rofi -dmenu | cliphist decode | wl-copy"; }

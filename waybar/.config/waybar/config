@@ -4,8 +4,8 @@
     "height": 43,
     "spacing": 5,
 
-    "modules-left": ["custom/os_icon", "clock", "hyprland/window", "mpris"],
-    "modules-center": ["hyprland/workspaces"],
+    "modules-left": ["clock", "niri/window", "mpris"],
+    "modules-center": ["niri/workspaces"],
     "modules-right": ["tray", "group/hardware"],
 
     "group/hardware": {

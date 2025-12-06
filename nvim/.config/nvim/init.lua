@@ -2,7 +2,7 @@ require('settings')
 require('binds')
 require('plugins')
 require('lsp')
-require('statusline')
+-- require('statusline')
 
-vim.cmd[[colorscheme rose-pine]]
 vim.opt.fillchars:append('eob: ')
+vim.cmd[[colorscheme kanso-zen]]

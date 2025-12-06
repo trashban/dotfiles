@@ -28,6 +28,10 @@
       "rev": "20ad441",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
+    "gruber-darker.nvim": {
+      "rev": "98a2e14",
+      "src": "https://github.com/blazkowolf/gruber-darker.nvim"
+    },
     "gruvbox-material": {
       "rev": "4bfc698",
       "src": "https://github.com/sainnhe/gruvbox-material"
@@ -35,6 +39,14 @@
     "indent-blankline.nvim": {
       "rev": "005b560",
       "src": "https://github.com/lukas-reineke/indent-blankline.nvim"
+    },
+    "kanagawa.nvim": {
+      "rev": "aef7f5c",
+      "src": "https://github.com/rebelot/kanagawa.nvim"
+    },
+    "kanso.nvim": {
+      "rev": "8104194",
+      "src": "https://github.com/webhooked/kanso.nvim"
     },
     "mini.nvim": {
       "rev": "42dbeaa",
