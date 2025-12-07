@@ -4,8 +4,8 @@
     "height": 43,
     "spacing": 5,
 
-    "modules-left": ["clock", "niri/window", "mpris"],
-    "modules-center": ["niri/workspaces"],
+    "modules-left": ["clock", "hyprland/window", "mpris"],
+    "modules-center": ["hyprland/workspaces"],
     "modules-right": ["tray", "group/hardware"],
 
     "group/hardware": {
@@ -45,12 +45,13 @@
     },
     
     "hyprland/window": {
-        "format": "{class}",
+        "format": "{initialClass}",
         "icon": true,
+        "separate-outputs": true,
     },
 
     "clock": {
-        "format": "<span color='#ffcb6b' rise='1500'>󰥔</span> {:%I:%M %p}",
+        "format": "<span color='#ffcb6b' rise='1500'>󰥔</span> {:%a %b %I:%M %p} <span color='#8EA4A2'>:</span>",
         "exec-if": "which swaync-client",
         "exec": "swaync-client -swb",
         "on-click-right": "swaync-client -d -sw",
@@ -116,8 +117,8 @@
     },
 
     "mpris": {
-        "format": "{player_icon} {title}",
-        "format-paused": "{status_icon} {title}",
+        "format": "<span color='#8EA4A2'>:</span> {player_icon} {title} - {artist}",
+        "format-paused": "<span color='#8EA4A2'>:</span> {status_icon} {title} - {artist}",
         "max-length": 60,
         "player-icons": {
             "default": "▶",
@@ -127,7 +128,7 @@
         "status-icons": {
             "paused": "⏸"
         },
-        //"ignored-players": ["firefox"]
+        "ignored-players": ["firefox", "firefox-bin"],
     },
 
     "battery": {
@@ -142,4 +143,8 @@
         "tooltip-format": "{time} left",
         "format-icons": ["󰁺", "󰁼", "󰁾", "󰂁", "󰁹"],
     },
+
+    "river/tags": {
+        "hide-vacant": true,
+    }
 }

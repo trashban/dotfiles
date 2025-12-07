@@ -65,6 +65,7 @@ tooltip label{
 	padding-left: 2px;
 }
 
+#tags,
 #workspaces {
 	background-color: @black; 
     border: 2px solid @grey;
@@ -72,12 +73,16 @@ tooltip label{
     padding-left: 0.5em; 
 }
 
+#tags button,
 #workspaces button {
     color: @foreground-inactive;
     background-color: @black;
     margin: 0px 5px 0px 5px;
-    font-size: 1;
+    font-size: 1px;
 	color: @secondary;
+}
+
+#tags active {
 }
 
 #hardware {

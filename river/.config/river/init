@@ -1,20 +1,20 @@
 #!/bin/sh
 
 # Application variables
-TERM=kitty
-BROWSER=firefox
+TERM=foot
+BROWSER=firefox-bin
 
 # Essential Apps
 riverctl spawn waybar
-riverctl spawn swaync
 riverctl spawn swww-daemon
-riverctl spawn hypridle
+riverctl spawn swaync
+riverctl spawn gentoo-pipewire-launcher
 riverctl spawn 'wl-paste --watch cliphist store'
 
 # Monitors
 
 ## Desktop monitors
-riverctl spawn 'wlr-randr --output DP-2 --on --mode 2560x1440@165.080002Hz --scale 1'
+riverctl spawn 'wlr-randr --output DP-1 --on --mode 2560x1440@165.080002Hz --scale 1'
 riverctl spawn 'wlr-randr --output HDMI-A-1 --on --mode 2560x1440@99.945999 --scale 1 --pos -2560,0'
 
 ## Laptop monitors
@@ -160,7 +160,7 @@ for mode in normal locked; do
 done
 
 # Set background and border color
-riverctl border-color-focused 0x5a4fcf
+riverctl border-color-focused 0x995D3FD3 
 riverctl border-color-unfocused 0x586e75
 
 # Set keyboard repeat rate
@@ -174,7 +174,7 @@ riverctl rule-add -app-id "bar" csd
 
 # Set the default layout generator to be rivertile and start it.
 riverctl default-layout rivertile
-rivertile -view-padding 0 -outer-padding 0 &
+rivertile -view-padding 8 -outer-padding 8 &
 
 # Swap caps-lock and escape
 riverctl keyboard-layout -options "caps:swapescape" us

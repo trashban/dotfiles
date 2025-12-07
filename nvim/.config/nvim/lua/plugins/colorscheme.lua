@@ -18,7 +18,7 @@ require('kanso').setup({
     bold = true,
     italics = true,
     theme = "zen",
-    transparent = false,
+    transparent = true,
     terminalColors = true,
 })
 
