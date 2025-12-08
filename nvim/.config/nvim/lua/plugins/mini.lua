@@ -6,6 +6,7 @@ require("mini.pick").setup()
 require("mini.pairs").setup()
 require("mini.comment").setup()
 require("mini.files").setup()
+require('mini.cmdline').setup()
 
 require("mini.icons").setup()
 MiniIcons.mock_nvim_web_devicons()
