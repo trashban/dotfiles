@@ -1,21 +1,29 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    ./hardware-configuration.nix
+  ];
 
-  # Bootloader.
+  # Bootloader
   boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.configurationLimit = 10;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "luna"; # Define your hostname.
+  # Hostname
+  networking.hostName = "duk";
+
+  # Configure network proxy if necessary
+  # networking.proxy.default = "http://user:password@proxy:port/";
+  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
   networking.networkmanager.enable = true;
 
-  time.timeZone = "Australia/Sydney";
+  # Set your time zone.
+  time.timeZone = "Australia/Darwin";
+
+  # Select internationalisation properties.
   i18n.defaultLocale = "en_AU.UTF-8";
 
   i18n.extraLocaleSettings = {
@@ -30,112 +38,37 @@
     LC_TIME = "en_AU.UTF-8";
   };
 
+  # Configure keymap in X11
   services.xserver.xkb = {
-    layout = "us";
+    layout = "au";
     variant = "";
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.ashin14 = {
     isNormalUser = true;
-    description = "Amberveer Shinmarh";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [];
-        shell = pkgs.fish;
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
   };
 
+  # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # enable flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  # Enable the Flakes feature and the accompanying new nix command-line tool
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-     git
-     vim
-     wget
-     bash
-     firefox
-     kitty
-     rofi
-     neovim
-     stow
-     gh
-     pavucontrol
-     starship
-     fastfetch
-     discord
-     yazi
-     zoxide
-     swww
-     xdg-user-dirs
-     glib
-     gcc
-     clang-tools
-     zig
-     zls
-     adwaita-qt
-     procps
-     pfetch
-     lsd
-     bat
-     jp2a
-     cliphist
-     swaynotificationcenter 
-     hyprshot
-     zellij
-     wl-clipboard
-     fd
-     ripgrep
-     nwg-look
-     papirus-icon-theme
-     pipewire
+    vim
+    wget
+    git
   ];
-
-  security.rtkit.enable = true;
-  services.pipewire = {
-     enable = true;
-     alsa.enable = true;
-     alsa.support32Bit = true;
-     pulse.enable = true;
-  };
-
-  programs.steam = {
-     enable = true;
-     remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-     localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
-  };
-
-  programs.waybar.enable = true;
-
-  programs.hyprland = {
-     enable = true;
-     xwayland.enable = true;
-     # withUWSM = true;
-  };
-
-  xdg.portal = {
-     enable = true;
-     extraPortals = with pkgs; [ xdg-desktop-portal-hyprland ];
-  };
-
-  programs.fish.enable = true;
-
-  # set default editor to neovim
-  programs.neovim.defaultEditor = true;
-  environment.variables.EDITOR = "nvim";
-
-  fonts.packages = with pkgs; [
-     noto-fonts
-     noto-fonts-cjk-sans
-     noto-fonts-emoji
-     
-     nerd-fonts.blex-mono
-     nerd-fonts.fira-code
-  ];
-
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -162,5 +95,5 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "25.05"; # Did you read the comment?
+  system.stateVersion = "25.11"; # Did you read the comment?
 }
