@@ -22,14 +22,15 @@
     padding-left: 8em;
     font-size: 1;
 } 
-#workspaces button.active {
-    color: @purple;
-}
 #workspaces button.empty {
     color: @foreground-inactive;
 }
 #workspaces button.urgent {
     color: @red;
+}
+
+#workspaces button.active {
+    color: @purple;
 }
 
 #memory,

@@ -74,18 +74,18 @@
 
     "memory": {
         "interval": 30,
-        "format": "<span color='#c792ea' rise='1500'>󰘚</span> {used:0.1f}G"
+        "format": "<span color='#8EA4A2'>:</span> <span color='#c792ea' rise='1500'>󰘚</span> {used:0.1f}G"
     },
 
     "cpu": {
-        "format": "<span color='#b2ccd6' rise='1500'>󰍛</span> {avg_frequency} GHz",
+        "format": "<span color='#8EA4A2'>:</span> <span color='#b2ccd6' rise='1500'>󰍛</span> {avg_frequency} GHz",
         "interval": 5,
     },
 
     "temperature": {
         "critical-threshold": 85,
         "hwmon-path": "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon1/temp1_input",
-        "format": "{icon} {temperatureC}°C",
+        "format": "<span color='#8EA4A2'>:</span> {icon} {temperatureC}°C",
         "format-icons": [
             "<span color='#ffcb6b rise='1500'></span>",
             "<span color='#ffcb6b' rise='1500'></span>",
@@ -94,8 +94,8 @@
     },
 
     "network": {
-        "format-ethernet": "<span color='#89ddff' rise='1500'>󰈀</span> {ipaddr}",
-        "format-wifi": "<span color='#89ddff' rise='1500'>{icon}</span> {essid}",
+        "format-ethernet": "<span color='#8EA4A2'>:</span> <span color='#89ddff' rise='1500'>󰈀</span> {ipaddr}",
+        "format-wifi": "<span color='#8EA4A2'>:</span> <span color='#89ddff' rise='1500'>{icon}</span> {essid}",
         "format-disconnected": "<span color='#89ddff'>{icon}</span> {bandwidthDownBytes:=}",
         "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
         "interval": 2,

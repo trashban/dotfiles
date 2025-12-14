@@ -1,30 +1,27 @@
 @define-color foreground #eeeeee;
 @define-color foreground-inactive #aaaaaa;
-@define-color background #000000;
+@define-color black #000000;
+@define-color background #090e13;
 @define-color purple #5a4fcf;
 @define-color red #bf0000;
 @define-color black rgba(0,0,0, 1);
 @define-color grey rgba(59,59,59,1);
 
 * {
-    font-family: JetBrains Mono Medium;
+    font-family: JetBrainsMono Nerd Font; 
     font-size: 20;
-    padding: 0;
-    margin: 0;
     border: none;
     opacity: 1.0;
-    border-radius: 18px;
+    border-radius: 0px;
+    padding: 0;
+    margin: 0;
 }
 
 window#waybar {
-    background-color: @transparent;
+    background-color: @background;
     border-radius: 0px;
     padding: 0px;
     border: 0px;
-}
-
-window#waybar.empty {
-    opacity: 0.4;
 }
 
 tooltip {
@@ -35,135 +32,52 @@ tooltip {
 tooltip label{
 	color: @inverse_surface;
 }
+
 /*-----module groups----*/
 .modules-right {
-    margin: 0px 5px 0px 0;
-	color: @secondary;
-	padding-top: 2px;
-	padding-bottom: 2px;
-	padding-right: 4px;
-	padding-left: 4px;
+	padding-right: 15px;
 }
 .modules-center {
-    margin: 0px 0 0 0;
-	/* background-color: rgba(0,0,0,0.7); */
-	color: @secondary;
-    /* border: 2px solid @purple; */
-	padding-top: 2px;
-	padding-bottom: 2px;
-	padding-right: 4px;
-	padding-left: 4px;
 }
 .modules-left {
-    margin: 0px 0px 0px 9px;
-	/* background-color: rgba(0,0,0,0.7); */
-	color: @secondary;
-    /* border: 2px solid @purple; */
-	padding-top: 2px;
-	padding-bottom: 2px;
-	padding-right: 4px;
-	padding-left: 2px;
+	padding-left: 4px;
 }
 
-#tags,
-#workspaces {
-	background-color: @black; 
-    border: 2px solid @grey;
-	padding-right: 0.5em;
-    padding-left: 0.5em; 
-}
-
-#tags button,
 #workspaces button {
-    color: @foreground-inactive;
-    background-color: @black;
     margin: 0px 5px 0px 5px;
-    font-size: 1px;
-	color: @secondary;
 }
 
-#tags active {
-}
-
-#hardware {
-	background-color: @black; 
-    border: 2px solid @grey;
-	padding-right: 0.5em;
-    padding-left: 0.5em; 
-}
-
-#flex {
-	background-color: @black; 
-    border: 2px solid @grey;
-	padding-right: 0.5em;
-    padding-left: 0.5em; 
-}
-
-
-#workspaces button.active {
-    font-size: 1;
-    color: @purple;
-    /* border-bottom: 1.5px solid white; */
-}
 #workspaces button.empty {
     color: @foreground-inactive;
 }
 #workspaces button.urgent {
     color: @red;
 }
+#workspaces button.active {
+    color: @purple;
+}
 
-
+#hardware,
+#flex,
 #memory,
 #battery,
 #language,
 #bluetooth,
 #temperature,
 #temperature.critical,
-#mpris,
 #network,
 #cpu,
 #pavucontrol,
 #wireplumber,
 #custom-os_icon,
-#tray {
-    /* border-radius: 20px; */
-    /* border: 2px solid @purple; */
-	/* background-color: rgba(0,0,0,0.7); */
-    padding-right: 0.5em; 
+#mpris,
+#custom-os_icon,
+#clock {
+    color: @white;
     padding-left: 0.5em;
 }
 
 #mpris,
-#tray {
-    border: 2px solid @grey;
-    padding-right: 0.4em; 
-    padding-left: 0.45em;
-    background-color: @black; 
-}
-
-#custom-os_icon,
 #clock {
-    border: 2px solid @grey;
-	background-color: @black; 
     padding-right: 0.5em; 
-    padding-left: 0.5em;
-}
-
-#idle_inhibitor {
-    border: 2px solid @grey;
-	background-color: @black; 
-    padding-left: 0.45em; 
-    padding-right: 0.4em; 
-}
-
-#window {
-    background-color: @black; 
-    color: @foreground;
-    border: 2px solid @grey;
-    padding-left: 0.5em;
-    padding-right: 0.5em;
-}
-window#waybar.empty #window {
-    border: 0px;
-    background-color: transparent;
 }
