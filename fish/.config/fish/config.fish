@@ -19,5 +19,4 @@ if status is-interactive
 
     # souce extra programs
     zoxide init fish | source
-    starship init fish | source
 end
