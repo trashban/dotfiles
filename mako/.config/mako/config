@@ -1,0 +1,13 @@
+default-timeout=20000
+width=500
+height=200
+font=JetBrainsMonoNL Nerd Font 16
+
+# Colors
+background-color=#000000
+text-color=#cdd6f4
+border-color=#cba6f7
+progress-color=over #313244
+
+[urgency=high]
+border-color=#fab387

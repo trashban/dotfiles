@@ -2,7 +2,13 @@
 # VERSION: 3.0
 SETUVAR __fish_initialized:3800
 SETUVAR _hydro_git_11668:master\u2022\x20
-SETUVAR _hydro_git_4322:master\u2022\x20
+SETUVAR _hydro_git_4322:clap_command_args\x20
+SETUVAR _hydro_git_437940:implement_opcode\u2022\x20
+SETUVAR _hydro_git_457370:main\u2022\x20
+SETUVAR _hydro_git_476329:implement_opcode\u2022\x20
+SETUVAR _hydro_git_491306:implement_opcode\u2022\x20
+SETUVAR _hydro_git_494224:\x1d
+SETUVAR _hydro_git_672071:master\u2022\x20
 SETUVAR fish_color_autosuggestion:brblack
 SETUVAR fish_color_cancel:\x2dr
 SETUVAR fish_color_command:normal

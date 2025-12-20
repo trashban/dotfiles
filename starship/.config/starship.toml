@@ -1,13 +1,41 @@
-# Get editor completions based on the config schema
-"$schema" = 'https://starship.rs/config-schema.json'
+palette = "dracula"
 
-add_newline = false
+[aws]
+style = "bold orange"
 
-# Replace the '❯' symbol in the prompt with 'y'
-[character] # The name of the module we are configuring is 'character'
-success_symbol = '[λ](bold purple)' # The 'success_symbol' segment is being set to '➜' with the color 'bold green'
-error_symbol = '[λ](bold red)'
+[character]
+error_symbol = "[λ](bold red)"
+success_symbol = "[λ](bold purple)"
 
-# Disable the package module, hiding it from the prompt completely
-[package]
-disabled = true
+[cmd_duration]
+style = "bold yellow"
+
+[directory]
+style = "bold green"
+
+[git_branch]
+style = "bold pink"
+
+[git_status]
+style = "bold red"
+
+[hostname]
+style = "bold purple"
+
+[username]
+format = "[$user]($style) on "
+style_user = "bold cyan"
+
+# Define Dracula color palette
+[palettes.dracula]
+background = "#282a36"
+current_line = "#44475a"
+foreground = "#f8f8f2"
+comment = "#6272a4"
+cyan = "#8be9fd"
+green = "#50fa7b"
+orange = "#ffb86c"
+pink = "#ff79c6"
+purple = "#bd93f9"
+red = "#ff5555"
+yellow = "#f1fa8c"

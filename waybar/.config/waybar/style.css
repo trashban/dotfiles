@@ -18,7 +18,7 @@
 }
 
 window#waybar {
-    background-color: @background;
+    background-color: @black;
     border-radius: 0px;
     padding: 0px;
     border: 0px;
