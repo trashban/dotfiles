@@ -21,6 +21,10 @@ vim.opt.wrap = false
 vim.opt.signcolumn = 'yes'
 vim.opt.winborder = 'double'
 
+-- cmdline
+vim.opt.pumborder = 'double'
+vim.o.pumheight = 12
+
 -- numbers
 vim.opt.number = true
 vim.opt.relativenumber = true
