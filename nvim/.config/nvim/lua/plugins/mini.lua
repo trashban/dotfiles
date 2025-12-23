@@ -17,7 +17,7 @@ require("mini.extra").setup()
 -- ui
 require('mini.trailspace').setup()
 require('mini.notify').setup()
-require('mini.tabline').setup()
+-- require('mini.tabline').setup()
 require('mini.cursorword').setup()
 require('mini.cmdline').setup()
 require('mini.statusline').setup()

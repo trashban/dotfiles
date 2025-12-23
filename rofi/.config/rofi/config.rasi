@@ -18,7 +18,7 @@ configuration {
     drac-red: #ff5555;
     drac-yel: #f1fa8c;
 
-    font: "Iosevka Custom 20";
+    font: "Iosevka Nerd Font 20";
 
     foreground: @drac-fgd;
     background-color: @drac-bgd;

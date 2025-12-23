@@ -48,7 +48,7 @@ tooltip label{
 }
 
 #workspaces button.empty {
-    color: @foreground-inactive;
+    color: @white;
 }
 #workspaces button.urgent {
     color: @red;
@@ -80,4 +80,9 @@ tooltip label{
 #mpris,
 #clock {
     padding-right: 0.5em; 
+}
+
+window#waybar.empty {
+    margin: 0px 0px 0px 0px;
+    font-size: 0;
 }

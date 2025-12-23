@@ -1,5 +1,5 @@
-alias ls lsd
-alias lst "lsd --tree"
+alias ls exa
+alias lst "exa --tree"
 alias en "nvim /etc/nixos/configuration.nix"
 alias nrs "sudo nixos-rebuild switch"
 alias cd z

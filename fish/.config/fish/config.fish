@@ -15,8 +15,9 @@ if status is-interactive
         rm -f -- "$tmp"
     end
 
-    pfetch
+    # pfetch
     
     # souce extra programs
     zoxide init fish | source
+    starship init fish | source
 end
