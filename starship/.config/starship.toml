@@ -1,41 +1,179 @@
-palette = "dracula"
-
-[aws]
-style = "bold orange"
+palette = "kanagawa"
 
 [character]
-error_symbol = "[λ](bold red)"
+error_symbol = "[λ](bold #EF0307)"
 success_symbol = "[λ](bold purple)"
 
+[username]
+show_always = true
+style_user = "fg:#16161D bg:#7E9CD8"
+style_root = "fg:#7E9CD8 bg:#16161D"
+format = '[ $user ](bold $style)'
+disabled = false
+
+[os]
+disabled = true
+
 [cmd_duration]
-style = "bold yellow"
+min_time = 500
+style = "bg:#76946A"
+format = '[ $duration ](bold $style)'
 
 [directory]
-style = "bold green"
+style = "bg:#2A2A37 fg:#C8C093"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "… /"
+
+# Here is how you can shorten some long paths by text replacement
+# similar to mapped_locations in Oh My Posh:
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Important 󰈙 " = "󰈙 "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+
+[c]
+symbol = " "
+style = "bg:#6C91CC"
+format = '[ $symbol ($version) ]($style)'
+
+[cpp]
+symbol = " "
+style = "bg:#86BBD8"
+format = '[ $symbol ($version) ]($style)'
+
+[docker_context]
+symbol = " "
+style = "bg:#06969A"
+format = '[ $symbol $context ]($style)'
 
 [git_branch]
-style = "bold pink"
+symbol = ""
+style = "bg:#0A0837"
+format = '[ $symbol $branch ]($style)'
 
 [git_status]
-style = "bold red"
+ahead = '⇡ ${count}'
+diverged = '⇕ ⇡ ${ahead_count}⇣ ${behind_count}'
+behind = '⇣ ${count}'
+style = "bg:#0A0837"
+format = '[$conflicted$stashed$deleted$renamed $modified$typechanged$staged$untracked $ahead_behind]($style)'
 
-[hostname]
-style = "bold purple"
+[golang]
+symbol = " "
+style = "bg:##66D0DD"
+format = '[ $symbol ($version) ]($style)'
 
-[username]
-format = "[$user]($style) on "
-style_user = "bold cyan"
+[haskell]
+symbol = " "
+style = "bg:##5C4A7E"
+format = '[ $symbol ($version) ]($style)'
 
-# Define Dracula color palette
-[palettes.dracula]
-background = "#282a36"
-current_line = "#44475a"
-foreground = "#f8f8f2"
-comment = "#6272a4"
-cyan = "#8be9fd"
-green = "#50fa7b"
-orange = "#ffb86c"
-pink = "#ff79c6"
-purple = "#bd93f9"
-red = "#ff5555"
-yellow = "#f1fa8c"
+[java]
+symbol = " "
+style = "bg:##D7201E"
+format = '[ $symbol ($version) ]($style)'
+
+[nodejs]
+symbol = ""
+style = "bg:#86BBD8"
+format = '[ $symbol ($version) ]($style)'
+
+[rust]
+symbol = " "
+style = "bg:#F75208"
+format = '[ $symbol ($version) ]($style)'
+
+[python]
+symbol = ""
+style = "bg:#F6BC2E fg:#FFFFFF"
+format = '[ $symbol ($version) ]($style)'
+
+[lua]
+symbol = " "
+style = "bg:#00007A fg:#FFFFFF"
+format = '[ $symbol ($version) ]($style)'
+
+[time]
+disabled = true
+
+[palettes.kanagawa]
+rosewater = "#C8C093"   # soft light accent
+flamingo  = "#E6C384"   # warm highlight
+pink      = "#957FB8"   # magenta / purple
+mauve     = "#938AA9"   # muted violet
+red       = "#C34043"   # red
+maroon    = "#E82424"   # bright red
+peach     = "#C0A36E"   # earthy gold
+yellow    = "#E6C384"   # yellow
+green     = "#98BB6C"   # bright green
+teal      = "#7AA89F"   # teal
+sky       = "#7FB4CA"   # sky blue
+sapphire  = "#72A7BC"   # bold blue
+blue      = "#7E9CD8"   # primary blue
+lavender  = "#957FB8"   # lavender
+text      = "#DCD7BA"   # foreground
+subtext1  = "#C8C093"
+subtext0  = "#727169"
+overlay2  = "#6A9589"
+overlay1  = "#76946A"
+overlay0  = "#54546D"
+surface2  = "#2D4F67"   # highlight background
+surface1  = "#223249"
+surface0  = "#1F1F28"
+base      = "#1F1F28"   # main background
+mantle   = "#16161D"
+crust    = "#0F0F14"
+
+[palettes.catppuccin_mocha]
+rosewater = "#f5e0dc"
+flamingo = "#f2cdcd"
+pink = "#f5c2e7"
+mauve = "#cba6f7"
+red = "#f38ba8"
+maroon = "#eba0ac"
+peach = "#fab387"
+yellow = "#f9e2af"
+green = "#a6e3a1"
+teal = "#94e2d5"
+sky = "#89dceb"
+sapphire = "#74c7ec"
+blue = "#89b4fa"
+lavender = "#b4befe"
+text = "#cdd6f4"
+subtext1 = "#bac2de"
+subtext0 = "#a6adc8"
+overlay2 = "#9399b2"
+overlay1 = "#7f849c"
+overlay0 = "#6c7086"
+surface2 = "#585b70"
+surface1 = "#45475a"
+surface0 = "#313244"
+base = "#1e1e2e"
+mantle = "#181825"
+crust = "#11111b"
+
+[palettes.kanso-zen]
+fg = "#c5c9c7"
+bg = "#090e13"
+red = "#c4746e"
+green = "#8a9a7b"
+yellow = "#c4b28a"
+blue = "#8ba4b0"
+magenta = "#a292a3"
+cyan = "#8ea4a2"
+white = "#a4a7a4"
+bright_black = "#5c6066"
+bright_red = "#e46876"
+bright_green = "#87a987"
+bright_yellow = "#e6c384"
+bright_blue = "#7fb4ca"
+bright_magenta = "#938aa9"
+bright_cyan = "#7aa89f"
+bright_white = "#c5c9c7"
+orange = "#b6927b"
+orange_alt = "#b98d7b"
+selection_bg = "#22262d"
+url = "#72a7bc"
