@@ -59,8 +59,8 @@
     },
 
     "wireplumber": {
-        "format": "<span color='#f78c6c' rise='1500'>{icon}</span> {volume}%",
-        "format-muted": "<span color='#f78c6c' rise='1500'>󰖁</span> {volume}%",
+        "format": "<span color='#8EA4A2'>:</span> <span color='#f78c6c' rise='1500'>{icon}</span> {volume}%",
+        "format-muted": "<span color='#8EA4A2'>:</span> <span color='#f78c6c' rise='1500'>󰖁</span> {volume}%",
         "format-bluetooth": "<span color='#f78c6c' rise='1500'>{icon}</span> {volume}%",
         "format-bluetooth-muted": "<span color='#f78c6c' rise='1500'>󰖁</span> {volume}%",
         "format-icons": {
@@ -84,7 +84,7 @@
 
     "temperature": {
         "critical-threshold": 85,
-        "hwmon-path": "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon1/temp1_input",
+        "hwmon-path": "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon3/temp1_input",
         "format": "<span color='#8EA4A2'>:</span> {icon} {temperatureC}°C",
         "format-icons": [
             "<span color='#ffcb6b rise='1500'></span>",

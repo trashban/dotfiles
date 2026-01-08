@@ -16,7 +16,6 @@ if status is-interactive
     end
 
     # pfetch
-    
     # souce extra programs
     zoxide init fish | source
     starship init fish | source

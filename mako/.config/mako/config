@@ -1,6 +1,7 @@
 default-timeout=20000
 width=500
 height=200
+text-alignment=center
 font=JetBrainsMonoNL Nerd Font 16
 
 # Colors

@@ -16,7 +16,18 @@ require("mini.extra").setup()
 
 -- ui
 require('mini.trailspace').setup()
-require('mini.notify').setup()
+require('mini.notify').setup({
+    lsp_progress = {
+        -- Whether to enable showing
+        enable = false,
+
+        -- Notification level
+        level = 'INFO',
+
+        -- Duration (in ms) of how long last message should be shown
+        duration_last = 1000,
+    },
+})
 -- require('mini.tabline').setup()
 require('mini.cursorword').setup()
 require('mini.cmdline').setup()
@@ -31,15 +42,15 @@ require('mini.diff').setup({
         },
     },
 })
-require('mini.indentscope').setup({
-    draw = {
-        delay = 0,
-        animation = require('mini.indentscope').gen_animation.none(),
-    },
-    options = {
-        try_as_border = true,
-    },
-    symbol = '│'
-})
+-- require('mini.indentscope').setup({
+--     draw = {
+--         delay = 0,
+--         animation = require('mini.indentscope').gen_animation.none(),
+--     },
+--     options = {
+--         try_as_border = true,
+--     },
+--     symbol = '│'
+-- })
 require("mini.icons").setup()
 MiniIcons.mock_nvim_web_devicons()

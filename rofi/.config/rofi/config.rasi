@@ -17,26 +17,28 @@ configuration {
     drac-pur: #bd93f9;
     drac-red: #ff5555;
     drac-yel: #f1fa8c;
+    purple: #5a4fcf;
+    white: #FFFFFF;
 
     font: "Iosevka Nerd Font 20";
 
     foreground: @drac-fgd;
     background-color: @drac-bgd;
-    active-background: @drac-pnk;
+    active-background: #7E9CD8;
     urgent-background: @drac-red;
     urgent-foreground: @drac-bgd;
-    
+
     selected-background: @active-background;
     selected-urgent-background: @urgent-background;
     selected-active-background: @active-background;
     separatorcolor: @active-background;
-    bordercolor: #6272a4;
+    bordercolor: #7E9CD8;
 }
 
 #window {
     background-color: @background-color;
     border:           3;
-    border-radius:    18;
+    border-radius:    0;
     border-color:     @bordercolor;
     padding:          15;
 }
@@ -136,9 +138,9 @@ configuration {
 }
 #textbox-prompt-colon {
     expand:     false;
-    str:        ">";
+    str:        "λ";
     margin:     0px 0.3em 0em 0em ;
-    text-color: @drac-pur;
+    text-color: @purple;
 }
 element-text, element-icon {
     background-color: inherit;
