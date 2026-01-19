@@ -5,4 +5,4 @@ require('lsp')
 -- require('statusline')
 
 vim.opt.fillchars:append('eob: ')
-vim.cmd[[colorscheme kanagawa]]
+vim.cmd[[colorscheme moonfly]]

@@ -1,13 +1,13 @@
 default-timeout=20000
-width=500
-height=200
-text-alignment=center
-font=JetBrainsMonoNL Nerd Font 16
+width=350
+height=110
+text-alignment=left
+font=Iosevka Nerd Font 20
 
 # Colors
-background-color=#000000
+background-color=#181820
 text-color=#cdd6f4
-border-color=#cba6f7
+border-color=#5A4FCF
 progress-color=over #313244
 
 [urgency=high]

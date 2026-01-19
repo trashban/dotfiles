@@ -1,0 +1,87 @@
+@define-color foreground #eeeeee;
+@define-color foreground-inactive #aaaaaa;
+@define-color black #000000;
+@define-color background #090e13;
+@define-color purple #5a4fcf;
+@define-color red #bf0000;
+@define-color black rgba(0,0,0, 1);
+@define-color grey rgba(59,59,59,1);
+
+* {
+    font-family: JetBrainsMono Nerd Font; 
+    font-size: 20;
+    border: none;
+    opacity: 1.0;
+    border-radius: 0px;
+    padding: 0;
+    margin: 0;
+}
+
+window#waybar {
+    background-color: @black;
+    border-radius: 0px;
+    padding: 0px;
+    border: 0px;
+}
+
+tooltip {
+	color: @inverse_surface;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+tooltip label{
+	color: @inverse_surface;
+}
+
+/*-----module groups----*/
+.modules-right {
+	padding-right: 15px;
+}
+.modules-center {
+}
+.modules-left {
+	padding-left: 4px;
+}
+
+#workspaces button {
+    margin: 0px 5px 0px 5px;
+}
+
+#workspaces button.empty {
+    color: @white;
+}
+#workspaces button.urgent {
+    color: @red;
+}
+#workspaces button.active {
+    color: @purple;
+}
+
+#hardware,
+#flex,
+#memory,
+#battery,
+#language,
+#bluetooth,
+#temperature,
+#temperature.critical,
+#network,
+#cpu,
+#pavucontrol,
+#custom-os_icon,
+#mpris,
+#custom-os_icon,
+#clock {
+    color: @white;
+    padding-left: 0.5em;
+}
+
+#mpris,
+#clock {
+    padding-right: 0.5em; 
+}
+
+window#waybar.empty {
+    margin: 0px 0px 0px 0px;
+    font-size: 0;
+}

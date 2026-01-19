@@ -1,87 +1,74 @@
-@define-color foreground #eeeeee;
-@define-color foreground-inactive #aaaaaa;
-@define-color black #000000;
-@define-color background #090e13;
-@define-color purple #5a4fcf;
-@define-color red #bf0000;
-@define-color black rgba(0,0,0, 1);
-@define-color grey rgba(59,59,59,1);
+@define-color kanagawa-blue #7E9CD8;
+@define-color kanagawa-grey #b2ccd6;
+@define-color kanagawa-red #E82424;
+@define-color custom-purp #5a4fcf;
+@define-color alt-grey #252525;
+@define-color oled-black #000000;
 
 * {
-    font-family: JetBrainsMono Nerd Font; 
-    font-size: 20;
-    border: none;
-    opacity: 1.0;
-    border-radius: 0px;
-    padding: 0;
-    margin: 0;
+    font-family: "Mx437 IBM VGA 8x16";
+    font-size: 24;
+    border-radius: 0;
 }
 
 window#waybar {
-    background-color: @black;
-    border-radius: 0px;
-    padding: 0px;
-    border: 0px;
+    background-color: @oled-black;
+    color: #FFFFFF;
 }
 
-tooltip {
-	color: @inverse_surface;
-    background: rgba(0, 0, 0, 0.8);
-}
-
-tooltip label{
-	color: @inverse_surface;
-}
-
-/*-----module groups----*/
-.modules-right {
-	padding-right: 15px;
-}
-.modules-center {
-}
-.modules-left {
-	padding-left: 4px;
+window#waybar.empty #window {
+	background-color: transparent;
+	color: transparent;
+    padding: 0px 0px 0px 0px;
 }
 
 #workspaces button {
-    margin: 0px 5px 0px 5px;
-}
-
-#workspaces button.empty {
-    color: @white;
-}
-#workspaces button.urgent {
-    color: @red;
+    background-color: @oled-black;
+    padding: 5px 10px 0px 10px;
 }
 #workspaces button.active {
-    color: @purple;
+    background-color: @alt-grey;
 }
 
-#hardware,
-#flex,
-#memory,
-#battery,
-#language,
-#bluetooth,
-#temperature,
-#temperature.critical,
+#workspaces button.urgent {
+	color: @kanagawa-red;
+}
+
 #network,
+#temperature,
+#backlight,
+#wireplumber,
 #cpu,
-#pavucontrol,
-#custom-os_icon,
+#memory,
+#disk,
 #mpris,
-#custom-os_icon,
-#clock {
-    color: @white;
-    padding-left: 0.5em;
+#clock,
+#battery {
+    padding: 5px 10px 0px 5px;
+}
+
+/* unique padding */
+#window {
+    padding: 5px 10px 0px 10px;
 }
 
 #mpris,
-#clock {
-    padding-right: 0.5em; 
+#tray {
+   padding: 0px 0px 0px 15px;
 }
 
-window#waybar.empty {
-    margin: 0px 0px 0px 0px;
-    font-size: 0;
+/* grey colour */
+.modules-right {
+    background-color: @alt-grey;
+}
+#window {
+    background-color: @alt-grey;
+}
+
+#battery.critical {
+   color: #ff5555;
+}
+
+#network.disconnected {
+    color: #ff5555;
 }

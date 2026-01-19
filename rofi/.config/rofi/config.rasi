@@ -20,11 +20,11 @@ configuration {
     purple: #5a4fcf;
     white: #FFFFFF;
 
-    font: "Iosevka Nerd Font 20";
+    font: "Mx437 IBM VGA 8x16 24";
 
     foreground: @drac-fgd;
     background-color: @drac-bgd;
-    active-background: #7E9CD8;
+    active-background: @purple;
     urgent-background: @drac-red;
     urgent-foreground: @drac-bgd;
 
@@ -32,7 +32,7 @@ configuration {
     selected-urgent-background: @urgent-background;
     selected-active-background: @active-background;
     separatorcolor: @active-background;
-    bordercolor: #7E9CD8;
+    bordercolor: @white; 
 }
 
 #window {
@@ -52,7 +52,7 @@ configuration {
     padding:      1px ;
 }
 #textbox {
-    text-color: @foreground;
+    text-color: @white;
 }
 #listview {
     fixed-height: 0;
@@ -131,16 +131,16 @@ configuration {
 }
 #prompt {
     spacing:    0;
-    text-color: @drac-grn;
+    text-color: @white;
 }
 #inputbar {
     children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
 }
 #textbox-prompt-colon {
     expand:     false;
-    str:        "λ";
+    str:        ":)";
     margin:     0px 0.3em 0em 0em ;
-    text-color: @purple;
+    text-color: @white;
 }
 element-text, element-icon {
     background-color: inherit;

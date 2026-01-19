@@ -2,7 +2,7 @@ palette = "kanagawa"
 
 [character]
 error_symbol = "[λ](bold #EF0307)"
-success_symbol = "[λ](bold purple)"
+success_symbol = "[λ](bold #5a4fcf)"
 
 [username]
 show_always = true
@@ -63,7 +63,7 @@ format = '[$conflicted$stashed$deleted$renamed $modified$typechanged$staged$untr
 
 [golang]
 symbol = " "
-style = "bg:##66D0DD"
+style = "bg:#7E9CD8"
 format = '[ $symbol ($version) ]($style)'
 
 [haskell]

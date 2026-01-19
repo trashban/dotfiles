@@ -3,7 +3,7 @@
 	"position": "top",
 
     "modules-left": ["hyprland/workspaces", "hyprland/window", "mpris", "tray"],
-    "modules-right": ["network", "temperature", "disk", "memory", "wireplumber", "clock"],
+    "modules-right": ["network", "temperature", "disk", "memory", "cpu", "wireplumber", "clock"],
 
 	"hyprland/workspaces": {
         "format": "{}",
@@ -26,7 +26,7 @@
             "playing": "▶",
             "paused": "⏸"
         },
-        // "ignored-players": ["firefox", "firefox-bin"]
+        "ignored-players": ["firefox", "firefox-bin"]
     },
 
     "tray": {
@@ -35,25 +35,25 @@
     },
 
     "network": {
-        "format-wifi": "{ipaddr}",
+        // "format-wifi": "<span color='#7FB4CA'>IP</span>: {ipaddr}",
         "format-disconnected": "睊",
         "interval": 10
     },
 
     "temperature": {
         "hwmon-path": "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon3/temp1_input",
-		"format": "| {temperatureC}°C",
+		"format": "<span color='#D27E99'>TEMP</span>: {temperatureC}°C",
 		"format-icons":[""],
 		"interval": 30
     },
 
     "disk": {
-        "format": "| {percentage_used}%",
+        "format": "<span color='#98BB6C'>DISK</span>: {percentage_used}%",
         "interval": 60
     },
 
     "memory": {
-        "format": "| {used:0.1f}G",
+        "format": "<span color='#c792ea'>RAM</span>: {used:0.1f}G",
         "interval": 5
     },
 
@@ -63,13 +63,13 @@
     },
 
     "wireplumber": {
-        "format": "| {volume}%",
+        "format": "<span color='#f78c6c'>VOL</span>: {volume}%",
         "format-muted": "MUTED"
     },
 
     "clock": {
         // %a %b %e,
-        "format": "| {:%I:%M %p}",
+        "format": "{:%I:%M %p}",
         "interval": 30
     }
 }
