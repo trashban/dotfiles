@@ -48,6 +48,10 @@
       "rev": "927361caec8c32e210acd5c56045e0d7d80143a0",
       "src": "https://github.com/webhooked/kanso.nvim"
     },
+    "markview.nvim": {
+      "rev": "c81ce9ed129387fc5fdec91abe9818a1b0e6fcac",
+      "src": "https://github.com/OXY2DEV/markview.nvim"
+    },
     "mini.nvim": {
       "rev": "29b9e13f891f9c83f44ff5bf44d22daa1af1dc71",
       "src": "https://github.com/nvim-mini/mini.nvim"

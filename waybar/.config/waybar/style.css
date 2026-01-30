@@ -7,8 +7,10 @@
 
 * {
     font-family: "Mx437 IBM VGA 8x16";
-    font-size: 24;
+    font-size: 26;
     border-radius: 0;
+    padding: 0;
+    margin: 0;
 }
 
 window#waybar {
@@ -16,20 +18,19 @@ window#waybar {
     color: #FFFFFF;
 }
 
-window#waybar.empty #window {
-	background-color: transparent;
-	color: transparent;
-    padding: 0px 0px 0px 0px;
-}
-
+#tags button,
 #workspaces button {
     background-color: @oled-black;
     padding: 5px 10px 0px 10px;
 }
+
+#tags button.occupied,
+#workspaces button.focused,
 #workspaces button.active {
     background-color: @alt-grey;
 }
 
+#tags button.urgent
 #workspaces button.urgent {
 	color: @kanagawa-red;
 }

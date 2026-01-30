@@ -10,11 +10,9 @@
 // autostart
 spawn-at-startup "waybar"
 spawn-at-startup "swww-daemon"
-spawn-at-startup "swaync"
-spawn-at-startup "gentoo-pipewire-launcher"
+spawn-at-startup "mako"
 spawn-sh-at-startup "wl-paste --watch cliphist store"
 spawn-sh-at-startup "swww-daemon -n overlay"
-spawn-at-startup "/usr/libexec/polkit-mate-authentication-agent-1"
 
 input {
     keyboard {
@@ -145,8 +143,8 @@ layout {
         // Width of the border in logical pixels.
         width 2
 
-        active-color "#5a4fcf"
-        inactive-color "#595959"
+        active-color "#595959"
+        inactive-color "#000000"
 
         // Color of the border around windows that request your attention.
         urgent-color "#9b0000"
@@ -192,13 +190,13 @@ layout {
 
 // round corners
 window-rule {
-    geometry-corner-radius 16
+    geometry-corner-radius 0
     clip-to-geometry true
 }
 
 cursor {
-    xcursor-theme "catppuccin-mocha-dark-cursors"
-    xcursor-size 24 
+    xcursor-theme "Bibata-Modern-Ice"
+    xcursor-size 24
 }
 
 hotkey-overlay {
@@ -225,6 +223,7 @@ screenshot-path "~/Pictures/Screenshots/Screenshot %Y-%m-%d %H-%M-%S.png"
 // https://yalter.github.io/niri/Configuration:-Animations
 animations {
     // Slow down all animations by this factor. Values below 1 speed them up instead.
+    off
     slowdown 0.8
 }
 
@@ -305,6 +304,7 @@ binds {
     Mod+Shift+W hotkey-overlay-title="Change wallpaper" { spawn-sh "~/dotfiles/Scripts/wpchange.sh"; }
     Mod+C hotkey-overlay-title="Open cliphist:" { spawn-sh "cliphist list | rofi -dmenu | cliphist decode | wl-copy"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: hyprlock" { spawn-sh "hyprlock"; }
+    Mod+Shift+P hotkey-overlay-title="Pick a color:" { spawn "hyprpicker"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
@@ -546,5 +546,5 @@ binds {
     Mod+Shift+Q { quit; }
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.
-    Mod+Shift+P { power-off-monitors; }
+    // Mod+P { power-off-monitors; }
 }
