@@ -1,4 +1,5 @@
 palette = "kanagawa"
+scan_timeout = 10
 
 [character]
 error_symbol = "[λ](bold #EF0307)"

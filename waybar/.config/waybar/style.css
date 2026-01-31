@@ -21,6 +21,7 @@ window#waybar {
 #tags button,
 #workspaces button {
     background-color: @oled-black;
+    color: #FFFFFF;
     padding: 5px 10px 0px 10px;
 }
 
