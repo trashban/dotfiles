@@ -1,20 +1,8 @@
-" vim configuration
-" trashban
-"
-" its designed so i minimise how much plugins i use because i want to
-" learn/use more of vim's native commands/motions.
-"
-" some settings are additional/opinionated, but they stem from my habits from nvim
-" and i probably can't live without them anymore, so they're here to stay.
-
 " remove vi compatibility
 set nocompatible
 
 " leader
 let mapleader = " "
-
-" plugins
-packadd lsp
 
 " colours
 syntax on
@@ -51,7 +39,7 @@ set history=100
 set undolevels=100
 
 " indentation
-filetype plugin indent on
+" filetype plugin indent on (vim-plug automatically does this)
 set autoindent
 set copyindent
 
@@ -61,24 +49,18 @@ let g:netrw_browse_split=4  " open in prior window
 let g:netrw_altv=1          " open splits to the right
 let g:netrw_liststyle=3     " tree view
 
-" statusline
-set statusline=
-set statusline+=%7*\[%n]                                  "buffernr
-set statusline+=%1*\ %<%F\                                "File+path
-set statusline+=%2*\ %y\                                  "FileType
-set statusline+=%3*\ %{''.(&fenc!=''?&fenc:&enc).''}      "Encoding
-set statusline+=%3*\ %{(&bomb?\",BOM\":\"\")}\            "Encoding2
-set statusline+=%4*\ %{&ff}\                              "FileFormat (dos/unix..)
-set statusline+=%5*\ %{&spelllang}\%{HighlightSearch()}\  "Spellanguage & Highlight on?
-set statusline+=%8*\ %=\ row:%l/%L\ (%03p%%)\             "Rownumber/total (%)
-set statusline+=%9*\ col:%03c\                            "Colnr
-set statusline+=%0*\ \ %m%r%w\ %P\ \                      "Modified? Readonly? Top/bot.
-
 " misc
 set backspace=indent,eol,start  " intuitive backspace behavior
 set vb t_vb=                    " remove that stupid flash
 
-" lsp server setup
+" keybinds
+nnoremap <leader>o  :bro ol!<CR>
+nnoremap <leader>f  :E!<CR>
+nnoremap <leader>b  :ls!<CR>:b!
+
+" lsp 
+packadd lsp
+
 call LspAddServer([#{
 \  name: 'clangd',
 \  filetype: ['c', 'cpp'],
@@ -86,19 +68,23 @@ call LspAddServer([#{
 \  args: ['--background-index']
 \}])
 
-call LspAddServer([#{name: 'rust-analyzer',
+call LspAddServer([#{
+\  name: 'golang',
+\  filetype: ['go', 'gomod'],
+\  path: '/usr/bin/gopls',
+\  args: ['serve'],
+\  syncInit: v:true
+\}])
+
+" Rust language server
+call LspAddServer([#{
+\  name: 'rustlang',
 \  filetype: ['rust'],
 \  path: '/home/ashin14/.cargo/bin/rust-analyzer',
 \  args: [],
 \  syncInit: v:true
 \}])
 
-" custom keybinds
-nnoremap <leader>o  :bro ol<CR>
-nnoremap <leader>f  :E<CR>
-nnoremap <leader>b  :ls<CR>:b
-
-" lsp
 nnoremap <S-k>      :LspHover<CR>
 nnoremap <leader>d  :LspDiag current<CR>
 nnoremap ga         :LspCodeAction<CR>
