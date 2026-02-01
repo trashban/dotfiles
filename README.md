@@ -1,5 +1,5 @@
 # trashban's dotfiles
-## curr setup
+## setup
 * distro:       void linux
 * compositor:   sway
 * bar:          waybar
@@ -7,10 +7,10 @@
 * notif:        mako
 * editor:       vim/nvim
 
-(note: these choices are as of 1/2/26; i've probably already distrohopped...)
+(note: this was updated at 01/02/26; i've probably already distrohopped...)
 
 ## installation
-theres no installation script, but via stow you can easily 'install' each compartment
+theres no installation script, but you can use `stow` and 'install' each compartment to the appropriate directory
 
-## ss
+## screenshots
 ![thinkpad-p14s desktop](./ss/laptop_desktop.png)
