@@ -1,8 +1,16 @@
-# dotfiles for PC + thinkpad-p14 as a cs student
-i've used my fair share of distributions (void-linux, fedora etc) but gentoo, nixos and arch are my favourites.
+# trashban's dotfiles
+## curr setup
+* distro:       void linux
+* compositor:   sway
+* bar:          waybar
+* launcher:     rofi
+* notif:        mako
+* editor:       vim/nvim
 
-my current setup is a bloated nixos + hyprland setup.
+(note: these choices are as of 1/2/26; i've probably already distrohopped...)
 
-you can use stow to easily direct the configuration files towards its approriate location (typicaly .config/...).
+## installation
+theres no installation script, but via stow you can easily 'install' each compartment
 
-if i stick with nixos, ill eventually migrate more towards a home-manager setup but i dont really care atm.
+## ss
+![thinkpad-p14s desktop](./ss/laptop_desktop.png)

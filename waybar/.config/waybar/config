@@ -3,7 +3,7 @@
 	"position": "top",
 
     "modules-left": ["sway/workspaces", "sway/window", "mpris", "tray"],
-    "modules-right": ["network", "temperature", "disk", "memory", "wireplumber", "clock"],
+    "modules-right": ["network", "temperature", "disk", "memory", "wireplumber", "battery", "clock"],
 
     // hyprland
 
@@ -112,6 +112,10 @@
     "wireplumber": {
         "format": "| {volume}%",
         "format-muted": "MUTED"
+    },
+
+    "battery": {
+        "format": "| {}%"
     },
 
     "clock": {
