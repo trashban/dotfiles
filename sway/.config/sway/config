@@ -4,8 +4,11 @@
 ### autostart
 exec waybar
 exec mako
-exec wl-paste --watch cliphist store
 exec kanshi
+exec pipewire
+exec wl-paste --watch cliphist store
+exec swaybg -i ~/Pictures/Wallpapers/lain.png
+exec --no-startup-id dbus-update-activation-environment --all
 
 ### global vars
 set $mod Mod4
