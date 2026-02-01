@@ -1,180 +1,50 @@
-palette = "kanagawa"
-scan_timeout = 10
+"$schema" = 'https://starship.rs/config-schema.json'
 
-[character]
-error_symbol = "[λ](bold #EF0307)"
-success_symbol = "[λ](bold #5a4fcf)"
-
-[username]
-show_always = true
-style_user = "fg:#16161D bg:#7E9CD8"
-style_root = "fg:#7E9CD8 bg:#16161D"
-format = '[ $user ](bold $style)'
-disabled = false
-
-[os]
-disabled = true
-
-[cmd_duration]
-min_time = 500
-style = "bg:#76946A"
-format = '[ $duration ](bold $style)'
+format = """
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_state\
+$git_status\
+$cmd_duration\
+$line_break\
+$python\
+$character"""
 
 [directory]
-style = "bg:#2A2A37 fg:#C8C093"
-format = "[ $path ]($style)"
-truncation_length = 3
-truncation_symbol = "… /"
+style = "blue"
 
-# Here is how you can shorten some long paths by text replacement
-# similar to mapped_locations in Oh My Posh:
-[directory.substitutions]
-"Documents" = "󰈙 "
-"Important 󰈙 " = "󰈙 "
-"Downloads" = " "
-"Music" = " "
-"Pictures" = " "
-
-[c]
-symbol = " "
-style = "bg:#6C91CC"
-format = '[ $symbol ($version) ]($style)'
-
-[cpp]
-symbol = " "
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
-
-[docker_context]
-symbol = " "
-style = "bg:#06969A"
-format = '[ $symbol $context ]($style)'
+[character]
+success_symbol = "[λ](#5a4fcf)"
+error_symbol = "[λ](red)"
+vimcmd_symbol = "[λ](green)"
 
 [git_branch]
-symbol = ""
-style = "bg:#0A0837"
-format = '[ $symbol $branch ]($style)'
+format = "[$branch]($style)"
+style = "bright-black"
 
 [git_status]
-ahead = '⇡ ${count}'
-diverged = '⇕ ⇡ ${ahead_count}⇣ ${behind_count}'
-behind = '⇣ ${count}'
-style = "bg:#0A0837"
-format = '[$conflicted$stashed$deleted$renamed $modified$typechanged$staged$untracked $ahead_behind]($style)'
+format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)"
+style = "cyan"
+conflicted = "​"
+untracked = "​"
+modified = "​"
+staged = "​"
+renamed = "​"
+deleted = "​"
+stashed = "≡"
 
-[golang]
-symbol = " "
-style = "bg:#7E9CD8"
-format = '[ $symbol ($version) ]($style)'
+[git_state]
+format = '\([$state( $progress_current/$progress_total)]($style)\) '
+style = "bright-black"
 
-[haskell]
-symbol = " "
-style = "bg:##5C4A7E"
-format = '[ $symbol ($version) ]($style)'
-
-[java]
-symbol = " "
-style = "bg:##D7201E"
-format = '[ $symbol ($version) ]($style)'
-
-[nodejs]
-symbol = ""
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
-
-[rust]
-symbol = " "
-style = "bg:#F75208"
-format = '[ $symbol ($version) ]($style)'
+[cmd_duration]
+format = "[$duration]($style) "
+style = "yellow"
 
 [python]
-symbol = ""
-style = "bg:#F6BC2E fg:#FFFFFF"
-format = '[ $symbol ($version) ]($style)'
-
-[lua]
-symbol = " "
-style = "bg:#00007A fg:#FFFFFF"
-format = '[ $symbol ($version) ]($style)'
-
-[time]
-disabled = true
-
-[palettes.kanagawa]
-rosewater = "#C8C093"   # soft light accent
-flamingo  = "#E6C384"   # warm highlight
-pink      = "#957FB8"   # magenta / purple
-mauve     = "#938AA9"   # muted violet
-red       = "#C34043"   # red
-maroon    = "#E82424"   # bright red
-peach     = "#C0A36E"   # earthy gold
-yellow    = "#E6C384"   # yellow
-green     = "#98BB6C"   # bright green
-teal      = "#7AA89F"   # teal
-sky       = "#7FB4CA"   # sky blue
-sapphire  = "#72A7BC"   # bold blue
-blue      = "#7E9CD8"   # primary blue
-lavender  = "#957FB8"   # lavender
-text      = "#DCD7BA"   # foreground
-subtext1  = "#C8C093"
-subtext0  = "#727169"
-overlay2  = "#6A9589"
-overlay1  = "#76946A"
-overlay0  = "#54546D"
-surface2  = "#2D4F67"   # highlight background
-surface1  = "#223249"
-surface0  = "#1F1F28"
-base      = "#1F1F28"   # main background
-mantle   = "#16161D"
-crust    = "#0F0F14"
-
-[palettes.catppuccin_mocha]
-rosewater = "#f5e0dc"
-flamingo = "#f2cdcd"
-pink = "#f5c2e7"
-mauve = "#cba6f7"
-red = "#f38ba8"
-maroon = "#eba0ac"
-peach = "#fab387"
-yellow = "#f9e2af"
-green = "#a6e3a1"
-teal = "#94e2d5"
-sky = "#89dceb"
-sapphire = "#74c7ec"
-blue = "#89b4fa"
-lavender = "#b4befe"
-text = "#cdd6f4"
-subtext1 = "#bac2de"
-subtext0 = "#a6adc8"
-overlay2 = "#9399b2"
-overlay1 = "#7f849c"
-overlay0 = "#6c7086"
-surface2 = "#585b70"
-surface1 = "#45475a"
-surface0 = "#313244"
-base = "#1e1e2e"
-mantle = "#181825"
-crust = "#11111b"
-
-[palettes.kanso-zen]
-fg = "#c5c9c7"
-bg = "#090e13"
-red = "#c4746e"
-green = "#8a9a7b"
-yellow = "#c4b28a"
-blue = "#8ba4b0"
-magenta = "#a292a3"
-cyan = "#8ea4a2"
-white = "#a4a7a4"
-bright_black = "#5c6066"
-bright_red = "#e46876"
-bright_green = "#87a987"
-bright_yellow = "#e6c384"
-bright_blue = "#7fb4ca"
-bright_magenta = "#938aa9"
-bright_cyan = "#7aa89f"
-bright_white = "#c5c9c7"
-orange = "#b6927b"
-orange_alt = "#b98d7b"
-selection_bg = "#22262d"
-url = "#72a7bc"
+format = "[$virtualenv]($style) "
+style = "bright-black"
+detect_extensions = []
+detect_files = []
