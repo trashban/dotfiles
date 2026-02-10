@@ -1,2 +1,7 @@
 [flavor]
-dark = "kanso-zen"
+dark = "catppuccin-mocha"
+
+[indicator]
+preview = { }
+current = { fg = "#303446", bg = "#babbf1" }
+padding = { open = "█", close = "█" }
