@@ -2,7 +2,7 @@
 	"layer": "top",
 	"position": "top",
 
-    "modules-left": ["sway/workspaces", "sway/window", "mpris", "tray"],
+    "modules-left": ["niri/workspaces", "niri/window", "mpris", "tray"],
     "modules-right": ["network", "temperature", "disk", "memory", "wireplumber", "clock"],
 
     // hyprland
@@ -23,15 +23,34 @@
 
     // niri
 
+    "niri/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "1": "I",
+            "2": "II",
+            "3": "III",
+            "4": "IV",
+            "5": "V",
+            "6": "VI",
+            "7": "VII",
+            "8": "VIII",
+            "9": "IX",
+            "10": "X"
+        }
+    },
+
 	"niri/window": {
-    	"format": "{title}",
-    	"max-length": 30
+        "format": "{title}",
+        "max-length": 30,
+        "rewrite": {
+            "": "niri"
+        }
     },
 
     // river
 
     "river/tags": {
-        "hide-vacant": true,
+        "hide-vacant": true
     },
 
     "river/window": {
@@ -83,7 +102,7 @@
 
     "network": {
         "format-wifi": "{ipaddr}",
-        "format-disconnected": "睊",
+        "format-disconnected": "fuck",
         "interval": 10
     },
 
