@@ -4,7 +4,7 @@
 
     "modules-left": ["niri/workspaces", "niri/window", "mpris", "tray"],
     "modules-right": ["network", "temperature", "disk", "memory", "wireplumber", "clock"],
-
+    
     // hyprland
 
 	"hyprland/workspaces": {
@@ -131,6 +131,10 @@
     "wireplumber": {
         "format": "| {volume}%",
         "format-muted": "MUTED"
+    },
+
+    "battery": {
+        "format": "| {}%"
     },
 
     "clock": {
