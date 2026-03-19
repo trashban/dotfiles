@@ -1,7 +1,7 @@
 {
 	"layer": "top",
 	"position": "top",
-
+    
     "modules-left": ["niri/workspaces", "niri/window", "mpris", "tray"],
     "modules-right": ["network", "temperature", "disk", "memory", "wireplumber", "clock"],
     

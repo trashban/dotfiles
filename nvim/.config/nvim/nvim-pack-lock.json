@@ -36,6 +36,10 @@
       "rev": "e4359a2f80ef7275b080be180841c62ca8322757",
       "src": "https://github.com/sainnhe/gruvbox-material"
     },
+    "image.nvim": {
+      "rev": "da2be65c153ba15a14a342b05591652a6df70d58",
+      "src": "https://github.com/3rd/image.nvim"
+    },
     "indent-blankline.nvim": {
       "rev": "005b560",
       "src": "https://github.com/lukas-reineke/indent-blankline.nvim"
@@ -84,6 +88,18 @@
       "rev": "81e676d3203c9eb6e4c0ccf1eba1679296ef923f",
       "src": "https://github.com/catgoose/nvim-colorizer.lua"
     },
+    "nvim-dap": {
+      "rev": "db321947bb289a2d4d76a32e76e4d2bd6103d7df",
+      "src": "https://github.com/mfussenegger/nvim-dap"
+    },
+    "nvim-java": {
+      "rev": "602a5f7fa92f9c1d425a2159133ff9de86842f0a",
+      "src": "https://github.com/nvim-java/nvim-java"
+    },
+    "nvim-jdtls": {
+      "rev": "77ccaeb422f8c81b647605da5ddb4a7f725cda90",
+      "src": "https://github.com/mfussenegger/nvim-jdtls"
+    },
     "nvim-lspconfig": {
       "rev": "92ee7d42320edfbb81f3cad851314ab197fa324a",
       "src": "https://github.com/neovim/nvim-lspconfig"
@@ -99,6 +115,11 @@
     "presence.nvim": {
       "rev": "87c857a",
       "src": "https://github.com/andweeb/presence.nvim"
+    },
+    "spring-boot.nvim": {
+      "rev": "218c0c26c14d99feca778e4d13f5ec3e8b1b60f0",
+      "src": "https://github.com/JavaHello/spring-boot.nvim",
+      "version": "'218c0c26c14d99feca778e4d13f5ec3e8b1b60f0'"
     },
     "tiny-inline-diagnostic.nvim": {
       "rev": "c7b1488ad0b389763c34bd17a6264424b3da5a52",

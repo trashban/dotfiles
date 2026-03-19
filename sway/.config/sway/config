@@ -4,7 +4,6 @@
 ### autostart
 exec waybar
 exec mako
-exec kanshi
 exec pipewire
 exec wl-paste --watch cliphist store
 exec swaybg -i ~/Pictures/Wallpapers/lain.png
@@ -29,6 +28,10 @@ set $right l
 input type:keyboard {
     xkb_options "caps:swapescape"
 }
+
+### outputs
+output DP-2 mode 2560x1440 pos 2560 0
+output HDMI-A-1 mode 2560x1440 pos 0 0
 
 # glove 80 TODO
 

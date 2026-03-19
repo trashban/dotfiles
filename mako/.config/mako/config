@@ -2,7 +2,7 @@ default-timeout=20000
 width=350
 height=110
 text-alignment=left
-font=Iosevka Nerd Font 20
+font=Iosevka 20
 
 # Colors
 background-color=#181820

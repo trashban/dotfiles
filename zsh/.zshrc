@@ -128,5 +128,6 @@ pfetch
 # zsh syntax highlighting + suggestions
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+export PATH="$HOME/.odin:$PATH"
 
-source /usr/share/zsh/plugins/xbps-command-not-found/xbps-command-not-found.zsh
+export PATH="$PATH:/opt/gradle/gradle-9.2.0/bin"

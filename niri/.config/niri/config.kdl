@@ -1,18 +1,9 @@
-// This config is in the KDL format: https://kdl.dev
-// "/-" comments out the following node.
-// Check the wiki for a full description of the configuration:
-// https://yalter.github.io/niri/Configuration:-Introduction
-
-// Input device configuration.
-// Find the full list of options on the wiki:
-// https://yalter.github.io/niri/Configuration:-Input
-
 // autostart
+spawn-at-startup "pipewire"
 spawn-at-startup "waybar"
-spawn-at-startup "swww-daemon"
 spawn-at-startup "mako"
 spawn-sh-at-startup "wl-paste --watch cliphist store"
-spawn-sh-at-startup "swww-daemon -n overlay"
+spawn-sh-at-startup "swaybg -i ~/Pictures/Wallpapers/lain.png"
 
 input {
     keyboard {
@@ -196,7 +187,7 @@ window-rule {
 
 cursor {
     xcursor-theme "Bibata-Modern-Ice"
-    xcursor-size 24
+    xcursor-size 16
 }
 
 hotkey-overlay {
@@ -255,25 +246,11 @@ window-rule {
     default-window-height { fixed 800; }
 }
 
-// ow2 janky settings
-window-rule {
-    match app-id=r#"steam_app_2357570"#
-    open-maximized true
-    default-column-width { fixed 2560; }
-    default-window-height { fixed 1440; }
-}
-
 // tell steam notifications to not be in my face thanks
 window-rule {
     match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
     default-floating-position x=10 y=10 relative-to="bottom-right"
     open-focused false
-}
-
-// with swww, allow for an overview background
-layer-rule {
-    match namespace="^swww-daemonoverlay$"
-    place-within-backdrop true
 }
 
 // set wayland for electron apps if possible
@@ -304,7 +281,7 @@ binds {
     Mod+Shift+W hotkey-overlay-title="Change wallpaper" { spawn-sh "~/dotfiles/Scripts/wpchange.sh"; }
     Mod+C hotkey-overlay-title="Open cliphist:" { spawn-sh "cliphist list | rofi -dmenu | cliphist decode | wl-copy"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: hyprlock" { spawn-sh "hyprlock"; }
-    Mod+Shift+P hotkey-overlay-title="Pick a color:" { spawn "hyprpicker"; }
+    Mod+Shift+P hotkey-overlay-title="Pick a color:" { spawn-sh "hyprpicker -a"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
@@ -547,4 +524,8 @@ binds {
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.
     // Mod+P { power-off-monitors; }
+}
+
+recent-windows {
+    off
 }

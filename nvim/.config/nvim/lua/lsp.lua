@@ -1,4 +1,14 @@
-vim.lsp.enable({ "lua_ls", "clangd", "zls", "rust_analyzer", "ts_ls", "bashls", "fish_lsp", "basedpyright", "gopls" })
+vim.lsp.enable({
+    "clangd",
+    "rust_analyzer",
+    "ols",
+    "zls",
+    "gopls",
+    "lua_ls",
+    "ts_ls",
+    "jdtls",
+    "basedpyright"
+})
 vim.cmd("set completeopt+=noselect")
 
 -- lsp specific keymaps
@@ -14,13 +24,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			vim.keymap.set(mode, lhs, rhs, { buffer = ev.buf, desc = desc })
 		end
 
-		map("n", "grd", vim.lsp.buf.definition, "Goto Definition")
-		map("n", "grD", vim.lsp.buf.declaration, "Goto Declaration")
-		map("n", "gri", vim.lsp.buf.implementation, "Goto Implementation")
+		map({ "n", "v" }, "ga", vim.lsp.buf.code_action, "Code Action")
+		map("n", "gd", vim.lsp.buf.definition, "Goto Definition")
+		map("n", "gi", vim.lsp.buf.implementation, "Goto Implementation")
 		map("n", "grr", vim.lsp.buf.references, "Goto References")
-		map("n", "grt", vim.lsp.buf.type_definition, "Goto Type Definition")
-		map("n", "grs", vim.lsp.buf.signature_help, "Show Signature")
 		map("n", "grn", vim.lsp.buf.rename, "Rename symbol")
-		map({ "n", "v" }, "gra", vim.lsp.buf.code_action, "Code Action")
 	end,
 })

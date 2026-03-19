@@ -15,7 +15,6 @@ require("mini.files").setup()
 require("mini.extra").setup()
 
 -- ui
-require('mini.trailspace').setup()
 require('mini.notify').setup({
     lsp_progress = {
         -- Whether to enable showing

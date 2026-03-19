@@ -10,10 +10,19 @@ vim.g.loaded_netrwPlugin = 1
 
 -- indent
 vim.opt.autoindent = true
-vim.opt.expandtab = true
-vim.opt.shiftwidth = 4
-vim.opt.smarttab = true
+
+-- tabs vs spaces lol
 vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
+vim.opt.softtabstop = 4
+
+-- char representation
+vim.opt.list = true
+vim.opt.listchars = {
+    tab = "  ",
+    trail = "·",
+}
 
 -- wrapping
 vim.opt.shiftround = true
