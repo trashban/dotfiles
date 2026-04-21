@@ -1,5 +1,5 @@
 // autostart
-spawn-at-startup "pipewire"
+spawn-at-startup "gentoo-pipewire-launcher"
 spawn-at-startup "waybar"
 spawn-at-startup "mako"
 spawn-sh-at-startup "wl-paste --watch cliphist store"
@@ -215,7 +215,7 @@ screenshot-path "~/Pictures/Screenshots/Screenshot %Y-%m-%d %H-%M-%S.png"
 animations {
     // Slow down all animations by this factor. Values below 1 speed them up instead.
     off
-    slowdown 0.8
+    slowdown 0.4
 }
 
 // remove hot-corners

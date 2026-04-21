@@ -2,8 +2,9 @@
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
 
-;; catppuccin theme
-(setq catppuccin-flavor 'mocha) ;; or 'latte, 'macchiato, or 'mocha
+;; no sound
+(setq visible-bell t)
+(setq ring-bell-function 'ignore)
 
 ;; fix window resizing with niri
 ;; for niri, also set up init-early.el

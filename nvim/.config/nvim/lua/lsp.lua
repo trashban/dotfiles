@@ -7,7 +7,8 @@ vim.lsp.enable({
     "lua_ls",
     "ts_ls",
     "jdtls",
-    "basedpyright"
+    "pyrefly",
+    "tinymist"
 })
 vim.cmd("set completeopt+=noselect")
 

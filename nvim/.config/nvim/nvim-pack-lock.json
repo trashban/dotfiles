@@ -56,6 +56,10 @@
       "rev": "c81ce9ed129387fc5fdec91abe9818a1b0e6fcac",
       "src": "https://github.com/OXY2DEV/markview.nvim"
     },
+    "mason.nvim": {
+      "rev": "b03fb0f20bc1d43daf558cda981a2be22e73ac42",
+      "src": "https://github.com/mason-org/mason.nvim"
+    },
     "mini.nvim": {
       "rev": "29b9e13f891f9c83f44ff5bf44d22daa1af1dc71",
       "src": "https://github.com/nvim-mini/mini.nvim"

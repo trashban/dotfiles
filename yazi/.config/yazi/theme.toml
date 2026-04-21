@@ -1,7 +1,9 @@
 [flavor]
-dark = "catppuccin-mocha"
+use = "tokyo-night"
 
 [indicator]
-preview = { }
-current = { fg = "#303446", bg = "#babbf1" }
-padding = { open = "█", close = "█" }
+padding = { open = "▐", close = "▌" }
+
+[status]
+sep_left = { open = "▐", close = "▌" }
+sep_right = { open = "▐", close = "▌" }

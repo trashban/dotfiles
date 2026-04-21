@@ -59,6 +59,10 @@ vim.opt.incsearch = true
 -- errors
 vim.opt.visualbell = false
 
+-- autocorrect
+vim.opt.spelllang = 'en_au'
+vim.opt.spell = true
+
 -- lsp symbols
 vim.diagnostic.config({
 	signs = {
