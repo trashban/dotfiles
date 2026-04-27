@@ -1,36 +1,13 @@
 {
-    "layer": "top",
-    "position": "top",
-    "height": 43,
-    "spacing": 5,
+	"layer": "top",
+	"position": "top",
+    
+    "modules-left": ["niri/workspaces", "niri/window", "mpris", "tray"],
+    "modules-right": ["network", "temperature", "disk", "memory", "wireplumber", "clock"],
+    
+    // hyprland
 
-    "modules-left": ["clock", "hyprland/window", "mpris"],
-    "modules-center": ["hyprland/workspaces"],
-    "modules-right": ["tray", "group/hardware"],
-
-    "group/hardware": {
-		"orientation": "horizontal",
-		"modules": [
-            "wireplumber", 
-            "temperature", 
-            "cpu", 
-            "memory", 
-            "network", 
-            "battery"
-		]
-	},
-
-    "custom/os_icon": {
-        "return-type": "json",
-        "exec": "~/dotfiles/Scripts/os_icon.sh",
-        "format": "{icon}",
-        "format-icons": {
-            "arch": "󰣇",
-            "gentoo": ""
-        }
-    },
-
-    "niri/workspaces": {
+	"hyprland/workspaces": {
         "format": "{}",
         "sort-by-coordinates": true,
         "all-output": false,
@@ -38,113 +15,131 @@
         "sort-by-number": false,
         "on-click": "activate"
     },
-    
-    "niri/window": {
-        "format": "{app_id}",
-        "icon": true,
-    },
-    
-    "hyprland/window": {
-        "format": "{initialClass}",
-        "icon": true,
-        "separate-outputs": true,
+
+	"hyprland/window": {
+    	"format": "{initialTitle}",
+    	"max-length": 30
     },
 
-    "clock": {
-        "format": "<span color='#ffcb6b' rise='1500'>󰥔</span> {:%a %b %I:%M %p} <span color='#8EA4A2'>:</span>",
-        "exec-if": "which swaync-client",
-        "exec": "swaync-client -swb",
-        "on-click-right": "swaync-client -d -sw",
-        "on-click": "swaync-client -t -sw",
-    },
+    // niri
 
-    "wireplumber": {
-        "format": "<span color='#8EA4A2'>:</span> <span color='#f78c6c' rise='1500'>{icon}</span> {volume}%",
-        "format-muted": "<span color='#8EA4A2'>:</span> <span color='#f78c6c' rise='1500'>󰖁</span> {volume}%",
-        "format-bluetooth": "<span color='#f78c6c' rise='1500'>{icon}</span> {volume}%",
-        "format-bluetooth-muted": "<span color='#f78c6c' rise='1500'>󰖁</span> {volume}%",
-        "format-icons": {
-            "headphone": "󰋋",
-            "phone": "󰏲",
-            "portable": "󰏲",
-            "default": ["󰕿", "󰖀", "󰕾"],
-        },
-        "on-click": "pavucontrol",
-    },
-
-    "memory": {
-        "interval": 30,
-        "format": "<span color='#8EA4A2'>:</span> <span color='#c792ea' rise='1500'>󰘚</span> {used:0.1f}G"
-    },
-
-    "cpu": {
-        "format": "<span color='#8EA4A2'>:</span> <span color='#b2ccd6' rise='1500'>󰍛</span> {avg_frequency} GHz",
-        "interval": 5,
-    },
-
-    "temperature": {
-        "critical-threshold": 85,
-        "hwmon-path": "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon3/temp1_input",
-        "format": "<span color='#8EA4A2'>:</span> {icon} {temperatureC}°C",
-        "format-icons": [
-            "<span color='#ffcb6b rise='1500'></span>",
-            "<span color='#ffcb6b' rise='1500'></span>",
-            "<span color='#ffcb6b' rise='1500'></span>",
-        ],
-    },
-
-    "network": {
-        "format-ethernet": "<span color='#8EA4A2'>:</span> <span color='#89ddff' rise='1500'>󰈀</span> {ipaddr}",
-        "format-wifi": "<span color='#8EA4A2'>:</span> <span color='#89ddff' rise='1500'>{icon}</span> {essid}",
-        "format-disconnected": "<span color='#89ddff'>{icon}</span> {bandwidthDownBytes:=}",
-        "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
-        "interval": 2,
-        "tooltip-format": "{essid}",
-        "on-click": "nm-applet",
-    },
-
-    "tray": {
-        "icon-size": 16,
-        "spacing": 16
-    },
-
-    "idle_inhibitor": {
+    "niri/workspaces": {
         "format": "{icon}",
         "format-icons": {
-            "activated": "\udb80\udd76",
-            "deactivated": "\udb83\udfaa"
+            "1": "I",
+            "2": "II",
+            "3": "III",
+            "4": "IV",
+            "5": "V",
+            "6": "VI",
+            "7": "VII",
+            "8": "VIII",
+            "9": "IX",
+            "10": "X"
+        }
+    },
+
+	"niri/window": {
+        "format": "{title}",
+        "max-length": 30,
+        "rewrite": {
+            "": "niri"
+        }
+    },
+
+    // river
+
+    "river/tags": {
+        "hide-vacant": true
+    },
+
+    "river/window": {
+        "max-length": 40,
+    },
+
+    // sway
+
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "format": "{icon}",
+        "format-icons": {
+            "1": "I",
+            "2": "II",
+            "3": "III",
+            "4": "IV",
+            "5": "V",
+            "6": "VI",
+            "7": "VII",
+            "8": "VIII",
+            "9": "IX",
+            "10": "X"
+        }
+    },
+
+    "sway/window": {
+        "format": "{title}",
+        "max-length": 30,
+        "rewrite": {
+            "": "sway",
         }
     },
 
     "mpris": {
-        "format": "<span color='#8EA4A2'>:</span> {player_icon} {title} - {artist}",
-        "format-paused": "<span color='#8EA4A2'>:</span> {status_icon} {title} - {artist}",
-        "max-length": 60,
-        "player-icons": {
-            "default": "▶",
-            "mpv": "🎵",
-            "cider": "🎵",
-        },
+        "format": "{status_icon} {title}",
+        "format-paused": "{status_icon} {title}",
         "status-icons": {
+            "playing": "▶",
             "paused": "⏸"
         },
-        "ignored-players": ["firefox", "firefox-bin"],
+        // "ignored-players": ["firefox", "firefox-bin"]
+    },
+
+    "tray": {
+        "icon-size": 18,
+        "spacing": 15
+    },
+
+    "network": {
+        "format-wifi": "{ipaddr}",
+        "format-disconnected": "fuck",
+        "interval": 10
+    },
+
+    "temperature": {
+        "hwmon-path": "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon3/temp1_input",
+		"format": "| {temperatureC}°C",
+		"format-icons":[""],
+		"interval": 30
+    },
+
+    "disk": {
+        "format": "| {percentage_used}%",
+        "interval": 60
+    },
+
+    "memory": {
+        "format": "| {used:0.1f}G",
+        "interval": 5
+    },
+
+    "cpu": {
+        "format": "<span color='#b2ccd6'>CPU</span>: {avg_frequency} GHz",
+        "interval": 5
+    },
+
+    "wireplumber": {
+        "format": "| {volume}%",
+        "format-muted": "MUTED"
     },
 
     "battery": {
-        "states": {
-            "good": 95,
-            "warning": 30,
-            "critical": 15,
-        },
-        "format": "<span color='#c3e88d'>{icon}</span> {capacity}%",
-        "format-charging": "<span color='#c3e88d'>󱐋</span> {capacity}%",
-        "format-plugged": "<span color='#c3e88d'></span> {capacity}%",
-        "tooltip-format": "{time} left",
-        "format-icons": ["󰁺", "󰁼", "󰁾", "󰂁", "󰁹"],
+        "format": "| {}%"
     },
 
-    "river/tags": {
-        "hide-vacant": true,
+    "clock": {
+        // %a %b %e,
+        "format": "| {:%I:%M %p}",
+        "interval": 30
     }
 }

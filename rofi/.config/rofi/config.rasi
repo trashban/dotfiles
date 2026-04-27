@@ -20,7 +20,7 @@ configuration {
     purple: #5a4fcf;
     white: #FFFFFF;
 
-    font: "Mx437 IBM VGA 8x16 24";
+    font: "Iosevka Nerd Font 24";
 
     foreground: @drac-fgd;
     background-color: @drac-bgd;

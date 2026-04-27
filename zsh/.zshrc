@@ -13,6 +13,7 @@ autoload -Uz compinit
 compinit
 
 # colour ls and man pages
+export LS_COLORS=$LS_COLORS:'di=0;35:'
 alias ls='ls --color=auto'
 export LESS_TERMCAP_mb=$(tput bold; tput setaf 2) # green
 export LESS_TERMCAP_md=$(tput bold; tput setaf 6) # cyan
@@ -145,7 +146,7 @@ function y() {
 }
 
 # i like it ok
-pfetch
+# pfetch
 
 export PATH="$HOME/.odin:$PATH"
 

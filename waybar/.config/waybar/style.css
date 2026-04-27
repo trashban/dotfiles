@@ -3,10 +3,11 @@
 @define-color kanagawa-red #E82424;
 @define-color custom-purp #5a4fcf;
 @define-color alt-grey #252525;
+@define-color border-grey #595959;
 @define-color oled-black #000000;
 
 * {
-    font-family: "Mx437 IBM VGA 8x16";
+    font-family: "Iosevka Nerd Font";
     font-size: 26;
     border-radius: 0;
     padding: 0;
@@ -15,7 +16,6 @@
 
 window#waybar {
     background-color: @oled-black;
-    color: #FFFFFF;
 }
 
 #tags button,
@@ -60,17 +60,18 @@ window#waybar {
 }
 
 /* grey colour */
-.modules-right {
-    background-color: @alt-grey;
-}
-#window {
-    background-color: @alt-grey;
-}
+/* .modules-right { */
+    /* background-color: @alt-grey; */
+/* } */
+/* #window { */
+    /* background-color: @alt-grey; */
+/* } */
 
-#battery.critical {
-   color: #ff5555;
-}
+/* #battery.critical { */
+   /* color: #ff5555; */
+/* } */
 
-#network.disconnected {
-    color: #ff5555;
-}
+/* #network.disconnected { */
+    /* color: #ff5555; */
+/* } */
+

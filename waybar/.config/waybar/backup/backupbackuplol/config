@@ -1,0 +1,150 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 43,
+    "spacing": 5,
+
+    "modules-left": ["clock", "hyprland/window", "mpris"],
+    "modules-center": ["hyprland/workspaces"],
+    "modules-right": ["tray", "group/hardware"],
+
+    "group/hardware": {
+		"orientation": "horizontal",
+		"modules": [
+            "wireplumber", 
+            "temperature", 
+            "cpu", 
+            "memory", 
+            "network", 
+            "battery"
+		]
+	},
+
+    "custom/os_icon": {
+        "return-type": "json",
+        "exec": "~/dotfiles/Scripts/os_icon.sh",
+        "format": "{icon}",
+        "format-icons": {
+            "arch": "󰣇",
+            "gentoo": ""
+        }
+    },
+
+    "niri/workspaces": {
+        "format": "{}",
+        "sort-by-coordinates": true,
+        "all-output": false,
+        "active-only": false,
+        "sort-by-number": false,
+        "on-click": "activate"
+    },
+    
+    "niri/window": {
+        "format": "{app_id}",
+        "icon": true,
+    },
+    
+    "hyprland/window": {
+        "format": "{initialClass}",
+        "icon": true,
+        "separate-outputs": true,
+    },
+
+    "clock": {
+        "format": "<span color='#ffcb6b' rise='1500'>󰥔</span> {:%a %b %I:%M %p} <span color='#8EA4A2'>:</span>",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click-right": "swaync-client -d -sw",
+        "on-click": "swaync-client -t -sw",
+    },
+
+    "wireplumber": {
+        "format": "<span color='#8EA4A2'>:</span> <span color='#f78c6c' rise='1500'>{icon}</span> {volume}%",
+        "format-muted": "<span color='#8EA4A2'>:</span> <span color='#f78c6c' rise='1500'>󰖁</span> {volume}%",
+        "format-bluetooth": "<span color='#f78c6c' rise='1500'>{icon}</span> {volume}%",
+        "format-bluetooth-muted": "<span color='#f78c6c' rise='1500'>󰖁</span> {volume}%",
+        "format-icons": {
+            "headphone": "󰋋",
+            "phone": "󰏲",
+            "portable": "󰏲",
+            "default": ["󰕿", "󰖀", "󰕾"],
+        },
+        "on-click": "pavucontrol",
+    },
+
+    "memory": {
+        "interval": 30,
+        "format": "<span color='#8EA4A2'>:</span> <span color='#c792ea' rise='1500'>󰘚</span> {used:0.1f}G"
+    },
+
+    "cpu": {
+        "format": "<span color='#8EA4A2'>:</span> <span color='#b2ccd6' rise='1500'>󰍛</span> {avg_frequency} GHz",
+        "interval": 5,
+    },
+
+    "temperature": {
+        "critical-threshold": 85,
+        "hwmon-path": "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon3/temp1_input",
+        "format": "<span color='#8EA4A2'>:</span> {icon} {temperatureC}°C",
+        "format-icons": [
+            "<span color='#ffcb6b rise='1500'></span>",
+            "<span color='#ffcb6b' rise='1500'></span>",
+            "<span color='#ffcb6b' rise='1500'></span>",
+        ],
+    },
+
+    "network": {
+        "format-ethernet": "<span color='#8EA4A2'>:</span> <span color='#89ddff' rise='1500'>󰈀</span> {ipaddr}",
+        "format-wifi": "<span color='#8EA4A2'>:</span> <span color='#89ddff' rise='1500'>{icon}</span> {essid}",
+        "format-disconnected": "<span color='#89ddff'>{icon}</span> {bandwidthDownBytes:=}",
+        "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+        "interval": 2,
+        "tooltip-format": "{essid}",
+        "on-click": "nm-applet",
+    },
+
+    "tray": {
+        "icon-size": 16,
+        "spacing": 16
+    },
+
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "\udb80\udd76",
+            "deactivated": "\udb83\udfaa"
+        }
+    },
+
+    "mpris": {
+        "format": "<span color='#8EA4A2'>:</span> {player_icon} {title} - {artist}",
+        "format-paused": "<span color='#8EA4A2'>:</span> {status_icon} {title} - {artist}",
+        "max-length": 60,
+        "player-icons": {
+            "default": "▶",
+            "mpv": "🎵",
+            "cider": "🎵",
+        },
+        "status-icons": {
+            "paused": "⏸"
+        },
+        "ignored-players": ["firefox", "firefox-bin"],
+    },
+
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 15,
+        },
+        "format": "<span color='#c3e88d'>{icon}</span> {capacity}%",
+        "format-charging": "<span color='#c3e88d'>󱐋</span> {capacity}%",
+        "format-plugged": "<span color='#c3e88d'></span> {capacity}%",
+        "tooltip-format": "{time} left",
+        "format-icons": ["󰁺", "󰁼", "󰁾", "󰂁", "󰁹"],
+    },
+
+    "river/tags": {
+        "hide-vacant": true,
+    }
+}

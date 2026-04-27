@@ -1,9 +1,10 @@
 {
 	"layer": "top",
-	"position": "top",
+	"position": "bottom",
     
-    "modules-left": ["niri/workspaces", "niri/window", "mpris", "tray"],
-    "modules-right": ["network", "temperature", "disk", "memory", "wireplumber", "clock"],
+    "modules-left": ["niri/workspaces", "tray"],
+    "modules-center": ["mpris"],
+    "modules-right": ["network", "temperature", "memory", "wireplumber", "clock"],
     
     // hyprland
 
@@ -24,7 +25,7 @@
     // niri
 
     "niri/workspaces": {
-        "format": "{icon}",
+        // "format": "{icon}",
         "format-icons": {
             "1": "I",
             "2": "II",
@@ -62,7 +63,7 @@
     "sway/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
-        "format": "{icon}",
+        // "format": "{icon}",
         "format-icons": {
             "1": "I",
             "2": "II",
@@ -81,17 +82,17 @@
         "format": "{title}",
         "max-length": 30,
         "rewrite": {
-            "": "sway",
+            "": "sway"
         }
     },
 
     "mpris": {
-        "format": "{status_icon} {title}",
-        "format-paused": "{status_icon} {title}",
+        "format": "{status_icon} {title} - {artist}",
+        "title-len": 30,
         "status-icons": {
             "playing": "▶",
             "paused": "⏸"
-        },
+        }
         // "ignored-players": ["firefox", "firefox-bin"]
     },
 
@@ -101,16 +102,18 @@
     },
 
     "network": {
+        "format-ethernet": "{ipaddr}/{cidr} 󰊗",
         "format-wifi": "{ipaddr}",
         "format-disconnected": "fuck",
         "interval": 10
     },
 
     "temperature": {
-        "hwmon-path": "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon3/temp1_input",
-		"format": "| {temperatureC}°C",
-		"format-icons":[""],
-		"interval": 30
+        "hwmon-path": "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon1/temp1_input",
+		"format": "| {icon} {temperatureC}°C",
+		"format-icons":["", ""],
+        "critical-threshold": 80,
+        
     },
 
     "disk": {
@@ -119,7 +122,7 @@
     },
 
     "memory": {
-        "format": "| {used:0.1f}G",
+        "format": "|   {used:0.1f}G",
         "interval": 5
     },
 
@@ -129,8 +132,9 @@
     },
 
     "wireplumber": {
-        "format": "| {volume}%",
-        "format-muted": "MUTED"
+        "format": "| {icon} {volume}%",
+        "format-muted": "",
+        "format-icons": ["", "", ""]
     },
 
     "battery": {
@@ -138,8 +142,28 @@
     },
 
     "clock": {
-        // %a %b %e,
-        "format": "| {:%I:%M %p}",
-        "interval": 30
+        "format": "| {:%d/%m %I:%M %p}",
+        "interval": 30,
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+                    "mode"          : "year",
+                    "mode-mon-col"  : 3,
+                    "weeks-pos"     : "right",
+                    "on-scroll"     : 1,
+                    "format": {
+                              "months":     "<span color='#ffead3'><b>{}</b></span>",
+                              "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+                              "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+                              "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+                              "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+                              }
+                    },
+        "actions":  {
+                    "on-click-right": "mode",
+                    "on-scroll-up": "tz_up",
+                    "on-scroll-down": "tz_down",
+                    "on-scroll-up": "shift_up",
+                    "on-scroll-down": "shift_down"
+                    }
     }
 }

@@ -3,4 +3,4 @@ require('binds')
 require('plugins')
 require('lsp')
 
-vim.cmd[[colorscheme catppuccin]]
+vim.cmd("colorscheme moonfly")
