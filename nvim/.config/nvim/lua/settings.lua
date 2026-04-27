@@ -61,7 +61,7 @@ vim.opt.visualbell = false
 
 -- autocorrect
 vim.opt.spelllang = 'en_au'
-vim.opt.spell = true
+vim.opt.spell = false
 
 -- lsp symbols
 vim.diagnostic.config({
