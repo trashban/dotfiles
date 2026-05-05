@@ -65,7 +65,7 @@ output "HDMI-A-1" {
 }
 
 layout {
-    gaps 12
+    gaps 0
 
     // When to center a column when changing focus, options are:
     // - "never", default behavior, focusing an off-screen column will keep at the left

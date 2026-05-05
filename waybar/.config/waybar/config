@@ -110,7 +110,7 @@
 
     "temperature": {
         "hwmon-path": "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon1/temp1_input",
-		"format": "| {icon} {temperatureC}°C",
+		"format": "{icon} {temperatureC}°C",
 		"format-icons":["", ""],
         "critical-threshold": 80,
         

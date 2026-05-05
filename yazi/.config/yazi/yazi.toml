@@ -1,3 +1,7 @@
 # yazi.toml
 [mgr]
 show_hidden = false
+
+[opener]
+text = [{ run = 'vis "$@"', block = true }]
+edit = [{ run = 'vis "$@"', block = true }]
