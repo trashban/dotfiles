@@ -17,7 +17,7 @@ theres no installation script, but you can use `stow` to quickly symlink each co
 ## screenshots
 
 ### main computer
+![main brick desktop](./screenshots/desktop.png)
 
 ### thinkpad-p14s
-![main brick desktop](./screenshots/desktop.png)
 ![thinkpad-p14s desktop](./screenshots/laptop_desktop.png)
