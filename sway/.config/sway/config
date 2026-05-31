@@ -1,0 +1,171 @@
+# sway config
+
+# fix xdg-portals not working on gentoo (annoying af)
+exec --no-startup-id dbus-update-activation-environment --all
+
+# autostart applications
+exec mako
+exec wl-paste --watch cliphist store
+
+# vars
+set $mod Mod4
+set $term foot
+set $menu rofi -show drun
+set $browser firefox-bin
+set $audio pavucontrol
+set $clipboard cliphist list | rofi -dmenu | cliphist decode | wl-copy
+
+# vim directions
+set $left h
+set $down j
+set $up k
+set $right l
+
+# monitors
+output DP-2 pos 2560 0 res 2560 1440
+output HDMI-A-1 pos 0 0 res 2560 1440
+
+# make it so DP-2 acts like "primary monitor"
+workspace 1 output DP-2 HDMI-A-1
+
+# input
+input type:pointer {
+    accel_profile "flat"
+    pointer_accel 0.0
+}
+
+input type:touchpad {
+    dwt enabled
+    tap enabled
+    natural_scroll enabled
+    middle_emulation enabled
+}
+
+input type:keyboard {
+    xkb_options "caps:swapescape"
+}
+
+# key binds
+    bindsym $mod+t exec $term
+    bindsym $mod+d exec $menu
+    bindsym $mod+c exec $clipboard
+    bindsym $mod+p exec $audio
+    bindsym $mod+q kill
+
+    # Drag floating windows by holding down $mod and left mouse button.
+    # Resize them with right mouse button + $mod.
+    # Despite the name, also works for non-floating windows.
+    # Change normal to inverse to use left mouse button for resizing and right
+    # mouse button for dragging.
+    floating_modifier $mod normal
+
+    # Reload the configuration file
+    bindsym $mod+Shift+c reload
+
+    # Exit sway (logs you out of your Wayland session)
+    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+
+    # movement
+    bindsym $mod+$left focus left
+    bindsym $mod+$down focus down
+    bindsym $mod+$up focus up
+    bindsym $mod+$right focus right
+
+    bindsym $mod+Shift+$left move left
+    bindsym $mod+Shift+$down move down
+    bindsym $mod+Shift+$up move up
+    bindsym $mod+Shift+$right move right
+
+    # workspaces
+    ## binding
+    bindsym $mod+1 workspace number 1
+    bindsym $mod+2 workspace number 2
+    bindsym $mod+3 workspace number 3
+    bindsym $mod+4 workspace number 4
+    bindsym $mod+5 workspace number 5
+    bindsym $mod+6 workspace number 6
+    bindsym $mod+7 workspace number 7
+    bindsym $mod+8 workspace number 8
+    bindsym $mod+9 workspace number 9
+    bindsym $mod+0 workspace number 10
+
+    ## moving
+    bindsym $mod+Shift+1 move container to workspace number 1
+    bindsym $mod+Shift+2 move container to workspace number 2
+    bindsym $mod+Shift+3 move container to workspace number 3
+    bindsym $mod+Shift+4 move container to workspace number 4
+    bindsym $mod+Shift+5 move container to workspace number 5
+    bindsym $mod+Shift+6 move container to workspace number 6
+    bindsym $mod+Shift+7 move container to workspace number 7
+    bindsym $mod+Shift+8 move container to workspace number 8
+    bindsym $mod+Shift+9 move container to workspace number 9
+    bindsym $mod+Shift+0 move container to workspace number 10
+
+# Note: workspaces can have any name you want, not just numbers.
+    # We just use 1-10 as the default.
+#
+# Layout stuff:
+#
+    # You can "" the current object of your focus with
+    # $mod+b or $mod+v, for horizontal and vertical splits
+    # respectively.
+    bindsym $mod+b splith
+    bindsym $mod+v splitv
+
+    # Switch the current container between different layout styles
+    bindsym $mod+e layout toggle split
+
+    bindsym $mod+f fullscreen
+
+    # Toggle the current focus between tiling and floating mode
+    bindsym $mod+space floating toggle
+
+    # Swap focus between the tiling area and the floating area
+    bindsym $mod+Shift+space focus mode_toggle
+
+    # Move focus to the parent container
+    bindsym $mod+a focus parent
+
+#
+# Utilities:
+#
+    # Special keys to adjust volume via PulseAudio
+    bindsym --locked XF86AudioMute exec pactl set-sink-mute \@DEFAULT_SINK@ toggle
+    bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume \@DEFAULT_SINK@ -5%
+    bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume \@DEFAULT_SINK@ +5%
+    bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
+    # Special keys to adjust brightness via brightnessctl
+    bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
+    bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
+    # Special key to take a screenshot with grim
+    bindsym Print exec grim
+
+# statusbar
+bar {
+    status_command i3blocks
+    position top
+    separator_symbol :
+    tray_output none
+
+    font JetBrainsMono Nerd Font 14
+    gaps 0 500 0 500
+
+    colors {
+        background #000000
+        active_workspace #000000 #000000 #ffffff
+        focused_workspace #000000 #000000 #ffffff
+        inactive_workspace #000000 #000000 #5c5c5c
+    }
+}
+
+# make steam dialog messages float
+for_window [class="^(steam$)" title="^(?!Steam$)"] floating enable
+for_window [app_id="pavucontrol"] floating enable
+
+# better borders
+smart_borders on
+default_border pixel 2
+set $clear #ffffff00
+client.focused              #595959 #595959 #595959 #595959   #595959
+client.focused_inactive     #2f343f #2f343f #d8dee8 #303030   #303030
+client.unfocused            $clear $clear $clear $clear $clear
