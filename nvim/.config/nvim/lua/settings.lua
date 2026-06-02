@@ -27,7 +27,7 @@ vim.opt.listchars = {
 -- wrapping
 vim.opt.shiftround = true
 vim.opt.wrap = false
-vim.opt.signcolumn = 'yes'
+vim.opt.signcolumn = 'no'
 vim.opt.winborder = 'double'
 
 -- cmdline

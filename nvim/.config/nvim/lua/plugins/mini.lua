@@ -30,7 +30,7 @@ require('mini.notify').setup({
 -- require('mini.tabline').setup()
 require('mini.cursorword').setup()
 require('mini.cmdline').setup()
--- require('mini.statusline').setup()
+require('mini.statusline').setup()
 require('mini.diff').setup({
     view = {
         style = 'sign',
