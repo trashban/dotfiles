@@ -20,7 +20,7 @@ configuration {
     purple: #5a4fcf;
     white: #FFFFFF;
 
-    font: "Iosevka Nerd Font 24";
+    font: "JetBrainsMono Nerd Font 24";
 
     foreground: @drac-fgd;
     background-color: @drac-bgd;

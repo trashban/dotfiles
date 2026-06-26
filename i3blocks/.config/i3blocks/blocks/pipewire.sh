@@ -14,16 +14,13 @@ show() {
     esac
 }
 
-# Print initial state.
 show
 
-# Watch for audio changes.
 pactl subscribe 2>/dev/null |
 while read -r _; do
     show
 done &
 
-# Handle clicks from i3blocks.
 while read -r button; do
     case "$button" in
         1) pavucontrol ;;  # left click
