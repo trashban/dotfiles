@@ -1,14 +1,11 @@
-@define-color kanagawa-blue #7E9CD8;
-@define-color kanagawa-grey #b2ccd6;
-@define-color kanagawa-red #E82424;
 @define-color custom-purp #5a4fcf;
 @define-color alt-grey #252525;
 @define-color border-grey #595959;
 @define-color oled-black #000000;
 
 * {
-    font-family: "Iosevka Nerd Font";
-    font-size: 26;
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 22;
     border-radius: 0;
     padding: 0;
     margin: 0;
@@ -21,14 +18,14 @@ window#waybar {
 #tags button,
 #workspaces button {
     background-color: @oled-black;
-    color: #FFFFFF;
-    padding: 5px 10px 0px 10px;
+    color: @border-grey;
+    padding: 5px 7px 0px 7px;
 }
 
 #tags button.occupied,
 #workspaces button.focused,
 #workspaces button.active {
-    background-color: @alt-grey;
+    color: @custom-purp
 }
 
 #tags button.urgent
@@ -60,6 +57,11 @@ window#waybar {
 }
 
 /* grey colour */
+#custom-separator {
+    color: @alt-grey;
+    padding: 1px 0px 0px 2px;
+}
+
 /* .modules-right { */
     /* background-color: @alt-grey; */
 /* } */

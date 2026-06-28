@@ -1,12 +1,10 @@
 {
 	"layer": "top",
-	"position": "bottom",
-    
-    "modules-left": ["niri/workspaces", "tray"],
+	"position": "top",
+
+    "modules-left": ["hyprland/workspaces", "tray"],
     "modules-center": ["mpris"],
-    "modules-right": ["network", "temperature", "memory", "wireplumber", "clock"],
-    
-    // hyprland
+    "modules-right": ["network", "temperature", "custom/separator", "memory", "custom/separator", "wireplumber", "custom/separator", "clock"],
 
 	"hyprland/workspaces": {
         "format": "{}",
@@ -110,19 +108,19 @@
 
     "temperature": {
         "hwmon-path": "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon1/temp1_input",
-		"format": "{icon} {temperatureC}°C",
+		"format": "temp {temperatureC}°C",
 		"format-icons":["", ""],
         "critical-threshold": 80,
         
     },
 
     "disk": {
-        "format": "| {percentage_used}%",
+        "format": "disk {percentage_used}%",
         "interval": 60
     },
 
     "memory": {
-        "format": "|   {used:0.1f}G",
+        "format": "ram {used:0.1f}G",
         "interval": 5
     },
 
@@ -132,17 +130,17 @@
     },
 
     "wireplumber": {
-        "format": "| {icon} {volume}%",
+        "format": "vol {volume}%",
         "format-muted": "",
         "format-icons": ["", "", ""]
     },
 
     "battery": {
-        "format": "| {}%"
+        "format": "bat {}%"
     },
 
     "clock": {
-        "format": "| {:%d/%m %I:%M %p}",
+        "format": "{:%d/%m %I:%M %p}",
         "interval": 30,
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
         "calendar": {
@@ -165,5 +163,9 @@
                     "on-scroll-up": "shift_up",
                     "on-scroll-down": "shift_down"
                     }
+    },
+
+    "custom/separator": {
+        "format": ":"
     }
 }
