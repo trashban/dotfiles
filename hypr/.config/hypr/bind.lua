@@ -4,20 +4,26 @@ local default = require("default")
 
 local mainMod = "SUPER"
 
+-- defaults
 hl.bind(mainMod .. " + T", hl.dsp.exec_cmd(default.terminal))
+hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(default.menu))
+hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(default.fileManager))
+hl.bind(mainMod .. " + C", hl.dsp.exec_cmd(default.clipboard))
+hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd(default.wp))
+hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd(default.audio))
+hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd(default.screenshot))
+
 hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.window.close())
 hl.bind(mainMod .. " + SHIFT + F", hl.dsp.window.fullscreen("maximized", "toggle"))
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
-hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(default.fileManager))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
-hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(default.menu))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 
 -- Move focus with mainMod + arrow keys
 hl.bind(mainMod .. " + h",  hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + l", hl.dsp.focus({ direction = "right" }))
-hl.bind(mainMod .. " + j",    hl.dsp.focus({ direction = "up" }))
-hl.bind(mainMod .. " + k",  hl.dsp.focus({ direction = "down" }))
+hl.bind(mainMod .. " + k",    hl.dsp.focus({ direction = "up" }))
+hl.bind(mainMod .. " + j",  hl.dsp.focus({ direction = "down" }))
 
 -- Switch workspaces with mainMod + [0-9]
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]

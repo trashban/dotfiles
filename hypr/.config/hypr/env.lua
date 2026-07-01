@@ -1,9 +1,9 @@
 -- environment variables
 hl.env("XCURSOR_SIZE", "24")
-hl.env("XCURSOR_THEME", "Neutrality-NeXTSTEP")
+hl.env("XCURSOR_THEME", "Adwaita")
 
 hl.env("HYPRCURSOR_SIZE", "24")
-hl.env("HYPRCURSOR_THEME", "Neutrality-NeXTSTEP")
+hl.env("HYPRCURSOR_THEME", "Adwaita")
 
 hl.env("XDG_CURRENT_DESKTOP", "Hyprland")
 hl.env("XDG_SESSION_TYPE", "wayland")
