@@ -1,6 +1,6 @@
 -- default applications
 return {
-    terminal = "ghostty",
+    terminal = "kitty",
     browser = "firefox-bin",
     fileManager = "yazi",
     menu = "rofi -show drun",
