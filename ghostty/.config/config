@@ -1,0 +1,11 @@
+# theme
+theme = Wryan
+
+# font
+font-family = Iosevka Nerd Font
+font-size = 20
+
+# misc
+gtk-single-instance = true
+quit-after-last-window-closed = false
+confirm-close-surface = false
