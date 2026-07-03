@@ -100,7 +100,7 @@
     },
 
     "network": {
-        "format-ethernet": "{ipaddr}/{cidr} 󰊗",
+        "format-ethernet": "{ipaddr}/{cidr}",
         "format-wifi": "{ipaddr}",
         "format-disconnected": "fuck",
         "interval": 10

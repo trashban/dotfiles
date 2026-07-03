@@ -12,6 +12,10 @@ zstyle :compinstall filename '/home/ashin14/.zshrc'
 autoload -Uz compinit
 compinit
 
+# default editor
+export VISUAL=nvim
+export EDITOR=nvim
+
 # colour ls and man pages
 export LS_COLORS=$LS_COLORS:'di=0;35:'
 alias ls='ls --color=auto'
@@ -32,11 +36,6 @@ export GROFF_NO_SGR=1
 
 # run make script that syncs my work to unsw
 alias usync='make -C /home/ashin14/unsw'
-
-# gentoo zsh autocomplete
-autoload -U compinit promptinit
-compinit
-promptinit; prompt gentoo
 
 # cache autocompletion
 zstyle ':completion::complete:*' use-cache 1
@@ -144,13 +143,6 @@ function y() {
 	[ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
 	rm -f -- "$tmp"
 }
-
-# i like it ok
-# pfetch
-
-export PATH="$HOME/.odin:$PATH"
-
-export PATH="$PATH:/opt/gradle/gradle-9.2.0/bin"
 
 # =============================================================================
 #
