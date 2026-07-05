@@ -1,6 +1,3 @@
-local arrows = require('icons').arrows
-local lsp_sym = require('icons').diagnostics
-
 -- leader key
 vim.g.mapleader = " "
 
@@ -14,24 +11,20 @@ vim.opt.autoindent = true
 -- tabs vs spaces lol
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
 vim.opt.softtabstop = 4
+vim.opt.expandtab = true
 
 -- char representation
 vim.opt.list = true
-vim.opt.listchars = {
-    tab = "  ",
-    trail = "·",
-}
 
 -- wrapping
 vim.opt.shiftround = true
-vim.opt.wrap = false
+vim.opt.wrap = true
 vim.opt.signcolumn = 'no'
-vim.opt.winborder = 'double'
+vim.opt.winborder = 'rounded'
 
 -- cmdline
-vim.opt.pumborder = 'double'
+vim.opt.pumborder = 'rounded'
 vim.o.pumheight = 12
 
 -- numbers
@@ -41,14 +34,8 @@ vim.opt.ruler = true
 
 -- fold settings
 vim.o.foldcolumn = '1'
-vim.o.foldlevelstart = 99
 vim.wo.foldtext = ''
-vim.opt.fillchars = {
-    fold = ' ', foldclose = arrows.right,
-    foldopen = arrows.down,
-    foldsep = ' ',
-    foldinner = ' '
-}
+vim.o.foldlevelstart = 99
 
 -- search
 vim.opt.hlsearch = true
@@ -63,20 +50,5 @@ vim.opt.visualbell = false
 vim.opt.spelllang = 'en_au'
 vim.opt.spell = false
 
--- lsp symbols
-vim.diagnostic.config({
-	signs = {
-		text = {
-			[vim.diagnostic.severity.ERROR] = lsp_sym.ERROR,
-			[vim.diagnostic.severity.WARN] = lsp_sym.WARN,
-			[vim.diagnostic.severity.INFO] = lsp_sym.INFO,
-			[vim.diagnostic.severity.HINT] = lsp_sym.HINT,
-		},
-		linehl = {
-			[vim.diagnostic.severity.ERROR] = "ErrorMsg",
-		},
-		numhl = {
-			[vim.diagnostic.severity.WARN] = "WarningMsg",
-		},
-	},
-})
+-- autoformat
+vim.lsp.buf.format { async = true }

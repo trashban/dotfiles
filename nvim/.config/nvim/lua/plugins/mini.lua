@@ -2,9 +2,9 @@ vim.pack.add({ "https://github.com/nvim-mini/mini.nvim" })
 
 -- text-editing
 require('mini.ai').setup()
-require('mini.operators').setup()
-require("mini.surround").setup()
-require("mini.comment").setup()
+require('mini.comment').setup()
+require('mini.surround').setup()
+require('mini.completion').setup()
 
 -- workflow
 require('mini.bracketed').setup()
@@ -27,29 +27,12 @@ require('mini.notify').setup({
         duration_last = 1000,
     },
 })
+-- require('mini.statusline').setup()
 -- require('mini.tabline').setup()
+require('mini.diff').setup()
 require('mini.cursorword').setup()
 require('mini.cmdline').setup()
-require('mini.statusline').setup()
-require('mini.diff').setup({
-    view = {
-        style = 'sign',
-        signs = {
-            add    = '┃',
-            change = '┃',
-            delete = '_',
-        },
-    },
-})
--- require('mini.indentscope').setup({
---     draw = {
---         delay = 0,
---         animation = require('mini.indentscope').gen_animation.none(),
---     },
---     options = {
---         try_as_border = true,
---     },
---     symbol = '│'
--- })
+require('mini.starter').setup()
+
 require("mini.icons").setup()
 MiniIcons.mock_nvim_web_devicons()
