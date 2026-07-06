@@ -26,6 +26,7 @@ vim.opt.winborder = 'rounded'
 -- cmdline
 vim.opt.pumborder = 'rounded'
 vim.o.pumheight = 12
+vim.opt.showmode = false
 
 -- numbers
 vim.opt.number = true
