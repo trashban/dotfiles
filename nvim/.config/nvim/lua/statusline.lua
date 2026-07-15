@@ -23,6 +23,14 @@ local modes = {
   ['t']  = 'terminal',
 }
 
+local non_editable_fts = {
+    "help",
+    "terminal",
+    "dashboard",
+    "ministarter",
+    "minifiles",
+}
+
 function sl.get_curr_mode()
     local curr_mode = vim.api.nvim_get_mode().mode
     return string.format("[%s]", modes[curr_mode])
@@ -45,7 +53,7 @@ function sl.get_active_lsp()
     return '[' .. table.concat(client_names, ', ') .. ']'
 end
 
-function sl.print()
+function sl.statusline()
     return table.concat({
         sl.get_curr_mode(),
         " [%f]",
@@ -58,28 +66,10 @@ function sl.print()
     })
 end
 
-function sl.active()
-    return sl.print()
-end
-
-function sl.inactive()
-    return sl.print()
-end
-
-local group = vim.api.nvim_create_augroup("Statusline", { clear = true })
-
-vim.api.nvim_create_autocmd({ "WinEnter", "BufEnter" }, {
-    group = group,
-    desc = "Activate statusline on focus",
+vim.api.nvim_create_autocmd("BufEnter", {
     callback = function()
-        vim.opt_local.statusline = "%!v:lua.sl.active()"
-    end,
-})
-
-vim.api.nvim_create_autocmd({ "WinLeave", "BufLeave" }, {
-    group = group,
-    desc = "Deactivate statusline when unfocused",
-    callback = function()
-        vim.opt_local.statusline = "%!v:lua.sl.inactive()"
+        if vim.bo.modifiable and not vim.tbl_contains(non_editable_fts, vim.bo.filetype) then
+            vim.opt_local.statusline = "%!v:lua.sl.statusline()"
+        end
     end,
 })

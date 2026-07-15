@@ -6,6 +6,11 @@ vim.keymap.set({ "n", "v", "x" }, "<leader>q", '":q!<CR>')
 vim.keymap.set({ "n", "v", "x" }, "<leader>y", '"+y<CR>')
 vim.keymap.set({ "n", "v", "x" }, "<leader>d", '"+d<CR>')
 
+-- format in normal mode
+vim.keymap.set('n', 'gq', function()
+    vim.lsp.buf.format({ async = true })
+end, { desc = 'format current buffer' })
+
 -- mini
 vim.keymap.set("n", "<leader>f", ":Pick files<CR>")
 vim.keymap.set("n", "<leader>h", ":Pick help<CR>")

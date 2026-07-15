@@ -1,0 +1,17 @@
+theme = Guts
+
+# font
+font-family = Iosevka Nerd Font
+font-size = 22
+
+# disable font ligatures
+font-feature = -calt
+font-feature = -liga
+
+# misc
+confirm-close-surface = false
+desktop-notifications = false
+
+# power saving
+quit-after-last-window-closed = false
+quit-after-last-window-closed-delay = 5m

@@ -15,7 +15,7 @@ vim.opt.softtabstop = 4
 vim.opt.expandtab = true
 
 -- char representation
-vim.opt.list = true
+vim.opt.list = false
 
 -- wrapping
 vim.opt.shiftround = true
@@ -50,6 +50,3 @@ vim.opt.visualbell = false
 -- autocorrect
 vim.opt.spelllang = 'en_au'
 vim.opt.spell = false
-
--- autoformat
-vim.lsp.buf.format { async = true }

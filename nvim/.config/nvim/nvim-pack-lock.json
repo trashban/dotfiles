@@ -40,6 +40,10 @@
       "rev": "11d779b26a9ab2b3db8c22c6ac9fb6e8ed4fea79",
       "src": "https://github.com/sainnhe/gruvbox-material"
     },
+    "guts.nvim": {
+      "rev": "4377fdf450bca2bfd571191b6dc6ae8e24faff77",
+      "src": "https://github.com/vossenwout/guts.nvim"
+    },
     "image.nvim": {
       "rev": "88351f1f7d9dbae286e671ce3690a49660dd8a5c",
       "src": "https://github.com/3rd/image.nvim"
