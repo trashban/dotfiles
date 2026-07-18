@@ -12,9 +12,15 @@ zstyle :compinstall filename '/home/ashin14/.zshrc'
 autoload -Uz compinit
 compinit
 
+# PATH
+export PATH=$PATH:~/.cargo/bin/
+
 # default editor
 export VISUAL=nvim
 export EDITOR=nvim
+
+# dark colours
+GTK_THEME=Adwaita:dark
 
 # colour ls and man pages
 export LS_COLORS=$LS_COLORS:'di=0;35:'

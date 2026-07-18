@@ -95,8 +95,8 @@
     },
 
     "tray": {
-        "icon-size": 18,
-        "spacing": 15
+        "icon-size": 15,
+        "spacing": 12
     },
 
     "network": {
@@ -131,8 +131,7 @@
 
     "wireplumber": {
         "format": "vol {volume}%",
-        "format-muted": "",
-        "format-icons": ["", "", ""]
+        "format-muted": "muted"
     },
 
     "battery": {
@@ -140,7 +139,7 @@
     },
 
     "clock": {
-        "format": "{:%d/%m %I:%M %p}",
+        "format": "{:%a %d/%m %H:%M}",
         "interval": 30,
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
         "calendar": {

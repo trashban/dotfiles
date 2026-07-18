@@ -2,7 +2,7 @@ theme = Guts
 
 # font
 font-family = Iosevka Nerd Font
-font-size = 22
+font-size = 20
 
 # disable font ligatures
 font-feature = -calt
@@ -10,6 +10,7 @@ font-feature = -liga
 
 # misc
 confirm-close-surface = false
+window-inherit-working-directory = false
 desktop-notifications = false
 
 # power saving
