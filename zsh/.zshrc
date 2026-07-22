@@ -1,19 +1,13 @@
-# Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
-setopt autocd nomatch
-unsetopt beep
-bindkey -v
-# End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall
-zstyle :compinstall filename '/home/ashin14/.zshrc'
 
-autoload -Uz compinit
-compinit
+# plugins
+source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
-# PATH
+# path
 export PATH=$PATH:~/.cargo/bin/
+export PATH=$PATH:~/.local/bin/
 
 # default editor
 export VISUAL=nvim
@@ -297,3 +291,6 @@ fi
 # To initialize zoxide, add this to your shell configuration file (usually ~/.zshrc):
 #
 eval "$(zoxide init zsh)"
+
+# fun
+cowthink $(fortune -s)
