@@ -28,12 +28,11 @@ static int log_level = WLR_ERROR;
 
 /* Autostart */
 static const char *const autostart[] = {
-        "swaybg", "i", "~/Pictures/Wallpapers/lain.png", NULL,
         "wl-paste", "--watch", "cliphist", "store", NULL,
         "mako", NULL,
         "kanshi", NULL,
         "awww-daemon", NULL,
-        NULL /* terminate */
+        NULL
 };
 
 static const Rule rules[] = {
@@ -127,9 +126,17 @@ static const enum libinput_config_tap_button_map button_map = LIBINPUT_CONFIG_TA
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-static const char *termcmd[] = { "ghostty", "+new-window", NULL };
+static const char *termcmd[] = { "foot", NULL };
 static const char *menucmd[] = { "wmenu-run", "-f", "Iosevka Nerd Font 16", "-N", "000000", "-S", "5a4fcf", NULL };
 static const char *audio[] = { "pavucontrol", NULL };
+
+static const char *vol_up[]   = { "wpctl", "set-volume", "@DEFAULT_SINK@", "1%+",   NULL };
+static const char *vol_down[] = { "wpctl", "set-volume", "@DEFAULT_SINK@", "1%-",   NULL };
+static const char *vol_mute[] = { "wpctl", "set-mute",   "@DEFAULT_SINK@", "toggle", NULL };
+static const char *vol_mic_mute[] = { "wpctl", "set-mute", "@DEFAULT_AUDIO_SOURCE@", "toggle", NULL };
+
+static const char *brightness_up[] = { "brightnessctl", "set", "+10%", NULL };
+static const char *brightness_down[] = { "brightnessctl", "set", "10%-", NULL };
 
 static const Key keys[] = {
 	/* modifier                  key                  function          argument */
@@ -137,7 +144,8 @@ static const Key keys[] = {
 	{ MODKEY,                    XKB_KEY_t,           spawn,            {.v = termcmd} },
 	{ MODKEY,                    XKB_KEY_p,           spawn,            {.v = audio} },
 	{ MODKEY,                    XKB_KEY_c,           spawn,            SHCMD("cliphist list | rofi -dmenu | cliphist decode | wl-copy") },
-	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_s,           spawn,            SHCMD("~/.scripts/screenshot.sh") },
+	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_s,           spawn,            SHCMD("~/.scripts/screenshot") },
+	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_w,           spawn,            SHCMD("~/.scripts/wallpaper") },
 	{ MODKEY,                    XKB_KEY_j,           focusstack,       {.i = +1} },
 	{ MODKEY,                    XKB_KEY_k,           focusstack,       {.i = -1} },
 	{ MODKEY,                    XKB_KEY_i,           incnmaster,       {.i = +1} },
@@ -169,6 +177,16 @@ static const Key keys[] = {
 	TAGKEYS(          XKB_KEY_8, XKB_KEY_asterisk,                      7),
 	TAGKEYS(          XKB_KEY_9, XKB_KEY_parenleft,                     8),
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_m,           quit,             {0} },
+
+    /* volume control */
+    { 0, XKB_KEY_XF86AudioRaiseVolume, spawn, {.v = vol_up } },
+    { 0, XKB_KEY_XF86AudioLowerVolume, spawn, {.v = vol_down } },
+    { 0, XKB_KEY_XF86AudioMute, spawn, {.v = vol_mute } },
+    { 0, XKB_KEY_XF86AudioMicMute, spawn, {.v = vol_mic_mute } },
+
+    /* brightness */
+    { 0, XKB_KEY_XF86MonBrightnessUp, spawn, {.v = brightness_up}},
+    { 0, XKB_KEY_XF86MonBrightnessDown, spawn, {.v = brightness_down} },
 
 	/* Ctrl-Alt-Backspace and Ctrl-Alt-Fx used to be handled by X server */
 	{ WLR_MODIFIER_CTRL|WLR_MODIFIER_ALT,XKB_KEY_Terminate_Server, quit, {0} },
