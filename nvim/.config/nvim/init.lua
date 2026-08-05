@@ -4,4 +4,4 @@ require('plugins')
 require('lsp')
 require('statusline')
 
-vim.cmd("colorscheme guts")
+vim.cmd("colorscheme tokyonight")
