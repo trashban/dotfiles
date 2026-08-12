@@ -1,11 +1,11 @@
 #!/usr/bin/env sh
 
-WALLPAPER_DIR="$HOME/pictures/wallpapers/"
+__wallpaper_dir="$HOME/pictures/wallpapers/"
 
-mkdir -p "$WALLPAPER_DIR" || exit 1
+mkdir -p "$__wallpaper_dir" || exit 1
 
-wp_found=$(cd $WALLPAPER_DIR && find . -type f | cut -c3-)
+__wp_list=$(cd $__wallpaper_dir && find . -type f | cut -c3-)
 
-wp_select=$(echo "$wp_found" | rofi -dmenu)
+__wp_select=$(echo "$__wp_list" | rofi -dmenu)
 
-awww img $WALLPAPER_DIR/$wp_select
+awww img --transition-fps 150 $__wallpaper_dir/$__wp_select

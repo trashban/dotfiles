@@ -1,0 +1,47 @@
+#!/usr/bin/env sh
+
+__opt="Sleep\nLog-out\nShut-down\n"
+
+__initsys=$(ps -p 1 -o comm=)
+if [ "$__initsys" = "systemd" ]; then
+    __is_systemd=true
+else
+    __is_systemd=false
+fi
+
+opt_shutdown() {
+    if [ "$__is_systemd" = "true" ]; then
+        systemctl poweroff
+    else
+        shutdown -P now
+    fi
+}
+
+opt_sleep() {
+    if [ "$__is_systemd" = "true" ]; then
+        systemctl suspend
+    else
+        # works without elogind on void apparently
+        sudo zzz
+    fi
+}
+
+opt_logout() {
+    logout
+}
+
+selection=$(printf "%b" "$__opt" | rofi -dmenu -p "Select")
+case "$selection" in
+    "Sleep")
+        opt_sleep
+        ;;
+    "Log-out")
+        opt_logout
+        ;;
+    "Shutdown")
+        opt_shutdown
+        ;;
+    "Quit"|"")
+        exit 0
+        ;;
+esac
