@@ -5,7 +5,7 @@ SAVEHIST=1000
 # plugins
 source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
-# path
+# fix my paths bruh
 export PATH=$PATH:~/.cargo/bin/
 export PATH=$PATH:~/.local/bin/
 
@@ -13,12 +13,24 @@ export PATH=$PATH:~/.local/bin/
 export VISUAL=nvim
 export EDITOR=nvim
 
+# clang superiority
+export CC=clang
+export CXX=clang++
+
 # dark colours
 GTK_THEME=Adwaita:dark
 
-# colour ls and man pages
+# better ls colours
 export LS_COLORS=$LS_COLORS:'di=0;35:'
-alias ls='ls --color=auto'
+
+# ripgrep follow symlinks
+alias rg='rg -L'
+
+# give me a nicer ls as well while youre at it
+alias ls='ls -1 --color'
+# alias ls='exa -l --no-user --no-time'
+
+# man page colours? i forgot
 export LESS_TERMCAP_mb=$(tput bold; tput setaf 2) # green
 export LESS_TERMCAP_md=$(tput bold; tput setaf 6) # cyan
 export LESS_TERMCAP_me=$(tput sgr0)
@@ -33,9 +45,6 @@ export LESS_TERMCAP_ZV=$(tput rsubm)
 export LESS_TERMCAP_ZO=$(tput ssupm)
 export LESS_TERMCAP_ZW=$(tput rsupm)
 export GROFF_NO_SGR=1
-
-# run make script that syncs my work to unsw
-alias usync='make -C /home/ashin14/unsw'
 
 # cache autocompletion
 zstyle ':completion::complete:*' use-cache 1
@@ -69,7 +78,7 @@ prompt_starship_precmd() {
     # Calculate duration if a command was executed
     if (( ${+STARSHIP_START_TIME} )); then
         # If an arithmetic expression evaluates to 0, its exit status is 1:
-        # "The return status is 0 if the arithmetic value of the expression is non-zero, 1 if it is zero, and 2 if an error occurred."
+        # ""
         # In rare cases, the subtraction below can result in an int 0 result (yes, really),
         # which would then kill the shell if 'set -e' is in effect.
         # We therefore have to assign the result outside the expression (using 'STARSHIP_DURATION=$((...))'),
@@ -291,6 +300,3 @@ fi
 # To initialize zoxide, add this to your shell configuration file (usually ~/.zshrc):
 #
 eval "$(zoxide init zsh)"
-
-# fun
-cowthink $(fortune -s)

@@ -64,7 +64,7 @@ static const MonitorRule monrules[] = {
 
 /* keyboard */
 static const struct xkb_rule_names xkb_rules = {
-	.options = "caps:swapescape",
+	// .options = "caps:swapescape",
 };
 
 static const int repeat_rate = 25;
@@ -146,6 +146,8 @@ static const Key keys[] = {
 	{ MODKEY,                    XKB_KEY_c,           spawn,            SHCMD("cliphist list | rofi -dmenu | cliphist decode | wl-copy") },
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_s,           spawn,            SHCMD("~/.scripts/screenshot") },
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_w,           spawn,            SHCMD("~/.scripts/wallpaper") },
+	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_p,           spawn,            SHCMD("~/.scripts/colour") },
+	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_t,           spawn,            SHCMD("~/.scripts/powermenu") },
 	{ MODKEY,                    XKB_KEY_j,           focusstack,       {.i = +1} },
 	{ MODKEY,                    XKB_KEY_k,           focusstack,       {.i = -1} },
 	{ MODKEY,                    XKB_KEY_i,           incnmaster,       {.i = +1} },

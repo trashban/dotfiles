@@ -5,19 +5,22 @@ local default = require("default")
 local mainMod = "SUPER"
 
 -- defaults
+hl.bind(mainMod .. " + G", hl.dsp.exec_cmd(default.browser))
 hl.bind(mainMod .. " + T", hl.dsp.exec_cmd(default.terminal))
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(default.menu))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(default.fileManager))
 hl.bind(mainMod .. " + C", hl.dsp.exec_cmd(default.clipboard))
+hl.bind(mainMod .. " + P", hl.dsp.exec_cmd(default.audio))
+
 hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd(default.wp))
-hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd(default.audio))
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd(default.screenshot))
+hl.bind(mainMod .. " + SHIFT + T", hl.dsp.exec_cmd(default.powermenu))
+hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd(default.colourpicker))
 
 hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.window.close())
 hl.bind(mainMod .. " + SHIFT + F", hl.dsp.window.fullscreen("maximized", "toggle"))
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
-hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 
 -- Move focus with mainMod + arrow keys
 hl.bind(mainMod .. " + h",  hl.dsp.focus({ direction = "left" }))

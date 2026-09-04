@@ -1,9 +1,9 @@
 -- leader key
 vim.g.mapleader = " "
 
--- disable netrw
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+-- i actually like netrw
+vim.g.loaded_netrw = 0
+vim.g.loaded_netrwPlugin = 0
 
 -- indent
 vim.opt.autoindent = true
@@ -21,10 +21,10 @@ vim.opt.list = false
 vim.opt.shiftround = true
 vim.opt.wrap = true
 vim.opt.signcolumn = 'no'
-vim.opt.winborder = 'rounded'
+vim.opt.winborder = 'single'
 
 -- cmdline
-vim.opt.pumborder = 'rounded'
+vim.opt.pumborder = 'single'
 vim.o.pumheight = 12
 vim.opt.showmode = false
 
@@ -46,7 +46,11 @@ vim.opt.incsearch = true
 
 -- errors
 vim.opt.visualbell = false
+vim.diagnostic.config({ virtual_text = true })
 
 -- autocorrect
 vim.opt.spelllang = 'en_au'
 vim.opt.spell = false
+
+-- autocomplete
+vim.opt.completeopt:append("noselect")

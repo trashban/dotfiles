@@ -11,7 +11,6 @@ vim.lsp.enable({
     "pyrefly",
     "tinymist"
 })
-vim.cmd("set completeopt+=noselect")
 
 -- lsp specific keymaps
 vim.api.nvim_create_autocmd("LspAttach", {

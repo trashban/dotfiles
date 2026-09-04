@@ -1,18 +1,24 @@
 {
 	"layer": "top",
 	"position": "top",
+    "exclusive": true,
 
-    "modules-left": ["hyprland/workspaces", "tray"],
-    "modules-center": ["mpris"],
-    "modules-right": ["network", "temperature", "custom/separator", "memory", "custom/separator", "wireplumber", "custom/separator", "clock"],
+    // "margin-left": 300,
+    // "margin-right": 300,
+    "height": 30,
 
-	"hyprland/workspaces": {
+    "modules-left": ["ext/workspaces", "custom/separator", "hyprland/window", "custom/separator", "mpris" ],
+    "modules-right": [ "network", "custom/separator", "clock"],
+
+    "ext/workspaces": {
         "format": "{}",
         "sort-by-coordinates": true,
         "all-output": false,
         "active-only": false,
         "sort-by-number": false,
-        "on-click": "activate"
+        "on-click": "activate",
+        "on-scroll-up": "hyprctl dispatch 'hl.dsp.focus({workspace=\"e+1\"})' ",
+        "on-scroll-down": "hyprctl dispatch 'hl.dsp.focus({workspace=\"e-1\"})' "
     },
 
 	"hyprland/window": {
@@ -44,16 +50,6 @@
         "rewrite": {
             "": "niri"
         }
-    },
-
-    // river
-
-    "river/tags": {
-        "hide-vacant": true
-    },
-
-    "river/window": {
-        "max-length": 40,
     },
 
     // sway
@@ -110,8 +106,7 @@
         "hwmon-path": "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon1/temp1_input",
 		"format": "temp {temperatureC}°C",
 		"format-icons":["", ""],
-        "critical-threshold": 80,
-        
+        "critical-threshold": 80
     },
 
     "disk": {
@@ -139,7 +134,7 @@
     },
 
     "clock": {
-        "format": "{:%a %d/%m %H:%M}",
+        "format": "{:%A %d, %I:%M %p}",
         "interval": 30,
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
         "calendar": {

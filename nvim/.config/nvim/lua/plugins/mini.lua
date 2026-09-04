@@ -18,22 +18,17 @@ require("mini.extra").setup()
 -- ui
 require('mini.notify').setup({
     lsp_progress = {
-        -- Whether to enable showing
         enable = false,
-
-        -- Notification level
-        level = 'INFO',
-
-        -- Duration (in ms) of how long last message should be shown
+        level = 'ERROR',
         duration_last = 1000,
-    },
+    }
 })
--- require('mini.statusline').setup()
--- require('mini.tabline').setup()
+
+--
+--const exe =
 require('mini.diff').setup()
 require('mini.cursorword').setup()
 require('mini.cmdline').setup()
 require('mini.starter').setup()
 
 require("mini.icons").setup()
-MiniIcons.mock_nvim_web_devicons()

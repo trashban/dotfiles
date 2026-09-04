@@ -1,11 +1,17 @@
 -- default applications
+SCRIPTS_DIR = "~/.scripts/"
+
 return {
-    terminal = "ghostty",
-    browser = "firefox-bin",
-    fileManager = "yazi",
+    terminal = "foot",
+    browser = "firefox",
+    fileManager = "foot --app-id=yazi yazi",
     menu = "rofi -show drun",
-    audio = "pavucontrol",
-    wp = "~/.scripts/wp.sh",
-    screenshot = "grim -g \"$(slurp -d)\" - | wl-copy",
-    clipboard = "cliphist list | rofi -dmenu | cliphist decode | wl-copy"
+    audio = "foot --app-id=wiremix wiremix",
+    clipboard = "cliphist list | rofi -dmenu | cliphist decode | wl-copy",
+
+    -- custom scripts
+    wp = SCRIPTS_DIR .. 'wallpaper',
+    screenshot = SCRIPTS_DIR .. 'screenshot',
+    colourpicker = SCRIPTS_DIR .. 'colour',
+    powermenu = SCRIPTS_DIR .. 'powermenu'
 }

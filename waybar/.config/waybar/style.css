@@ -4,15 +4,17 @@
 @define-color oled-black #000000;
 
 * {
-    font-family: "Iosevka Nerd Font";
+    font-family: "JetBrainsMono Nerd Font";
     font-size: 20;
     border-radius: 0;
     padding: 0;
     margin: 0;
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
 window#waybar {
-    background-color: @oled-black;
+    /* background-color: @oled-black; */
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
 #tags button,
@@ -25,8 +27,10 @@ window#waybar {
 #tags button.occupied,
 #workspaces button.focused,
 #workspaces button.active {
-    color: @custom-purp
+    /* color: @custom-purp */
+    color: @white
 }
+
 
 #tags button.urgent
 #workspaces button.urgent {
