@@ -9,7 +9,7 @@
     border-radius: 0;
     padding: 0;
     margin: 0;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 1);
 }
 
 window#waybar {

@@ -8,7 +8,7 @@
     "height": 30,
 
     "modules-left": ["ext/workspaces", "custom/separator", "hyprland/window", "custom/separator", "mpris" ],
-    "modules-right": [ "network", "custom/separator", "clock"],
+    "modules-right": [ "tray", "custom/separator", "network", "custom/separator", "clock"],
 
     "ext/workspaces": {
         "format": "{}",

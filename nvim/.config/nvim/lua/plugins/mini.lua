@@ -24,11 +24,9 @@ require('mini.notify').setup({
     }
 })
 
---
---const exe =
+-- idk
 require('mini.diff').setup()
 require('mini.cursorword').setup()
 require('mini.cmdline').setup()
-require('mini.starter').setup()
 
 require("mini.icons").setup()
