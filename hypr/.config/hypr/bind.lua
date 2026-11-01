@@ -18,7 +18,8 @@ hl.bind(mainMod .. " + SHIFT + T", hl.dsp.exec_cmd(default.powermenu))
 hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd(default.colourpicker))
 
 hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.window.close())
-hl.bind(mainMod .. " + SHIFT + F", hl.dsp.window.fullscreen("maximized", "toggle"))
+hl.bind(mainMod .. " + SHIFT + F", hl.dsp.window.fullscreen({ action = "toggle" }))
+-- hl.bind(mainMod .. " + SHIFT + F", hl.dsp.window.fullscreen(, "toggle"))
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 
