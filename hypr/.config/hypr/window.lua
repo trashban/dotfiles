@@ -80,19 +80,20 @@ hl.window_rule({
     match = {
         content = "game",
     },
-    fullscreen = true,
     monitor = "DP-2",
+    fullscreen = true,
     confine_pointer = true,
     immediate = true,
     no_blur = true
 })
+
 function hl.setup_vkfix()
     if hl.plugin.csgo_vulkan_fix ~= nil then
         hl.plugin.csgo_vulkan_fix.vkfix_app({ app = "cs2", w = 1280, h = 960 })
         hl.config({
             plugin = {
                 csgo_vulkan_fix = {
-                    fix_mouse = false
+                    fix_mouse = true
                 }
             }
         })
