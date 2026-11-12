@@ -5,7 +5,7 @@
 
 * {
     font-family: "JetBrainsMono Nerd Font";
-    font-size: 20;
+    font-size: 13px;
     border-radius: 0;
     padding: 0;
     margin: 0;
@@ -21,7 +21,7 @@ window#waybar {
 #workspaces button {
     background-color: @oled-black;
     color: @border-grey;
-    padding: 5px 0px 0px 7px;
+    padding: 4px 0px 0px 4px;
 }
 
 #tags button.occupied,
@@ -63,7 +63,7 @@ window#waybar {
 /* grey colour */
 #custom-separator {
     color: @alt-grey;
-    padding: 1px 0px 0px 2px;
+    padding: 1px 0px 0px 1px;
 }
 
 /* .modules-right { */
@@ -73,9 +73,9 @@ window#waybar {
     /* background-color: @alt-grey; */
 /* } */
 
-/* #battery.critical { */
-   /* color: #ff5555; */
-/* } */
+#battery.critical {
+   color: #ff5555;
+}
 
 /* #network.disconnected { */
     /* color: #ff5555; */
