@@ -1,6 +1,6 @@
 configuration {
     show-icons:      true;
-    display-drun:    ":P";
+    display-drun:    "hi";
     disable-history: false;
     dpi:             1;
 }
@@ -15,7 +15,7 @@ configuration {
     border-col:  #252525;
 
     /* Theme Variables */
-    font:                        "JetBrainsMono Nerd Font 14";
+    font:                        "JetBrainsMono Nerd Font 18";
     background-color:            @bg;
     foreground:                  @fg;
     active-background:           @purple;
@@ -31,7 +31,7 @@ window {
     border:           0.15em;
     border-radius:    0;
     border-color:     @border-col;
-    padding:          0.5em;
+    padding:          0.25em;
     width:            50%;
     height:           70%;
 }
